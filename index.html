@@ -3,15 +3,35 @@
 <head>
     <title>Edward (Eddie) Jin</title>
     <style>
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #f2f2f2;
+            --bg: #1a1a1a;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: var(--font-sans);
             max-width: 550px;
             margin: 80px auto;
             padding: 0 20px;
-            line-height: 1.5;
-            font-size: 14px;
-            color: #fff;
-            background: #1c1c1c;
+            line-height: var(--leading);
+            font-size: var(--text);
+            color: var(--fg);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--fg);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            opacity: 0.8;
         }
 
         .header {
@@ -22,32 +42,29 @@
         }
 
         .name {
-            font-size: 14px;
+            font-size: var(--text);
             font-weight: normal;
             margin: 0;
         }
 
         .nav a {
-            font-size: 14px;
-            color: #fff;
             text-decoration: none;
             margin-left: 20px;
         }
 
-        .content {
-            margin-top: 40px;
-        }
-
         .content p {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+            letter-spacing: 0;
+            font-feature-settings: "kern", "frac", "kern", "ss02";
         }
 
-        .content p em {
-            font-style: italic;
+        ul {
+            margin: 0 0 28px 0;
+            padding-left: 20px;
         }
 
-        h2 {
-            display: none;
+        li {
+            margin-bottom: 10px;
         }
 
         .social-links {
@@ -56,13 +73,8 @@
 
         .social-links a {
             display: block;
-            color: #fff;
-            text-decoration: none;
             margin-bottom: 10px;
-        }
-
-        a:hover {
-            opacity: 0.8;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -89,16 +101,16 @@
 
         <p>In college, I found my way into the startup world by joining Crescent Fund, a student-run micro-VC. I went from being an investor to Managing Partner in 8 months, learning tons and making lifelong friends along the way. Later, I joined Dorm Room Fund, which has been a wild ride.</p>
 
-        <p>Last summer, I interned at Spero Ventures, where I got deep into energy and manufacturing, and that's where my obsession with American dynamism began. On the side, I've been angel investing in friends' startups and scouting Seed+ deals for <a href="https://hummingbird.vc" target="_blank">Hummingbird Ventures</a>.</p>
+        <p>Last summer, I interned at Spero Ventures, where I got deep into energy and manufacturing, and that's where my obsession with American dynamism began. On the side, I've been angel investing in friends' startups and scouting for <a href="https://hummingbird.vc" target="_blank">Hummingbird Ventures</a>.</p>
 
         <p>I've done growth & marketing for a few random EdTech & Medtech startups on campus like <a href="https://evt.ai" target="_blank">EVT.ai</a>, <a href="https://oceansideperspective.org" target="_blank">Oceanside Perspective</a>, and Neuretix.</p>
 
         <p>Now, I'm focused on product. I did an internship at Relativity in legaltech, and I'm currently PM #1 at Fileread, an HF0 startup. Basically, I talk to lawyers and build & design AI products that make their lives easier.</p>
 
-        <p><em>When I'm not working or studying, I love meeting new people, watching soccer (and sadly watching Tottenham lose), and having good convos over coffee. I'm all about building relationships and connecting with cool people. If you ever want to chat, brainstorm, or just say hi, don't hesitate to reach out. I'd love to hear from you!</em></p>
+        <p><em>When I'm not working or studying, I love meeting new people over coffee and watching Tottenham lose. If you ever want to chat, brainstorm, or just say hi, don't hesitate to reach out.</em></p>
 
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/edward-jin-101231212/" target="_blank">LinkedIn (/edward-jin-101231212)</a>
+            <a href="https://www.linkedin.com/in/edward-jin-101231212/" target="_blank">LinkedIn (/eddieejin)</a>
             <a href="https://x.com/eddieejin" target="_blank">X (@eddieejin)</a>
             <a href="mailto:eddiejin18@gmail.com">Email</a>
         </div>
