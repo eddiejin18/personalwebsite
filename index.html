@@ -48,24 +48,23 @@
         .name-container {
             position: relative;
             display: inline-block;
-            height: 28px;
-            width: auto;
         }
 
-        .name, .korean-name {
+        .name {
             font-size: 18px;
             font-weight: 500;
             margin: 0;
-            line-height: 28px;
-            position: absolute;
-            left: 0;
-            top: 0;
             transition: opacity 0.3s ease;
-            white-space: nowrap;
         }
 
         .korean-name {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 18px;
+            font-weight: 500;
             opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .name-container:hover .name {
@@ -170,6 +169,23 @@
             font-style: normal;
             opacity: 0.7;
         }
+
+        .achievements-container {
+            position: relative;
+            height: 28px;  /* Match line height */
+            margin-bottom: 28px;
+        }
+
+        .achievement {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .achievement.active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -188,12 +204,13 @@
     <div class="content">
         <p class="animate-in">Hey there! I'm 22, Korean-American, and spent my early years in Scottsdale, AZ before moving to Palos Verdes, CA at 9. Right now, I'm a senior at UC San Diego studying Math-Computer Science and Business Economics.</p>
         
-        <p class="animate-in">Growing up, gaming has always been an <em>integral part of my life</em> and is likely what shaped my <em>curiosity</em> and <em>adventurous nature</em>. I've played just about <em>everything</em>, from Pokémon to Call of Duty and in high school, I probably played a bit <em>too much</em>. But hey, here are some cool achievements I guess:</p>
-        <ul>
-            <li class="animate-in">Top 2000 in the U.S. for Valorant</li>
-            <li class="animate-in">Top 500 globally in Apex Legends</li>
-            <li class="animate-in">Top 100 in the U.S. for PUBG</li>
-        </ul>
+        <p class="animate-in">Growing up, gaming has always been an integral part of my life and is likely what shaped my curiosity and adventurous nature. I've played just about everything, from Pokémon to Call of Duty and in high school, I probably played a bit too much. But hey, here's a cool achievement I guess:</p>
+        
+        <div class="achievements-container animate-in">
+            <div class="achievement" id="achievement1">Top 2000 in the U.S. for Valorant</div>
+            <div class="achievement" id="achievement2">Top 500 globally in Apex Legends</div>
+            <div class="achievement" id="achievement3">Top 100 in the U.S. for PUBG</div>
+        </div>
 
         <p class="animate-in">I don't play games much anymore, but they taught me a lot about how far hard work and dedication can take you.</p>
         
@@ -218,6 +235,28 @@
             <a href="mailto:eddiejin18@gmail.com">Email</a>
         </div>
     </div>
+
+    <script>
+        const achievements = document.querySelectorAll('.achievement');
+        let currentIndex = 0;
+
+        function rotateAchievements() {
+            // Remove active class from all achievements
+            achievements.forEach(achievement => achievement.classList.remove('active'));
+            
+            // Add active class to current achievement
+            achievements[currentIndex].classList.add('active');
+            
+            // Update index for next rotation
+            currentIndex = (currentIndex + 1) % achievements.length;
+        }
+
+        // Show first achievement immediately
+        rotateAchievements();
+
+        // Start rotation
+        setInterval(rotateAchievements, 3000);
+    </script>
 </body>
 </html>
 
