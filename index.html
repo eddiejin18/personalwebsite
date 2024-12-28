@@ -73,6 +73,7 @@
         ul {
             margin: 0 0 28px 0;
             padding-left: 20px;
+            list-style-type: disc;
         }
 
         li {
@@ -111,13 +112,22 @@
             opacity: 0;
         }
 
-        /* Stagger the animations */
+        /* Update animation selectors to target all direct children including lists */
+        .content > *,
+        .content > ul > li {
+            animation: fadeInDown 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Stagger all elements including list items */
         .content > *:nth-child(1) { animation-delay: 0.1s; }
         .content > *:nth-child(2) { animation-delay: 0.2s; }
-        .content > *:nth-child(3) { animation-delay: 0.3s; }
-        .content > *:nth-child(4) { animation-delay: 0.4s; }
-        .content > *:nth-child(5) { animation-delay: 0.5s; }
-        /* ... and so on for other elements */
+        .content > ul > li:nth-child(1) { animation-delay: 0.3s; }
+        .content > ul > li:nth-child(2) { animation-delay: 0.4s; }
+        .content > ul > li:nth-child(3) { animation-delay: 0.5s; }
+        .content > *:nth-child(4) { animation-delay: 0.6s; }
+        .content > *:nth-child(5) { animation-delay: 0.7s; }
+        /* ... continue for other elements ... */
 
         .quote {
             margin-top: 60px;
@@ -148,9 +158,9 @@
         
         <p class="animate-in"><em>Gaming has always been an integral part of my life and has likely shaped my curiosity and adventurous nature. I've played just about everything, from Pokémon to Call of Duty. I probably played a bit <m>too much</m> in high school, but hey, here are some cool achievements to show for it:</em></p>
         <ul>
-            <li>Top 2000 in the U.S. for Valorant</li>
-            <li>Top 500 globally in Apex Legends</li>
-            <li>Top 100 in the U.S. for PUBG</li>
+            <li class="animate-in">Top 2000 in the U.S. for Valorant</li>
+            <li class="animate-in">Top 500 globally in Apex Legends</li>
+            <li class="animate-in">Top 100 in the U.S. for PUBG</li>
         </ul>
         
         <p class="animate-in">I don't play games much anymore, but they taught me a lot about competitive spirit and ability to grind.</p>
