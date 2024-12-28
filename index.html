@@ -45,10 +45,34 @@
             margin-bottom: 40px;
         }
 
+        .name-container {
+            position: relative;
+            display: inline-block;
+        }
+
         .name {
             font-size: 18px;
             font-weight: 500;
             margin: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .korean-name {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .name-container:hover .name {
+            opacity: 0;
+        }
+
+        .name-container:hover .korean-name {
+            opacity: 1;
         }
 
         .nav {
@@ -149,7 +173,10 @@
 </head>
 <body>
     <div class="header animate-in">
-        <h1 class="name">Edward Jin</h1>
+        <div class="name-container">
+            <h1 class="name">Edward Jin</h1>
+            <h1 class="korean-name">진승준</h1>
+        </div>
         <nav class="nav">
             <a href="#writing">Writing</a>
             <a href="#resources">Resources</a>
@@ -169,7 +196,7 @@
 
         <p class="animate-in">I don't play games much anymore, but they taught me a lot about how far hard work and dedication can take you.</p>
         
-        <p class="animate-in">This past year or so I've fallen in love with venture, initially joining <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, a SoCal-focused student-run VC fund, in late 2023. There, I went from being an Investor to Managing Partner in 7 months, learning everything about early-stage investing and making lifelong friends along the way. In late 2024, I left to join <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>, to be the dumbest person in the room.</p>
+        <p class="animate-in">This past year or so I've fallen in love with venture, initially joining <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, a SoCal-focused student-run VC fund, in late 2023. There, I went from being an Investor to Managing Partner in 7 months, learning everything about early-stage investing and making lifelong friends along the way. In late 2024, I left to join <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a> to be the dumbest person in the room.</p>
 
         <p class="animate-in">This past Summer, I interned at <a href="https://spero.vc" target="_blank">Spero Ventures</a>, where I got deep into energy and manufacturing, and that's where my obsession with American dynamism began. On the side, I've been angel investing in friends' startups and scouting for <a href="https://hummingbird.vc" target="_blank">Hummingbird VC</a>.</p>
 
