@@ -174,8 +174,8 @@
         .achievements-container {
             position: relative;
             height: 28px;
+            margin-bottom: 28px;
             display: inline;
-            opacity: 0;  /* Start hidden for fade-in */
         }
 
         .achievement {
@@ -190,19 +190,18 @@
             opacity: 1;
         }
 
-        /* Update animation selectors to include achievements container */
+        /* Ensure proper paragraph spacing */
+        .content p {
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        /* Update animation sequence */
         .content > *,
-        .content > p > .achievements-container {
+        .content p .achievements-container {
             animation: fadeInDown 0.6s ease-out forwards;
             opacity: 0;
         }
-
-        /* Stagger timing for achievements */
-        .content > *:nth-child(1) { animation-delay: 0.1s; }
-        .content > *:nth-child(2) { animation-delay: 0.2s; }
-        .content > p > .achievements-container { animation-delay: 0.3s; }
-        .content > *:nth-child(3) { animation-delay: 0.4s; }
-        /* ... rest of your animation delays ... */
     </style>
 </head>
 <body>
@@ -221,14 +220,14 @@
     <div class="content">
         <p class="animate-in">Hey there! I'm 22, Korean-American, and spent my early years in Scottsdale, AZ before moving to Palos Verdes, CA at 9. Right now, I'm a senior at UC San Diego studying Math-Computer Science and Business Economics.</p>
         
-        <p class="animate-in">Growing up, gaming has always been an integral part of my life and is likely what shaped my curiosity and adventurous nature. I've played just about everything, from Pokémon to Call of Duty and in high school, I probably played a bit too much. But hey, here's some cool achievements I guess:</p>
+        <p class="animate-in">Growing up, gaming has always been an integral part of my life and is likely what shaped my curiosity and adventurous nature. I've played just about everything, from Pokémon to Call of Duty and in high school, I probably played a bit too much. But hey, here's a cool achievement I guess: 
+            <span class="achievements-container">
+                <span class="achievement" id="achievement1">Top 2000 in the U.S. for Valorant</span>
+                <span class="achievement" id="achievement2">Top 500 globally in Apex Legends</span>
+                <span class="achievement" id="achievement3">Top 100 in the U.S. for PUBG</span>
+            </span>
+        </p>
         
-        <div class="achievements-container animate-in">
-            <div class="achievement" id="achievement1">Top 2000 in the U.S. for Valorant</div>
-            <div class="achievement" id="achievement2">Top 500 globally in Apex Legends</div>
-            <div class="achievement" id="achievement3">Top 100 in the U.S. for PUBG</div>
-        </div>
-
         <p class="animate-in">I don't play games much anymore, but they taught me a lot about how far hard work and dedication can take you.</p>
         
         <p class="animate-in">This past year or so I've fallen in love with venture, initially joining <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, a SoCal-focused student-run VC fund, in late 2023. There, I went from being an Investor to Managing Partner in 7 months, learning everything about early-stage investing and making lifelong friends along the way. In late 2024, I left to join <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a> to be the dumbest person in the room.</p>
@@ -263,11 +262,8 @@
             currentIndex = (currentIndex + 1) % achievements.length;
         }
 
-        // Delay the start of rotation until after fade-in
-        setTimeout(() => {
-            rotateAchievements();
-            setInterval(rotateAchievements, 5000);
-        }, 500); // Wait for fade-in to complete
+        rotateAchievements();
+        setInterval(rotateAchievements, 5000);
     </script>
 </body>
 </html>
