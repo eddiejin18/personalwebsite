@@ -173,20 +173,36 @@
 
         .achievements-container {
             position: relative;
-            height: 28px;  /* Match line height */
-            margin-bottom: 28px;
+            height: 28px;
+            display: inline;
+            opacity: 0;  /* Start hidden for fade-in */
         }
 
         .achievement {
             position: absolute;
-            width: 100%;
+            display: inline;
             opacity: 0;
             transition: opacity 0.5s ease;
+            margin-left: 4px;
         }
 
         .achievement.active {
             opacity: 1;
         }
+
+        /* Update animation selectors to include achievements container */
+        .content > *,
+        .content > p > .achievements-container {
+            animation: fadeInDown 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Stagger timing for achievements */
+        .content > *:nth-child(1) { animation-delay: 0.1s; }
+        .content > *:nth-child(2) { animation-delay: 0.2s; }
+        .content > p > .achievements-container { animation-delay: 0.3s; }
+        .content > *:nth-child(3) { animation-delay: 0.4s; }
+        /* ... rest of your animation delays ... */
     </style>
 </head>
 <body>
@@ -242,21 +258,16 @@
         let currentIndex = 0;
 
         function rotateAchievements() {
-            // Remove active class from all achievements
             achievements.forEach(achievement => achievement.classList.remove('active'));
-            
-            // Add active class to current achievement
             achievements[currentIndex].classList.add('active');
-            
-            // Update index for next rotation
             currentIndex = (currentIndex + 1) % achievements.length;
         }
 
-        // Show first achievement immediately
-        rotateAchievements();
-
-        // Start rotation
-        setInterval(rotateAchievements, 3000);
+        // Delay the start of rotation until after fade-in
+        setTimeout(() => {
+            rotateAchievements();
+            setInterval(rotateAchievements, 5000);
+        }, 500); // Wait for fade-in to complete
     </script>
 </body>
 </html>
