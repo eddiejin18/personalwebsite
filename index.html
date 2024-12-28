@@ -59,6 +59,8 @@
 
         .nav a {
             text-decoration: none;
+            line-height: 18px;
+            vertical-align: baseline;
         }
 
         .content p {
@@ -91,10 +93,48 @@
             font-variant: normal;
             font-feature-settings: "kern", "liga", "clig", "calt";
         }
+
+        /* Animation styles */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInDown 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Stagger the animations */
+        .content > *:nth-child(1) { animation-delay: 0.1s; }
+        .content > *:nth-child(2) { animation-delay: 0.2s; }
+        .content > *:nth-child(3) { animation-delay: 0.3s; }
+        .content > *:nth-child(4) { animation-delay: 0.4s; }
+        .content > *:nth-child(5) { animation-delay: 0.5s; }
+        /* ... and so on for other elements */
+
+        .quote {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-style: italic;
+        }
+
+        .quote-author {
+            margin-top: 10px;
+            font-style: normal;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
+    <div class="header animate-in">
         <h1 class="name">Edward Jin</h1>
         <nav class="nav">
             <a href="#writing">Writing</a>
@@ -104,28 +144,33 @@
     </div>
 
     <div class="content">
-        <p>Hey there! I'm 22, Korean-American, and spent my early years in Scottsdale, Arizona before moving to Palos Verdes, California at 9. Right now, I'm a senior at UC San Diego studying Math-Computer Science and Business Economics.</p>
+        <p class="animate-in">Hey there! I'm 22, Korean-American, and spent my early years in Scottsdale, Arizona before moving to Palos Verdes, California at 9. Right now, I'm a senior at UC San Diego studying Math-Computer Science and Business Economics.</p>
         
-        <p>Fun fact: back in high school, I was super into competitive gaming and managed to hit:</p>
+        <p class="animate-in"><em>Fun fact:</em> back in high school, I was super into competitive gaming and managed to hit:</p>
         <ul>
             <li>Top 2000 in the U.S. for Valorant</li>
             <li>Top 500 globally in Apex Legends</li>
             <li>Top 100 in the U.S. for PUBG</li>
         </ul>
         
-        <p>I don't play games much anymore, but they taught me a lot about competition and grinding.</p>
+        <p class="animate-in">I don't play games much anymore, but they taught me a lot about competition and grinding.</p>
 
-        <p>In college, I found my way into the startup world by joining <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, a student-run micro-VC. I went from being an investor to Managing Partner in 8 months, learning tons and making lifelong friends along the way. Later, I joined <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>, which has been a wild ride.</p>
+        <p class="animate-in">In college, I found my way into the startup world by joining <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, a student-run micro-VC. I went from being an investor to Managing Partner in 8 months, learning tons and making lifelong friends along the way. Later, I joined <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>, which has been a wild ride.</p>
 
-        <p>Last summer, I interned at Spero Ventures, where I got deep into energy and manufacturing, and that's where my obsession with American dynamism began. On the side, I've been angel investing in friends' startups and scouting for <a href="https://hummingbird.vc" target="_blank">Hummingbird Ventures</a>.</p>
+        <p class="animate-in">Last summer, I interned at Spero Ventures, where I got deep into energy and manufacturing, and that's where my obsession with American dynamism began. On the side, I've been angel investing in friends' startups and scouting for <a href="https://hummingbird.vc" target="_blank">Hummingbird Ventures</a>.</p>
 
-        <p>I've done growth & marketing for a few random EdTech & Medtech startups on campus like <a href="https://evt.ai" target="_blank">EVT.ai</a>, <a href="https://oceansideperspective.org" target="_blank">Oceanside Perspective</a>, and Neuretix.</p>
+        <p class="animate-in">I've done growth & marketing for a few random EdTech & Medtech startups on campus like <a href="https://evt.ai" target="_blank">EVT.ai</a>, <a href="https://oceansideperspective.org" target="_blank">Oceanside Perspective</a>, and Neuretix.</p>
 
-        <p>Now, I'm focused on product. I did an internship at Relativity in legaltech, and I'm currently PM #1 at Fileread, an HF0 startup. Basically, I talk to lawyers and build & design AI products that make their lives easier.</p>
+        <p class="animate-in">Now, I'm focused on product. I did an internship at Relativity in legaltech, and I'm currently PM #1 at Fileread, an HF0 startup. Basically, I talk to lawyers and build & design AI products that make their lives easier.</p>
 
-        <p><em>When I'm not working or studying, I love meeting new people over coffee and watching Tottenham lose. If you ever want to chat, brainstorm, or just say hi, don't hesitate to reach out.</em></p>
+        <p class="animate-in"><em>When I'm not working or studying, I love meeting new people, watching soccer (and sadly watching Tottenham lose), and having good convos over coffee. I'm all about building relationships and connecting with cool people. If you ever want to chat, brainstorm, or just say hi, don't hesitate to reach out. I'd love to hear from you!</em></p>
 
-        <div class="social-links">
+        <div class="quote animate-in">
+            "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills."
+            <div class="quote-author">— John F. Kennedy, 1962</div>
+        </div>
+
+        <div class="social-links animate-in">
             <a href="https://www.linkedin.com/in/edward-jin-101231212/" target="_blank">LinkedIn (/eddieejin)</a>
             <a href="https://x.com/eddieejin" target="_blank">X (@eddieejin)</a>
             <a href="mailto:eddiejin18@gmail.com">Email</a>
