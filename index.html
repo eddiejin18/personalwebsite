@@ -174,8 +174,8 @@
         .achievements-container {
             position: relative;
             height: 28px;
-            margin-bottom: 28px;
             display: inline;
+            opacity: 0;
         }
 
         .achievement {
@@ -184,16 +184,29 @@
             opacity: 0;
             transition: opacity 0.5s ease;
             margin-left: 4px;
+            white-space: nowrap;
+            width: max-content;
+            left: 0;
         }
 
         .achievement.active {
             opacity: 1;
         }
 
-        /* Ensure proper paragraph spacing */
+        /* Ensure proper paragraph width */
         .content p {
             margin-bottom: 28px;
             position: relative;
+            max-width: 650px;
+            width: 100%;
+        }
+
+        /* Container for the paragraph with achievements */
+        p.gaming-paragraph {
+            width: 100%;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
         }
 
         /* Update animation sequence */
@@ -220,8 +233,7 @@
     <div class="content">
         <p class="animate-in">Hey there! I'm 22, Korean-American, and spent my early years in Scottsdale, AZ before moving to Palos Verdes, CA at 9. Right now, I'm a senior at UC San Diego studying Math-Computer Science and Business Economics.</p>
         
-        <p class="animate-in">Growing up, gaming has always been an integral part of my life and is likely what shaped my curiosity and adventurous nature. I've played just about everything, from Pokémon to Call of Duty and in high school, I probably played a bit too much. But hey, here's a cool achievement I guess: 
-            <span class="achievements-container">
+        <p class="animate-in gaming-paragraph">Growing up, gaming has always been an integral part of my life and is likely what shaped my curiosity and adventurous nature. I've played just about everything, from Pokémon to Call of Duty and in high school, I probably played a bit too much. But hey, here's a cool achievement I guess: <span class="achievements-container">
                 <span class="achievement" id="achievement1">Top 2000 in the U.S. for Valorant</span>
                 <span class="achievement" id="achievement2">Top 500 globally in Apex Legends</span>
                 <span class="achievement" id="achievement3">Top 100 in the U.S. for PUBG</span>
