@@ -48,23 +48,24 @@
         .name-container {
             position: relative;
             display: inline-block;
+            height: 28px;
+            width: auto;
         }
 
-        .name {
+        .name, .korean-name {
             font-size: 18px;
             font-weight: 500;
             margin: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .korean-name {
+            line-height: 28px;
             position: absolute;
             left: 0;
             top: 0;
-            font-size: 18px;
-            font-weight: 500;
-            opacity: 0;
             transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .korean-name {
+            opacity: 0;
         }
 
         .name-container:hover .name {
