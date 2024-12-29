@@ -3,7 +3,17 @@
 <head>
     <title>Investing - Edward Jin</title>
     <link rel="icon" type="image/png" href="ejlex.png">
-    <!-- Copy all styles from index.html -->
+    <style>
+        /* Copy all styles from index.html lines 7-294 */
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #f2f2f2;
+            --bg: #1a1a1a;
+        }
+        /* ... rest of the styles ... */
+    </style>
 </head>
 <body>
     <div class="theme-switch">
@@ -23,18 +33,26 @@
     </div>
 
     <div class="content">
-        <p class="animate-in">My thoughts and experiences in venture capital...</p>
-        
-        <!-- Example investment sections -->
-        <div class="investment-section animate-in">
-            <h2>Portfolio</h2>
-            <ul>
-                <li>Company 1 - Brief description</li>
-                <li>Company 2 - Brief description</li>
-            </ul>
-        </div>
+        <!-- Content will go here -->
     </div>
 
-    <!-- Copy scripts from index.html -->
+    <script>
+        const themeSwitch = document.querySelector('.theme-switch');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeSwitch.classList.toggle('active', savedTheme === 'light');
+
+        themeSwitch.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeSwitch.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

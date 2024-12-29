@@ -3,7 +3,10 @@
 <head>
     <title>Writing - Edward Jin</title>
     <link rel="icon" type="image/png" href="ejlex.png">
-    <!-- Copy all styles from index.html -->
+    <style>
+        /* Copy all styles from index.html */
+        /* Lines 8-294 from index.html */
+    </style>
 </head>
 <body>
     <div class="theme-switch">
@@ -23,19 +26,26 @@
     </div>
 
     <div class="content">
-        <p class="animate-in">Here are some of my thoughts on various topics...</p>
-        
-        <!-- Example blog post entries -->
-        <div class="blog-posts">
-            <div class="post animate-in">
-                <h2><a href="#">Title of Blog Post 1</a></h2>
-                <div class="post-date">January 1, 2024</div>
-                <p class="post-excerpt">Brief excerpt from the blog post...</p>
-            </div>
-            <!-- Add more posts as needed -->
-        </div>
+        <!-- Content will go here -->
     </div>
 
-    <!-- Copy scripts from index.html -->
+    <script>
+        const themeSwitch = document.querySelector('.theme-switch');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeSwitch.classList.toggle('active', savedTheme === 'light');
+
+        themeSwitch.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeSwitch.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
