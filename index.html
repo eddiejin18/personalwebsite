@@ -304,6 +304,16 @@
             background-color: var(--fg);
             margin: 2em 0;
         }
+
+        .content > * {
+            animation: fadeInDown 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .content > *:nth-child(1) { animation-delay: 0.1s; }
+        .content > *:nth-child(2) { animation-delay: 0.2s; }  /* dividing line */
+        .content > *:nth-child(3) { animation-delay: 0.3s; }  /* quote */
+        .content > *:nth-child(4) { animation-delay: 0.4s; }  /* links */
     </style>
 </head>
 <body>
@@ -345,17 +355,17 @@
 
         <p class="animate-in">When I'm not working or studying, you can find me meeting new people over coffee, watching Tottenham lose, or hosting startup events. If you ever want to chat, brainstorm, or just say hi, don't hesitate to reach out.</p>
         
-        <hr style="border: none; height: 1px; background-color: #666666; margin: 2em 0; opacity: 0.3;" />
+        <hr class="animate-in" style="border: none; height: 1px; background-color: #666666; margin: 2em 0; opacity: 0.3;" />
         
         <p class="animate-in" style="font-style: italic;">
             "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard."
         </p>
-
-        <div class="social-links animate-in">
-            <a href="https://www.linkedin.com/in/eddieejin" target="_blank">LinkedIn (/eddieejin)</a>
-            <a href="https://x.com/eddieejin" target="_blank">X (@eddieejin)</a>
-            <a href="mailto:eddiejin18@gmail.com">Email</a>
-        </div>
+        
+        <p class="animate-in">
+            <a href="https://www.linkedin.com/in/edwardjin01" target="_blank">LinkedIn</a> /
+            <a href="mailto:edward@edwardjin.com">Email</a> /
+            <a href="https://twitter.com/edwardjin01" target="_blank">Twitter</a>
+        </p>
     </div>
 
     <script>
