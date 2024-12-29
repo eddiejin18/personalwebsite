@@ -80,22 +80,14 @@
 
         .nav {
             display: flex;
+            align-items: center;
             gap: 20px;
-            justify-content: center;
-            margin-bottom: 40px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .nav a {
-            color: var(--fg);
             text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .nav a:hover {
-            opacity: 0.7;
+            line-height: 18px;
+            vertical-align: baseline;
         }
 
         .content p {
@@ -237,24 +229,8 @@
             cursor: pointer;
             padding: 4px;
             transition: all 0.3s ease;
-        }
-
-        /* Toggle imagery */
-        .theme-switch::before {
-            content: "🌙";
-            position: absolute;
-            right: 8px;
-            top: 5px;
-            font-size: 14px;
-        }
-
-        .theme-switch::after {
-            content: "☀️";
-            position: absolute;
-            left: 8px;
-            top: 5px;
-            font-size: 14px;
-            opacity: 0;
+            display: flex;
+            align-items: center;
         }
 
         /* Toggle circle */
@@ -265,6 +241,26 @@
             border-radius: 50%;
             transform: translateX(0);
             transition: transform 0.3s ease;
+        }
+
+        /* Adjust emoji positioning */
+        .theme-switch::before {
+            content: "🌙";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .theme-switch::after {
+            content: "☀️";
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0;
         }
 
         /* Light theme styles */
@@ -307,10 +303,10 @@
             <h1 class="name">Edward Jin</h1>
             <h1 class="korean-name">진승준</h1>
         </div>
-        <nav class="nav" style="position: absolute; top: 20px; right: 20px;">
-            <a href="/writing" style="color: var(--fg); text-decoration: none; margin-left: 20px;">Writing</a>
-            <a href="/resources" style="color: var(--fg); text-decoration: none; margin-left: 20px;">Resources</a>
-            <a href="/investing" style="color: var(--fg); text-decoration: none; margin-left: 20px;">Investing</a>
+        <nav class="nav">
+            <a href="#writing">Writing</a>
+            <a href="#resources">Resources</a>
+            <a href="#investing">Investing</a>
         </nav>
     </div>
 
@@ -382,4 +378,3 @@
     </script>
 </body>
 </html>
-
