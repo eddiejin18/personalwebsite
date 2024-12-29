@@ -4,8 +4,188 @@
     <title>Writing - Edward Jin</title>
     <link rel="icon" type="image/png" href="ejlex.png">
     <style>
-        /* Copy all styles from index.html */
-        /* Lines 8-294 from index.html */
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #f2f2f2;
+            --bg: #1a1a1a;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 0 15px;
+            line-height: var(--leading);
+            font-size: var(--text);
+            color: var(--fg);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: normal;
+            font-variant: normal;
+            -webkit-font-feature-settings: normal;
+            text-size-adjust: 100%;
+        }
+
+        a {
+            color: var(--fg);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .name-container {
+            position: relative;
+            display: inline-block;
+            height: 28px;
+            width: auto;
+        }
+
+        .name, .korean-name {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+            line-height: 28px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .korean-name {
+            opacity: 0;
+        }
+
+        .name-container:hover .name {
+            opacity: 0;
+        }
+
+        .name-container:hover .korean-name {
+            opacity: 1;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            line-height: 18px;
+            vertical-align: baseline;
+        }
+
+        /* Theme switch styles */
+        .theme-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 30px;
+            cursor: pointer;
+            padding: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .switch-handle {
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-switch::before {
+            content: "🌙";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .theme-switch::after {
+            content: "☀️";
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0;
+        }
+
+        [data-theme="light"] {
+            --fg: #1a1a1a;
+            --bg: #f2f2f2;
+        }
+
+        [data-theme="dark"] {
+            --fg: #f2f2f2;
+            --bg: #1a1a1a;
+        }
+
+        .theme-switch.active {
+            background: #f2f2f2;
+        }
+
+        .theme-switch.active .switch-handle {
+            transform: translateX(30px);
+        }
+
+        .theme-switch.active::before {
+            opacity: 0;
+        }
+
+        .theme-switch.active::after {
+            opacity: 1;
+        }
+
+        /* Animation styles */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInDown 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .content > * {
+            animation: fadeInDown 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .content > *:nth-child(1) { animation-delay: 0.1s; }
+        .content > *:nth-child(2) { animation-delay: 0.2s; }
+        .content > *:nth-child(3) { animation-delay: 0.3s; }
+        .content > *:nth-child(4) { animation-delay: 0.4s; }
+        .content > *:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -15,7 +195,7 @@
 
     <div class="header animate-in">
         <div class="name-container">
-            <h1 class="name"><a href="index.html" style="text-decoration: none;">Edward Jin</a></h1>
+            <h1 class="name"><a href="/" style="text-decoration: none;">Edward Jin</a></h1>
             <h1 class="korean-name">진승준</h1>
         </div>
         <nav class="nav">
