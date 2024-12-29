@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Writing - Edward Jin</title>
-    <link rel="icon" type="image/png" href="ejlex.png">
+    <link rel="icon" type="image/png" href="../ejlex.png">
     <style>
         :root {
             --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -31,6 +31,11 @@
             font-size: 24px;
             text-decoration: none;
             color: var(--fg);
+            transition: opacity 0.2s ease;
+        }
+
+        .back-button:hover {
+            opacity: 0.7;
         }
 
         h1 {
@@ -38,6 +43,7 @@
             font-weight: 500;
             margin: 0;
             text-align: center;
+            margin-bottom: 40px;
         }
 
         [data-theme="light"] {
@@ -70,6 +76,25 @@
             transition: transform 0.3s ease;
         }
 
+        .theme-switch::before {
+            content: "🌙";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .theme-switch::after {
+            content: "☀️";
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0;
+        }
+
         .theme-switch.active {
             background: #f2f2f2;
         }
@@ -77,10 +102,33 @@
         .theme-switch.active .switch-handle {
             transform: translateX(30px);
         }
+
+        .theme-switch.active::before {
+            opacity: 0;
+        }
+
+        .theme-switch.active::after {
+            opacity: 1;
+        }
+
+        .content {
+            animation: fadeInDown 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">←</a>
+    <a href="/" class="back-button">←</a>
     
     <div class="theme-switch">
         <div class="switch-handle"></div>
@@ -88,7 +136,6 @@
 
     <div class="content">
         <h1>Writing</h1>
-        <!-- Rest of content -->
     </div>
 
     <script>
