@@ -229,24 +229,8 @@
             cursor: pointer;
             padding: 4px;
             transition: all 0.3s ease;
-        }
-
-        /* Toggle imagery */
-        .theme-switch::before {
-            content: "🌙";
-            position: absolute;
-            right: 8px;
-            top: 5px;
-            font-size: 14px;
-        }
-
-        .theme-switch::after {
-            content: "☀️";
-            position: absolute;
-            left: 8px;
-            top: 5px;
-            font-size: 14px;
-            opacity: 0;
+            display: flex;
+            align-items: center;
         }
 
         /* Toggle circle */
@@ -257,6 +241,26 @@
             border-radius: 50%;
             transform: translateX(0);
             transition: transform 0.3s ease;
+        }
+
+        /* Adjust emoji positioning */
+        .theme-switch::before {
+            content: "🌙";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .theme-switch::after {
+            content: "☀️";
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0;
         }
 
         /* Light theme styles */
