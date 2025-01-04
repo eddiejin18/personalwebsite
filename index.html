@@ -178,40 +178,31 @@
 
         .achievements-container {
             position: relative;
+            display: inline-block;
             height: 28px;
-            display: inline;
+            min-width: 250px;
             opacity: 0;
         }
 
         .achievement {
             position: absolute;
-            display: inline;
+            left: 0;
+            top: 0;
             opacity: 0;
             transition: opacity 0.5s ease;
-            margin-left: 4px;
             white-space: nowrap;
-            width: max-content;
-            left: 0;
+            width: 100%;
         }
 
         .achievement.active {
             opacity: 1;
         }
 
-        /* Ensure proper paragraph width */
-        .content p {
-            margin-bottom: 28px;
+        /* Ensure paragraph can accommodate achievements */
+        .gaming-paragraph {
+            max-width: 100%;
             position: relative;
-            max-width: 650px;
-            width: 100%;
-        }
-
-        /* Container for the paragraph with achievements */
-        p.gaming-paragraph {
-            width: 100%;
-            display: block;
-            margin-right: auto;
-            margin-left: auto;
+            padding-right: 20px;
         }
 
         /* Update animation sequence */
@@ -333,8 +324,6 @@
         <p class="animate-in">Currently, I'm a senior at UC San Diego studying Math-CS and Business Economics. I'm also a PM for <a href="https://fileread.com" target="_blank">Fileread</a> and a Partner at <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>. In the past, I've worked at Spero Ventures, Crescent Fund, Comcast, and Relativity.</p>
         
         <p class="animate-in">When I'm not working or studying, you can find me meeting new people over coffee, watching Tottenham lose, or hosting startup <a href="https://lu.ma/ucsd" target="_blank">events</a>. If you ever want to chat, brainstorm, or just say hi, I would genuinely love to hear from you.</p>
-
-        <hr class="animate-in" style="display: block; border: none; height: 1px; background-color: var(--fg); margin: 2em 0; opacity: 0.15;" />
         
         <div class="quote animate-in">
             "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard."
