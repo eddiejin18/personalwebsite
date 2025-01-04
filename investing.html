@@ -204,6 +204,22 @@
         .content > *:nth-child(3) { animation-delay: 0.3s; }
         .content > *:nth-child(4) { animation-delay: 0.4s; }
         .content > *:nth-child(5) { animation-delay: 0.5s; }
+
+        .coming-soon {
+            opacity: 0 !important;
+            animation: fadeInDown 0.6s ease-out 0.4s forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 0.7;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -233,7 +249,7 @@
             <li><a href="https://oligo.space" target="_blank">Oligo</a>: Fully automated satellite design platform.</li>
         </ul>
 
-        <p class="animate-in" style="opacity: 0.7;">More coming soon!</p>
+        <p class="animate-in coming-soon" style="opacity: 0;">More coming soon!</p>
     </div>
 
     <script>
