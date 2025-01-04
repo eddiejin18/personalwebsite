@@ -176,12 +176,21 @@
             opacity: 0.7;
         }
 
+        .gaming-paragraph {
+            max-width: 100%;
+            position: relative;
+            padding-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
         .achievements-container {
             position: relative;
             display: inline-block;
             height: 28px;
             min-width: 250px;
             opacity: 0;
+            margin-left: 4px;
         }
 
         .achievement {
@@ -192,17 +201,11 @@
             transition: opacity 0.5s ease;
             white-space: nowrap;
             width: 100%;
+            line-height: 28px;
         }
 
         .achievement.active {
             opacity: 1;
-        }
-
-        /* Ensure paragraph can accommodate achievements */
-        .gaming-paragraph {
-            max-width: 100%;
-            position: relative;
-            padding-right: 20px;
         }
 
         /* Update animation sequence */
@@ -319,7 +322,7 @@
             </span>
         </p>
         
-        <p class="animate-in">Currently, I'm a senior at UC San Diego studying Math-CS and Business Economics. I'm also a PM for <a href="https://fileread.com" target="_blank">Fileread</a> and a Partner at <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>. In the past, I've worked at <a href="https://spero.vc" target="_blank">Spero Ventures</a>, <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, <a href="https://comcast.com" target="_blank">Comcast</a>, and <a href="https://relativity.com" target="_blank">Relativity</a>.</p>
+        <p class="animate-in">Currently, I'm a senior at UC San Diego studying Math-CS and Business Economics. I'm also a PM at <a href="https://fileread.com" target="_blank">Fileread</a> and a Partner at <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>. In the past, I've worked at <a href="https://spero.vc" target="_blank">Spero Ventures</a>, <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, <a href="https://comcast.com" target="_blank">Comcast</a>, and <a href="https://relativity.com" target="_blank">Relativity</a>.</p>
         
         <p class="animate-in">When I'm not working or studying, you can find me meeting new people over coffee, watching Tottenham lose, or hosting startup <a href="https://lu.ma/ucsd" target="_blank">events</a>. If you ever want to chat, brainstorm, or just say hi, I would genuinely love to hear from you.</p>
         
@@ -336,7 +339,7 @@
     </div>
 
     <script>
-        const achievements = document.querySelectorAll('.achievement');
+        const achievements = document.querySelectorAll('.achtievement');
         let currentIndex = 0;
 
         function rotateAchievements() {
