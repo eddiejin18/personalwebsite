@@ -189,6 +189,7 @@
             height: 28px;
             min-width: 250px;
             margin-left: 4px;
+            line-height: var(--leading);
         }
 
         .achievement {
@@ -199,18 +200,17 @@
             transition: opacity 0.5s ease;
             white-space: nowrap;
             width: 100%;
-            line-height: 28px;
+            line-height: var(--leading);
         }
 
         .achievement.active {
             opacity: 1;
         }
 
-        /* Update animation sequence */
-        .content > *,
-        .content p .achievements-container {
-            animation: fadeInDown 0.6s ease-out forwards;
-            opacity: 0;
+        /* Ensure consistent line height */
+        p {
+            margin: 0 0 var(--leading) 0;
+            line-height: var(--leading);
         }
 
         /* Toggle switch container */
@@ -313,12 +313,11 @@
     </div>
 
     <div class="content">
-        <p class="animate-in" style="margin-bottom: var(--leading);">Hey there! I'm Eddie. I grew up in Scottsdale, AZ and moved to Palos Verdes, CA when I was 9. I spent my early years playing competitive video games, which taught me the value of dedication and hard work. I don't play anymore, but here's some cool achievements throughout the years: 
-            <span class="achievements-container">
-                <span class="achievement" id="achievement1">Top 2000 in the U.S. for Valorant</span>
-                <span class="achievement" id="achievement2">Top 500 globally in Apex Legends</span>
-                <span class="achievement" id="achievement3">Top 100 in the U.S. for PUBG</span>
-            </span>
+        <p class="animate-in" style="line-height: var(--leading);">Hey there! I'm Eddie. I grew up in Scottsdale, AZ and moved to Palos Verdes, CA when I was 9. I spent my early years playing competitive video games, which taught me the value of dedication and hard work. I don't play anymore, but here's some cool achievements throughout the years: <span class="achievements-container">
+            <span class="achievement active">Top 2000 in the U.S. for Valorant</span>
+            <span class="achievement">Top 500 globally in Apex Legends</span>
+            <span class="achievement">Top 100 in the U.S. for PUBG</span>
+        </span>
         </p>
         
         <p class="animate-in">Currently, I'm a senior at UC San Diego studying Math-CS and Business Economics. I'm also a PM at <a href="https://fileread.com" target="_blank">Fileread</a> and a Partner at <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>. In the past, I've worked at <a href="https://spero.vc" target="_blank">Spero Ventures</a>, <a href="https://cacrescentfund.com" target="_blank">Crescent Fund</a>, <a href="https://comcast.com" target="_blank">Comcast</a>, and <a href="https://relativity.com" target="_blank">Relativity</a>.</p>
@@ -338,7 +337,7 @@
     </div>
 
     <script>
-        const achievements = document.querySelectorAll('.achtievement');
+        const achievements = document.querySelectorAll('.achievement');
         let currentIndex = 0;
 
         function rotateAchievements() {
@@ -347,8 +346,7 @@
             currentIndex = (currentIndex + 1) % achievements.length;
         }
 
-        rotateAchievements();
-        setInterval(rotateAchievements, 5000);
+        setInterval(rotateAchievements, 3000);
     </script>
 
     <script>
