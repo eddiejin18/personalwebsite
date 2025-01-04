@@ -189,18 +189,18 @@
             height: 28px;
             min-width: 250px;
             margin-left: 4px;
-            line-height: var(--leading);
+            line-height: inherit;
         }
 
         .achievement {
             position: absolute;
             left: 0;
-            top: 0;
+            top: 50%;
+            transform: translateY(-50%);
             opacity: 0;
             transition: opacity 0.5s ease;
             white-space: nowrap;
             width: 100%;
-            line-height: var(--leading);
         }
 
         .achievement.active {
@@ -313,7 +313,7 @@
     </div>
 
     <div class="content">
-        <p class="animate-in" style="line-height: var(--leading);">Hey there! I'm Eddie. I grew up in Scottsdale, AZ and moved to Palos Verdes, CA when I was 9. I spent my early years playing competitive video games, which taught me the value of dedication and hard work. I don't play anymore, but here's some cool achievements throughout the years: <span class="achievements-container">
+        <p class="animate-in">Hey there! I'm Eddie. I grew up in Scottsdale, AZ and moved to Palos Verdes, CA when I was 9. I spent my early years playing competitive video games, which taught me the value of dedication and hard work. I don't play anymore, but here's some cool achievements throughout the years: <span class="achievements-container" style="vertical-align: baseline;">
             <span class="achievement active">Top 2000 in the U.S. for Valorant</span>
             <span class="achievement">Top 500 globally in Apex Legends</span>
             <span class="achievement">Top 100 in the U.S. for PUBG</span>
