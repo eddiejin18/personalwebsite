@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2024 Reflections - Edward Jin">
+    <title>2024 Reflections | Edward Jin</title>
+    <link rel="icon" type="image/svg+xml" href="../ej.svg">
+    <style>
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #f2f2f2;
+            --bg: #1a1a1a;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 0 15px;
+            line-height: var(--leading);
+            font-size: var(--text);
+            color: var(--fg);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .article-date {
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        [data-theme="light"] {
+            --fg: #1a1a1a;
+            --bg: #f2f2f2;
+        }
+
+        /* Theme switch styles */
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 30px;
+            cursor: pointer;
+            padding: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .switch-handle {
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-switch::before {
+            content: "🌙";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .theme-switch::after {
+            content: "☀️";
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            opacity: 0;
+        }
+
+        .theme-switch.active {
+            background: #f2f2f2;
+        }
+
+        .theme-switch.active .switch-handle {
+            transform: translateX(30px);
+            background: #666666;
+        }
+
+        .theme-switch.active::before {
+            opacity: 0;
+        }
+
+        .theme-switch.active::after {
+            opacity: 1;
+        }
+
+        a {
+            color: var(--fg);
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch">
+        <div class="switch-handle"></div>
+    </div>
+
+    <div class="header">
+        <a href="../writing.html">← Back</a>
+    </div>
+
+    <h1 class="article-title">2024 Reflections</h1>
+    <div class="article-date">Jan 4, 2025</div>
+
+    <div class="article-content">
+        <!-- Article content goes here -->
+        <p>Content coming soon...</p>
+    </div>
+
+    <script>
+        const themeSwitch = document.querySelector('.theme-switch');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeSwitch.classList.toggle('active', savedTheme === 'light');
+
+        themeSwitch.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeSwitch.classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
