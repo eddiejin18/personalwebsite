@@ -132,16 +132,52 @@
             text-decoration: underline;
             text-underline-offset: 2px;
         }
+
+        /* Add these styles for the theme toggle */
+        .left-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--fg);
+            cursor: pointer;
+            height: 28px;
+            width: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            opacity: 0.8;
+        }
+
+        [data-theme="light"] {
+            --fg: #1a1a1a;
+            --bg: #f2f2f2;
+        }
     </style>
 </head>
 <body>
     <div class="header animate-in">
-        <div class="name-container">
-            <h1 class="name"><a href="/" style="text-decoration: none;">Edward Jin</a></h1>
-            <h1 class="korean-name"><a href="/" style="text-decoration: none;">진승준</a></h1>
+        <div class="left-header">
+            <div class="name-container">
+                <h1 class="name"><a href="/" style="text-decoration: none;">Edward Jin</a></h1>
+                <h1 class="korean-name"><a href="/" style="text-decoration: none;">진승준</a></h1>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.228 7.9439C10.5176 8.82869 7.75757 12.1054 7.75757 16.0001C7.75757 20.5601 11.4399 24.2424 15.9999 24.2424C19.8946 24.2424 23.1713 21.4824 24.0561 17.772C23.8217 17.7973 23.5837 17.8105 23.3428 17.8105C18.7829 17.8105 15.1005 14.1281 15.1005 9.56819C15.1005 9.32726 15.1137 9.08931 15.139 8.85492C14.8419 8.87481 14.5497 8.90911 14.228 7.9439Z" fill="currentColor"/>
+                </svg>
+            </button>
         </div>
         <nav class="nav">
-            <a href="writing.html">Writing</a>
+            <a href="writing.html" style="text-decoration: underline;">Writing</a>
             <a href="resources.html">Resources</a>
             <a href="investing.html">Investing</a>
         </nav>
@@ -151,13 +187,31 @@
         <p class="animate-in" style="margin-bottom: 40px;">A collection of writings that serve as an extension of my unfiltered thoughts.</p>
         
         <ul class="article-list">
-            <li class="article-item animate-in">
+            <li class="article-item animate-in" style="margin-left: 20px;">
                 <a href="articles/2024-reflections.html" class="article-link" style="font-size: 16px;">
                     <span style="font-style: italic;">2024 Reflections</span>
-                    <span style="opacity: 0.7; margin-left: 8px;">Jan 4, 2025</span>
                 </a>
+                <span style="opacity: 0.7; margin-left: 8px;">Jan 4, 2025</span>
             </li>
         </ul>
     </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or default to dark
+        const savedTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
