@@ -124,6 +124,39 @@
         a:hover {
             opacity: 0.8;
         }
+
+        .image-container {
+            width: 100%;
+            height: 300px;  /* Adjust this height as needed */
+            margin: 30px 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--bg);
+        }
+
+        .sliding-image {
+            height: 100%;
+            width: auto;
+            animation: slideImage 20s linear infinite;
+        }
+
+        @keyframes slideImage {
+            0% {
+                transform: translateX(0);
+            }
+            45% {
+                transform: translateX(calc(-100% + 650px)); /* 650px is container width */
+            }
+            50% {
+                transform: translateX(calc(-100% + 650px));
+            }
+            95% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -138,17 +171,9 @@
     <h1 class="article-title">2024 Reflections</h1>
     <div class="article-date">Jan 4, 2025</div>
 
-    <img 
-        src="../images/headerimage.png" 
-        alt="2024 Reflections Header Image"
-        style="
-            width: 70%;
-            height: auto;
-            margin: 30px auto;
-            display: block;
-            border-radius: 4px;
-        "
-    >
+    <div class="image-container">
+        <img src="../images/sliding.png" alt="Sliding Image" class="sliding-image">
+    </div>
 
     <div class="article-content">
         <p>Content coming soon...</p>
