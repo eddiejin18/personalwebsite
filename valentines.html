@@ -231,26 +231,20 @@
         }
 
         .pin {
-            width: 8px;
-            height: 25px;
-            background: #ff4d4d;
+            width: 30px;  /* Adjust based on pin.png size */
+            height: 40px; /* Adjust based on pin.png size */
             position: absolute;
             left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            border-radius: 50% 50% 0 0;
+            top: -20px;
+            transform: translateX(-50%);
+            background-image: url('images/pin.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 2;
         }
 
         .pin::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: #ff4d4d;
-            border-radius: 50%;
-            top: -8px;
-            left: -4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            display: none;
         }
 
         .pinned-photo {
@@ -335,28 +329,28 @@
         <div class="carousel">
             <img src="images/1.png" alt="Memory 1">
             <img src="images/2.png" alt="Memory 2">
+            <img src="images/3.png" alt="Memory 3">
             <img src="images/4.png" alt="Memory 4">
             <img src="images/5.png" alt="Memory 5">
             <img src="images/6.png" alt="Memory 6">
+            <img src="images/7.png" alt="Memory 7">
             <img src="images/8.png" alt="Memory 8">
             <img src="images/9.png" alt="Memory 9">
-            <img src="images/11.png" alt="Memory 11">
-            <img src="images/12.png" alt="Memory 12">
         </div>
     </div>
 
     <div class="pinned-photos">
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/3.png" alt="Pinned Photo 1">
+            <img src="images/10.png" alt="Pinned Photo 1">
         </div>
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/7.png" alt="Pinned Photo 2">
+            <img src="images/11.png" alt="Pinned Photo 2">
         </div>
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/10.png" alt="Pinned Photo 3">
+            <img src="images/12.png" alt="Pinned Photo 3">
         </div>
         <div class="pinned-photo">
             <div class="pin"></div>
