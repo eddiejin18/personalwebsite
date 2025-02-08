@@ -94,9 +94,67 @@
             --bg: #f2f2f2;
         }
 
+        .flower {
+            position: fixed;
+            pointer-events: none;
+            font-size: 24px;
+            animation: fall 3s linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         .content {
             text-align: center;
             margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 3s; /* Wait for flowers to finish */
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            font-family: var(--font-sans);
+        }
+
+        .yes-btn {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        .no-btn {
+            background: #666;
+            color: white;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
 
         h1 {
@@ -124,10 +182,12 @@
     </div>
 
     <div class="content">
-        <h1>Happy Valentine's Day</h1>
+        <h1>Will you be my Valentine?</h1>
         <div class="heart">❤️</div>
-        <p>A special message for a special someone.</p>
-        <!-- Add your personal message here -->
+        <div class="buttons">
+            <button class="button yes-btn" onclick="handleYes()">Yes</button>
+            <button class="button no-btn" onclick="handleNo()">No</button>
+        </div>
     </div>
 
     <script>
@@ -147,6 +207,51 @@
             localStorage.setItem('theme', newTheme);
             themeSwitch.classList.toggle('active');
         });
+
+        // Flower animation
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.textContent = '🌸';
+            flower.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(flower);
+            
+            // Remove flower after animation
+            flower.addEventListener('animationend', () => {
+                flower.remove();
+            });
+        }
+
+        // Create flowers on load
+        for (let i = 0; i < 50; i++) {
+            setTimeout(() => {
+                createFlower();
+            }, Math.random() * 3000); // Spread over 3 seconds
+        }
+
+        // Button handlers
+        function handleYes() {
+            document.querySelector('.content').innerHTML = `
+                <h1>Yay! ❤️</h1>
+                <div class="heart">❤️</div>
+                <p>Thank you for making me the happiest person!</p>
+            `;
+            // Create celebration flowers
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createFlower();
+                }, Math.random() * 2000);
+            }
+        }
+
+        function handleNo() {
+            const noBtn = document.querySelector('.no-btn');
+            const randomX = Math.random() * (window.innerWidth - 100);
+            const randomY = Math.random() * (window.innerHeight - 40);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
     </script>
 </body>
 </html> 
