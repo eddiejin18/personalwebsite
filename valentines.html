@@ -279,6 +279,29 @@
             bottom: 100px;
             transform: rotate(5deg) skew(-5deg);
         }
+
+        .heart-emoji {
+            position: fixed;
+            pointer-events: none;
+            font-size: 24px;
+            animation: fall 3s linear forwards;
+            z-index: 1000;
+        }
+
+        .celebration-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 300px;
+        }
+
+        .celebration-gif {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -378,11 +401,15 @@
                 <h1>Yay! ❤️</h1>
                 <div class="heart">❤️</div>
                 <p>Thank you for making me the happiest person!</p>
+                <div class="celebration-container">
+                    <img src="images/catgif.gif" alt="Celebration" class="celebration-gif">
+                </div>
             `;
-            // Create celebration flowers
+            
+            // Create falling hearts
             for (let i = 0; i < 30; i++) {
                 setTimeout(() => {
-                    createFlower();
+                    createHeart();
                 }, Math.random() * 2000);
             }
         }
@@ -394,6 +421,18 @@
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-emoji';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(heart);
+            
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
         }
 
         // Duplicate carousel images for smooth infinite scroll
