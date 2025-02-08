@@ -133,7 +133,52 @@
         }
 
         .buttons {
-            margin: 20px 0;
+            margin: 30px 0;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .yes-btn {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        .yes-btn:hover {
+            background: #ff3333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,77,77,0.4);
+        }
+
+        .no-btn {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .no-btn:hover {
+            background: #d5d5d5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Add focus styles for accessibility */
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,77,77,0.3);
         }
 
         .heart {
