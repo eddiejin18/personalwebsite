@@ -178,13 +178,12 @@
         .carousel-container {
             width: 100%;
             height: 200px;
-            margin: 40px 0;
+            margin: 80px 0;
             position: relative;
             overflow: hidden;
-            
             opacity: 0;
             animation: fadeIn 1s forwards;
-            animation-delay: 1s;
+            animation-delay: 0.5s;
         }
 
         .carousel-line {
@@ -200,7 +199,7 @@
         .carousel {
             display: flex;
             position: absolute;
-            animation: slideImages 30s linear infinite;
+            animation: slideImages 45s linear infinite;
         }
 
         .carousel img {
@@ -232,12 +231,25 @@
         }
 
         .pin {
-            width: 20px;
-            height: 20px;
+            width: 8px;
+            height: 25px;
+            background: #ff4d4d;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .pin::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
             background: #ff4d4d;
             border-radius: 50%;
-            position: absolute;
-            transform: translateY(-10px);
+            top: -8px;
+            left: -4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
@@ -245,7 +257,7 @@
             position: fixed;
             width: 150px;
             height: auto;
-            transform-origin: top center;
+            transform-origin: center 20px;
         }
 
         .pinned-photo img {
@@ -323,17 +335,13 @@
         <div class="carousel">
             <img src="images/1.png" alt="Memory 1">
             <img src="images/2.png" alt="Memory 2">
-            <img src="images/3.png" alt="Memory 3">
             <img src="images/4.png" alt="Memory 4">
             <img src="images/5.png" alt="Memory 5">
             <img src="images/6.png" alt="Memory 6">
-            <img src="images/7.png" alt="Memory 7">
             <img src="images/8.png" alt="Memory 8">
             <img src="images/9.png" alt="Memory 9">
-            <img src="images/10.png" alt="Memory 10">
             <img src="images/11.png" alt="Memory 11">
             <img src="images/12.png" alt="Memory 12">
-            <img src="images/13.png" alt="Memory 13">
         </div>
     </div>
 
@@ -436,9 +444,11 @@
         }
 
         // Duplicate carousel images for smooth infinite scroll
-        const carousel = document.querySelector('.carousel');
-        const images = carousel.innerHTML;
-        carousel.innerHTML = images + images;
+        window.addEventListener('load', () => {
+            const carousel = document.querySelector('.carousel');
+            const images = carousel.innerHTML;
+            carousel.innerHTML = images + images + images;  // Triple the images for smoother loop
+        });
     </script>
 </body>
 </html> 
