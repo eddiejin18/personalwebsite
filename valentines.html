@@ -119,6 +119,11 @@
             opacity: 0;
             animation: fadeIn 1s forwards;
             animation-delay: 3s; /* Wait for flowers to finish */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+            padding-bottom: 40px;
         }
 
         @keyframes fadeIn {
@@ -150,6 +155,7 @@
         .no-btn {
             background: #666;
             color: white;
+            z-index: 1001;
         }
 
         .button:hover {
@@ -183,7 +189,7 @@
             overflow: hidden;
             opacity: 0;
             animation: fadeIn 1s forwards;
-            animation-delay: 0.5s;
+            animation-delay: 0.5s; /* Show sooner */
         }
 
         .carousel-line {
@@ -206,6 +212,9 @@
             height: 150px;
             width: auto;
             margin: 0 20px;
+            border: 8px solid white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         @keyframes slideImages {
@@ -335,26 +344,25 @@
             <img src="images/6.png" alt="Memory 6">
             <img src="images/7.png" alt="Memory 7">
             <img src="images/8.png" alt="Memory 8">
-            <img src="images/9.png" alt="Memory 9">
         </div>
     </div>
 
     <div class="pinned-photos">
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/10.png" alt="Pinned Photo 1">
+            <img src="images/9.png" alt="Pinned Photo 1">
         </div>
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/11.png" alt="Pinned Photo 2">
+            <img src="images/10.png" alt="Pinned Photo 2">
         </div>
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/12.png" alt="Pinned Photo 3">
+            <img src="images/11.png" alt="Pinned Photo 3">
         </div>
         <div class="pinned-photo">
             <div class="pin"></div>
-            <img src="images/13.png" alt="Pinned Photo 4">
+            <img src="images/12.png" alt="Pinned Photo 4">
         </div>
     </div>
 
@@ -423,6 +431,7 @@
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
+            noBtn.style.zIndex = '1001'; // Ensure button stays clickable
         }
 
         function createHeart() {
