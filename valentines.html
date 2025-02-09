@@ -393,6 +393,112 @@
             themeSwitch.classList.toggle('active');
         });
 
+        // Optimize image preloading
+        window.addEventListener('DOMContentLoaded', function() {
+            const imageUrls = [
+                'images/1.png', 'images/2.png', 'images/3.png', 'images/4.png',
+                'images/5.png', 'images/6.png', 'images/7.png', 'images/8.png',
+                'images/9.png', 'images/10.png', 'images/11.png', 'images/pin.png'
+            ];
+
+            // Load images sequentially instead of all at once
+            let loadedImages = 0;
+            function loadNextImage() {
+                if (loadedImages < imageUrls.length) {
+                    const img = new Image();
+                    img.onload = () => {
+                        loadedImages++;
+                        loadNextImage();
+                    };
+                    img.src = imageUrls[loadedImages];
+                }
+            }
+            loadNextImage();
+        });
+
+        // Optimize animation elements cleanup
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-emoji';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(heart);
+            
+            heart.addEventListener('animationend', () => {
+                heart.remove(); // Clean up DOM elements
+            });
+        }
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.textContent = '🌸';
+            flower.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(flower);
+            
+            flower.addEventListener('animationend', () => {
+                flower.remove(); // Clean up DOM elements
+            });
+        }
+
+        // Optimize carousel
+        window.addEventListener('load', () => {
+            const carousel = document.querySelector('.carousel');
+            const images = carousel.innerHTML;
+            // Use fewer duplicates
+            carousel.innerHTML = images + images; // Only duplicate once instead of thrice
+            
+            // Force immediate animation start
+            carousel.style.animation = 'none';
+            carousel.offsetHeight;
+            carousel.style.animation = 'slideImages 45s linear infinite';
+        });
+
+        // Optimize event listeners
+        let isMoving = false;
+        document.addEventListener('mousemove', function(e) {
+            if (isMoving) return; // Prevent multiple calculations while moving
+            
+            const noBtn = document.querySelector('.no-btn');
+            if (!noBtn) return;
+
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const buttonRect = noBtn.getBoundingClientRect();
+            const buttonX = buttonRect.left + buttonRect.width / 2;
+            const buttonY = buttonRect.top + buttonRect.height / 2;
+
+            const distance = Math.sqrt(
+                Math.pow(mouseX - buttonX, 2) + 
+                Math.pow(mouseY - buttonY, 2)
+            );
+
+            if (distance < 100) {
+                isMoving = true;
+                let newX = Math.random() * (window.innerWidth - buttonRect.width);
+                let newY = Math.random() * (window.innerHeight - buttonRect.height);
+                
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = `${newX}px`;
+                noBtn.style.top = `${newY}px`;
+                noBtn.style.transition = 'all 0.2s ease';
+                noBtn.style.zIndex = '1001';
+
+                setTimeout(() => {
+                    isMoving = false;
+                }, 200); // Match transition duration
+            }
+        });
+
+        // Debounce window resize events
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Handle resize logic here if needed
+            }, 250);
+        });
+
         // Flower animation
         function createFlower() {
             const flower = document.createElement('div');
@@ -470,18 +576,6 @@
                 noBtn.style.zIndex = '1001';
             }
         });
-
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart-emoji';
-            heart.textContent = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            document.body.appendChild(heart);
-            
-            heart.addEventListener('animationend', () => {
-                heart.remove();
-            });
-        }
 
         // Update preload array to match actual images
         window.addEventListener('DOMContentLoaded', function() {
