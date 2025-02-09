@@ -424,6 +424,50 @@
             }
         }
 
+        // Add mouse tracking for the No button
+        document.addEventListener('mousemove', function(e) {
+            const noBtn = document.querySelector('.no-btn');
+            if (!noBtn) return;
+
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const buttonRect = noBtn.getBoundingClientRect();
+            const buttonX = buttonRect.left + buttonRect.width / 2;
+            const buttonY = buttonRect.top + buttonRect.height / 2;
+
+            // Calculate distance between mouse and button
+            const distance = Math.sqrt(
+                Math.pow(mouseX - buttonX, 2) + 
+                Math.pow(mouseY - buttonY, 2)
+            );
+
+            // If mouse is within 100px of the button, move it
+            if (distance < 100) {
+                let newX, newY;
+                
+                // Generate new position away from cursor
+                do {
+                    newX = Math.random() * (window.innerWidth - buttonRect.width);
+                    newY = Math.random() * (window.innerHeight - buttonRect.height);
+                    
+                    // Make sure new position is at least 200px away from cursor
+                    const newDistance = Math.sqrt(
+                        Math.pow(mouseX - newX, 2) + 
+                        Math.pow(mouseY - newY, 2)
+                    );
+                    
+                    if (newDistance > 200) break;
+                } while (true);
+
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = `${newX}px`;
+                noBtn.style.top = `${newY}px`;
+                noBtn.style.transition = 'all 0.2s ease';
+                noBtn.style.zIndex = '1001';
+            }
+        });
+
+        // Modify existing handleNo function
         function handleNo() {
             const noBtn = document.querySelector('.no-btn');
             const randomX = Math.random() * (window.innerWidth - 100);
@@ -431,7 +475,8 @@
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
-            noBtn.style.zIndex = '1001'; // Ensure button stays clickable
+            noBtn.style.zIndex = '1001';
+            noBtn.style.transition = 'all 0.2s ease';
         }
 
         function createHeart() {
