@@ -323,10 +323,10 @@
             border-radius: 8px;
         }
 
-        /* When no-btn becomes fixed, yes-btn should stay in place */
-        .no-btn[style*="position: fixed"] + .yes-btn {
-            position: relative;
-            left: -15px;
+        /* Remove any styles that might affect yes-btn when no-btn moves */
+        .no-btn[style*="position: fixed"] {
+            position: fixed;
+            z-index: 1001;
         }
     </style>
 </head>
@@ -432,7 +432,7 @@
             }
         }
 
-        // Add mouse tracking for the No button
+        // Update the mouse tracking to not affect yes-btn
         document.addEventListener('mousemove', function(e) {
             const noBtn = document.querySelector('.no-btn');
             if (!noBtn) return;
@@ -443,22 +443,18 @@
             const buttonX = buttonRect.left + buttonRect.width / 2;
             const buttonY = buttonRect.top + buttonRect.height / 2;
 
-            // Calculate distance between mouse and button
             const distance = Math.sqrt(
                 Math.pow(mouseX - buttonX, 2) + 
                 Math.pow(mouseY - buttonY, 2)
             );
 
-            // If mouse is within 100px of the button, move it
             if (distance < 100) {
                 let newX, newY;
                 
-                // Generate new position away from cursor
                 do {
                     newX = Math.random() * (window.innerWidth - buttonRect.width);
                     newY = Math.random() * (window.innerHeight - buttonRect.height);
                     
-                    // Make sure new position is at least 200px away from cursor
                     const newDistance = Math.sqrt(
                         Math.pow(mouseX - newX, 2) + 
                         Math.pow(mouseY - newY, 2)
@@ -474,25 +470,6 @@
                 noBtn.style.zIndex = '1001';
             }
         });
-
-        // Modify existing handleNo function
-        function handleNo() {
-            const noBtn = document.querySelector('.no-btn');
-            if (!noBtn.style.position || noBtn.style.position === 'static') {
-                // First click - start the evasive behavior
-                const randomX = Math.random() * (window.innerWidth - 100);
-                const randomY = Math.random() * (window.innerHeight - 40);
-                noBtn.style.position = 'fixed';
-                noBtn.style.left = randomX + 'px';
-                noBtn.style.top = randomY + 'px';
-            } else {
-                // Already moving - continue evasive behavior
-                const randomX = Math.random() * (window.innerWidth - 100);
-                const randomY = Math.random() * (window.innerHeight - 40);
-                noBtn.style.left = randomX + 'px';
-                noBtn.style.top = randomY + 'px';
-            }
-        }
 
         function createHeart() {
             const heart = document.createElement('div');
