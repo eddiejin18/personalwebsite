@@ -218,7 +218,7 @@
         .carousel {
             display: flex;
             position: absolute;
-            animation: slideImages 45s linear infinite;
+            animation: slideImages 60s linear infinite;
         }
 
         .carousel img {
@@ -445,13 +445,11 @@
         window.addEventListener('load', () => {
             const carousel = document.querySelector('.carousel');
             const images = carousel.innerHTML;
-            // Use fewer duplicates
-            carousel.innerHTML = images + images; // Only duplicate once instead of thrice
+            carousel.innerHTML = images + images;
             
-            // Force immediate animation start
             carousel.style.animation = 'none';
             carousel.offsetHeight;
-            carousel.style.animation = 'slideImages 45s linear infinite';
+            carousel.style.animation = 'slideImages 60s linear infinite';
         });
 
         // Optimize event listeners
@@ -589,19 +587,6 @@
                 const img = new Image();
                 img.src = url;
             });
-        });
-
-        // Modify carousel animation to start immediately
-        window.addEventListener('load', () => {
-            const carousel = document.querySelector('.carousel');
-            // Duplicate images immediately
-            const images = carousel.innerHTML;
-            carousel.innerHTML = images + images + images;
-            
-            // Force immediate animation start
-            carousel.style.animation = 'none';
-            carousel.offsetHeight; // Trigger reflow
-            carousel.style.animation = 'slideImages 45s linear infinite';
         });
     </script>
 </body>
