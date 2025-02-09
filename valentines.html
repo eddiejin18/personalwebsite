@@ -137,6 +137,7 @@
             display: flex;
             gap: 30px;
             justify-content: center;
+            position: relative;
         }
 
         .button {
@@ -156,6 +157,8 @@
         .yes-btn {
             background: #ff4d4d;
             color: white;
+            position: relative;
+            left: -15px;
         }
 
         .yes-btn:hover {
@@ -167,6 +170,7 @@
         .no-btn {
             background: #e0e0e0;
             color: #666;
+            position: static;
         }
 
         .no-btn:hover {
@@ -317,6 +321,12 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        /* When no-btn becomes fixed, yes-btn should stay in place */
+        .no-btn[style*="position: fixed"] + .yes-btn {
+            position: relative;
+            left: -15px;
         }
     </style>
 </head>
@@ -475,8 +485,6 @@
                 noBtn.style.position = 'fixed';
                 noBtn.style.left = randomX + 'px';
                 noBtn.style.top = randomY + 'px';
-                noBtn.style.zIndex = '1001';
-                noBtn.style.transition = 'all 0.2s ease';
             } else {
                 // Already moving - continue evasive behavior
                 const randomX = Math.random() * (window.innerWidth - 100);
