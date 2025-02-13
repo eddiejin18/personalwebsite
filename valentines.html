@@ -328,9 +328,65 @@
             position: fixed;
             z-index: 1001;
         }
+
+        /* Add these new mobile-friendly styles in the style section */
+        @media (max-width: 768px) {
+            body {
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+
+            .pinned-photo {
+                width: 100px; /* Smaller photos on mobile */
+            }
+
+            .pinned-photo:nth-child(1) {
+                left: 10px;
+                top: 80px;
+            }
+
+            .pinned-photo:nth-child(2) {
+                left: 10px;
+                bottom: 80px;
+            }
+
+            .pinned-photo:nth-child(3) {
+                right: 10px;
+                top: 80px;
+            }
+
+            .pinned-photo:nth-child(4) {
+                right: 10px;
+                bottom: 80px;
+            }
+
+            .celebration-container {
+                max-width: 250px;
+                margin: 20px auto;
+            }
+
+            .buttons {
+                gap: 15px;
+            }
+
+            .button {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+
+        /* Add this to ensure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <audio id="happyAudio" preload="auto" loop>
+        <source src="audio/happy.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="theme-switch">
         <div class="switch-handle"></div>
     </div>
@@ -520,8 +576,31 @@
 
         // Button handlers
         function handleYes() {
+            const audio = document.getElementById('happyAudio');
+            audio.play().catch(error => console.log('Audio playback failed:', error));
+            
             document.querySelector('.content').innerHTML = `
                 <h1>Yay! ❤️</h1>
+                <p>Thank you for making me the happiest person!</p>
+                <div class="celebration-container">
+                    <img src="images/catgif.gif" alt="Celebration" class="celebration-gif">
+                </div>
+            `;
+            
+            // Create falling hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, Math.random() * 2000);
+            }
+        }
+
+        function handleNo() {
+            const audio = document.getElementById('happyAudio');
+            audio.play().catch(error => console.log('Audio playback failed:', error));
+            
+            document.querySelector('.content').innerHTML = `
+                <h1>Yay! (You have no choice hehe) ❤️</h1>
                 <p>Thank you for making me the happiest person!</p>
                 <div class="celebration-container">
                     <img src="images/catgif.gif" alt="Celebration" class="celebration-gif">
