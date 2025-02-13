@@ -342,29 +342,42 @@
 
             .pinned-photo:nth-child(1) {
                 left: 10px;
-                top: 120px;  /* Moved down */
-            }
-
-            .pinned-photo:nth-child(2) {
-                left: 10px;
-                bottom: 120px;  /* Moved up */
+                top: 20px;  /* Move higher up */
             }
 
             .pinned-photo:nth-child(3) {
                 right: 10px;
-                top: 120px;  /* Moved down */
+                top: 20px;  /* Move higher up */
+            }
+
+            .pinned-photo:nth-child(2) {
+                left: 10px;
+                bottom: 20px;  /* Move lower down */
             }
 
             .pinned-photo:nth-child(4) {
                 right: 10px;
-                bottom: 120px;  /* Moved up */
+                bottom: 20px;  /* Move lower down */
+            }
+
+            .content {
+                margin-top: 160px;  /* Space for top pinned photos */
+                margin-bottom: 160px;  /* Space for bottom pinned photos */
+                position: relative;
+                z-index: 10;
             }
 
             .celebration-container {
                 max-width: 250px;
-                margin: 60px auto;  /* Increased margin */
+                margin: 40px auto;
                 position: relative;
-                z-index: 10;  /* Ensure it's above pinned photos */
+                z-index: 10;
+            }
+
+            .carousel-container {
+                margin: 40px auto;
+                position: relative;
+                z-index: 10;
             }
 
             .buttons {
@@ -374,14 +387,6 @@
             .button {
                 padding: 12px 30px;
                 font-size: 16px;
-            }
-
-            /* Add spacing for the content on mobile */
-            .content {
-                margin-top: 60px;  /* More space at top */
-                margin-bottom: 60px;  /* More space at bottom */
-                position: relative;
-                z-index: 10;  /* Ensure content stays above pinned photos */
             }
         }
 
