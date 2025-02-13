@@ -375,6 +375,22 @@
                 padding: 12px 30px;
                 font-size: 16px;
             }
+
+            .theme-switch {
+                display: none;  /* Hide theme switch on mobile */
+            }
+
+            /* Force dark theme on mobile */
+            :root {
+                --fg: #f2f2f2 !important;
+                --bg: #1a1a1a !important;
+            }
+
+            /* Override any light theme attributes on mobile */
+            [data-theme="light"] {
+                --fg: #f2f2f2 !important;
+                --bg: #1a1a1a !important;
+            }
         }
 
         /* Add this to ensure images don't overflow */
