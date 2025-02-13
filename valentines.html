@@ -554,14 +554,29 @@
             }, Math.random() * 3000); // Spread over 3 seconds
         }
 
-        // Button handlers
-        function handleYes() {
+        // Add this function to detect if device is mobile
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                || window.innerWidth <= 768;
+        }
+
+        // Update handleNo function to handle mobile differently
+        function handleNo() {
+            // If mobile, go straight to "no choice" view
+            if (isMobile()) {
+                showNoChoiceView();
+                return;
+            }
+        }
+
+        // Separate function for showing the "no choice" view
+        function showNoChoiceView() {
             const audio = document.getElementById('happyAudio');
-            audio.loop = true;  // Ensure loop is set programmatically
+            audio.loop = true;
             audio.play().catch(error => console.log('Audio playback failed:', error));
             
             document.querySelector('.content').innerHTML = `
-                <h1>Yay! ❤️</h1>
+                <h1>You're still my valentines! (You have no choice hehe) ❤️</h1>
                 <p>Thank you for making me the happiest person!</p>
                 <div class="celebration-container">
                     <img src="images/catgif.gif" alt="Celebration" class="celebration-gif">
@@ -576,13 +591,51 @@
             }
         }
 
-        function handleNo() {
+        // Add back the mouse tracking for desktop only
+        let isMoving = false;
+        document.addEventListener('mousemove', function(e) {
+            if (isMobile()) return; // Skip for mobile devices
+            if (isMoving) return;
+            
+            const noBtn = document.querySelector('.no-btn');
+            if (!noBtn) return;
+
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const buttonRect = noBtn.getBoundingClientRect();
+            const buttonX = buttonRect.left + buttonRect.width / 2;
+            const buttonY = buttonRect.top + buttonRect.height / 2;
+
+            const distance = Math.sqrt(
+                Math.pow(mouseX - buttonX, 2) + 
+                Math.pow(mouseY - buttonY, 2)
+            );
+
+            if (distance < 100) {
+                isMoving = true;
+                let newX = Math.random() * (window.innerWidth - buttonRect.width);
+                let newY = Math.random() * (window.innerHeight - buttonRect.height);
+                
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = `${newX}px`;
+                noBtn.style.top = `${newY}px`;
+                noBtn.style.transition = 'all 0.2s ease';
+                noBtn.style.zIndex = '1001';
+
+                setTimeout(() => {
+                    isMoving = false;
+                }, 200);
+            }
+        });
+
+        // Button handlers
+        function handleYes() {
             const audio = document.getElementById('happyAudio');
-            audio.loop = true;
+            audio.loop = true;  // Ensure loop is set programmatically
             audio.play().catch(error => console.log('Audio playback failed:', error));
             
             document.querySelector('.content').innerHTML = `
-                <h1>You're still my valentines! (You have no choice hehe) ❤️</h1>
+                <h1>Yay! ❤️</h1>
                 <p>Thank you for making me the happiest person!</p>
                 <div class="celebration-container">
                     <img src="images/catgif.gif" alt="Celebration" class="celebration-gif">
