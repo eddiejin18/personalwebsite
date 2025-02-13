@@ -141,41 +141,48 @@
             width: 100%;  /* Ensure full width container */
         }
 
+        .button {
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
         .yes-btn {
             background: #ff4d4d;
             color: white;
-            position: absolute;  /* Change to absolute */
-            left: 50%;  /* Center the button */
-            transform: translateX(-100%);  /* Offset by button width */
-            margin-left: -15px;  /* Fine tune position */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-100%);
+            margin-left: -15px;
+        }
+
+        .yes-btn:hover {
+            background: #ff3333;
+            transform: translateX(-100%) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,77,77,0.4);
         }
 
         .no-btn {
             background: #e0e0e0;
             color: #666;
-            position: absolute;  /* Change to absolute */
-            left: 50%;  /* Center the button */
-            transform: translateX(0);  /* No offset needed */
-            margin-left: 15px;  /* Fine tune position */
+            position: absolute;
+            left: 50%;
+            transform: translateX(0);
+            margin-left: 15px;
         }
 
-        /* Update the no-btn when it's moving */
-        .no-btn[style*="position: fixed"] {
-            position: fixed !important;  /* Force fixed position */
-            z-index: 1001;
-        }
-
-        /* Ensure yes-btn stays in place */
-        .yes-btn:hover {
-            background: #ff3333;
-            transform: translateX(-100%) translateY(-2px);  /* Maintain horizontal position while adding hover effect */
-            box-shadow: 0 6px 20px rgba(255,77,77,0.4);
-        }
-
-        /* Add focus styles for accessibility */
-        .button:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255,77,77,0.3);
+        .no-btn:hover {
+            background: #d5d5d5;
+            transform: translateX(0) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
         .heart {
@@ -526,51 +533,6 @@
             carousel.style.animation = 'slideImages 60s linear infinite';
         });
 
-        // Optimize event listeners
-        let isMoving = false;
-        document.addEventListener('mousemove', function(e) {
-            if (isMoving) return; // Prevent multiple calculations while moving
-            
-            const noBtn = document.querySelector('.no-btn');
-            if (!noBtn) return;
-
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            const buttonRect = noBtn.getBoundingClientRect();
-            const buttonX = buttonRect.left + buttonRect.width / 2;
-            const buttonY = buttonRect.top + buttonRect.height / 2;
-
-            const distance = Math.sqrt(
-                Math.pow(mouseX - buttonX, 2) + 
-                Math.pow(mouseY - buttonY, 2)
-            );
-
-            if (distance < 100) {
-                isMoving = true;
-                let newX = Math.random() * (window.innerWidth - buttonRect.width);
-                let newY = Math.random() * (window.innerHeight - buttonRect.height);
-                
-                noBtn.style.position = 'fixed';
-                noBtn.style.left = `${newX}px`;
-                noBtn.style.top = `${newY}px`;
-                noBtn.style.transition = 'all 0.2s ease';
-                noBtn.style.zIndex = '1001';
-
-                setTimeout(() => {
-                    isMoving = false;
-                }, 200); // Match transition duration
-            }
-        });
-
-        // Debounce window resize events
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Handle resize logic here if needed
-            }, 250);
-        });
-
         // Flower animation
         function createFlower() {
             const flower = document.createElement('div');
@@ -616,11 +578,11 @@
 
         function handleNo() {
             const audio = document.getElementById('happyAudio');
-            audio.loop = true;  // Ensure loop is set programmatically
+            audio.loop = true;
             audio.play().catch(error => console.log('Audio playback failed:', error));
             
             document.querySelector('.content').innerHTML = `
-                <h1>Yay! (You have no choice hehe) ❤️</h1>
+                <h1>You're still my valentines! (You have no choice hehe) ❤️</h1>
                 <p>Thank you for making me the happiest person!</p>
                 <div class="celebration-container">
                     <img src="images/catgif.gif" alt="Celebration" class="celebration-gif">
@@ -634,59 +596,6 @@
                 }, Math.random() * 2000);
             }
         }
-
-        // Update the mouse tracking to not affect yes-btn
-        document.addEventListener('mousemove', function(e) {
-            const noBtn = document.querySelector('.no-btn');
-            if (!noBtn) return;
-
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            const buttonRect = noBtn.getBoundingClientRect();
-            const buttonX = buttonRect.left + buttonRect.width / 2;
-            const buttonY = buttonRect.top + buttonRect.height / 2;
-
-            const distance = Math.sqrt(
-                Math.pow(mouseX - buttonX, 2) + 
-                Math.pow(mouseY - buttonY, 2)
-            );
-
-            if (distance < 100) {
-                let newX, newY;
-                
-                do {
-                    newX = Math.random() * (window.innerWidth - buttonRect.width);
-                    newY = Math.random() * (window.innerHeight - buttonRect.height);
-                    
-                    const newDistance = Math.sqrt(
-                        Math.pow(mouseX - newX, 2) + 
-                        Math.pow(mouseY - newY, 2)
-                    );
-                    
-                    if (newDistance > 200) break;
-                } while (true);
-
-                noBtn.style.position = 'fixed';
-                noBtn.style.left = `${newX}px`;
-                noBtn.style.top = `${newY}px`;
-                noBtn.style.transition = 'all 0.2s ease';
-                noBtn.style.zIndex = '1001';
-            }
-        });
-
-        // Update preload array to match actual images
-        window.addEventListener('DOMContentLoaded', function() {
-            const imageUrls = [
-                'images/1.png', 'images/2.png', 'images/3.png', 'images/4.png',
-                'images/5.png', 'images/6.png', 'images/7.png', 'images/8.png',
-                'images/9.png', 'images/10.png', 'images/11.png', 'images/pin.png'
-            ];
-
-            imageUrls.forEach(url => {
-                const img = new Image();
-                img.src = url;
-            });
-        });
     </script>
 </body>
 </html> 
