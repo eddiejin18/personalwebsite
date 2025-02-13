@@ -342,27 +342,29 @@
 
             .pinned-photo:nth-child(1) {
                 left: 10px;
-                top: 80px;
+                top: 120px;  /* Moved down */
             }
 
             .pinned-photo:nth-child(2) {
                 left: 10px;
-                bottom: 80px;
+                bottom: 120px;  /* Moved up */
             }
 
             .pinned-photo:nth-child(3) {
                 right: 10px;
-                top: 80px;
+                top: 120px;  /* Moved down */
             }
 
             .pinned-photo:nth-child(4) {
                 right: 10px;
-                bottom: 80px;
+                bottom: 120px;  /* Moved up */
             }
 
             .celebration-container {
                 max-width: 250px;
-                margin: 20px auto;
+                margin: 60px auto;  /* Increased margin */
+                position: relative;
+                z-index: 10;  /* Ensure it's above pinned photos */
             }
 
             .buttons {
@@ -372,6 +374,14 @@
             .button {
                 padding: 12px 30px;
                 font-size: 16px;
+            }
+
+            /* Add spacing for the content on mobile */
+            .content {
+                margin-top: 60px;  /* More space at top */
+                margin-bottom: 60px;  /* More space at bottom */
+                position: relative;
+                z-index: 10;  /* Ensure content stays above pinned photos */
             }
         }
 
@@ -577,6 +587,7 @@
         // Button handlers
         function handleYes() {
             const audio = document.getElementById('happyAudio');
+            audio.loop = true;  // Ensure loop is set programmatically
             audio.play().catch(error => console.log('Audio playback failed:', error));
             
             document.querySelector('.content').innerHTML = `
@@ -597,6 +608,7 @@
 
         function handleNo() {
             const audio = document.getElementById('happyAudio');
+            audio.loop = true;  // Ensure loop is set programmatically
             audio.play().catch(error => console.log('Audio playback failed:', error));
             
             document.querySelector('.content').innerHTML = `
