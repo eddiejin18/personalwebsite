@@ -138,45 +138,38 @@
             gap: 30px;
             justify-content: center;
             position: relative;
-        }
-
-        .button {
-            padding: 15px 40px;
-            font-size: 18px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: var(--font-sans);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 100%;  /* Ensure full width container */
         }
 
         .yes-btn {
             background: #ff4d4d;
             color: white;
-            position: relative;
-            left: -15px;
-        }
-
-        .yes-btn:hover {
-            background: #ff3333;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,77,77,0.4);
+            position: absolute;  /* Change to absolute */
+            left: 50%;  /* Center the button */
+            transform: translateX(-100%);  /* Offset by button width */
+            margin-left: -15px;  /* Fine tune position */
         }
 
         .no-btn {
             background: #e0e0e0;
             color: #666;
-            position: static;
+            position: absolute;  /* Change to absolute */
+            left: 50%;  /* Center the button */
+            transform: translateX(0);  /* No offset needed */
+            margin-left: 15px;  /* Fine tune position */
         }
 
-        .no-btn:hover {
-            background: #d5d5d5;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        /* Update the no-btn when it's moving */
+        .no-btn[style*="position: fixed"] {
+            position: fixed !important;  /* Force fixed position */
+            z-index: 1001;
+        }
+
+        /* Ensure yes-btn stays in place */
+        .yes-btn:hover {
+            background: #ff3333;
+            transform: translateX(-100%) translateY(-2px);  /* Maintain horizontal position while adding hover effect */
+            box-shadow: 0 6px 20px rgba(255,77,77,0.4);
         }
 
         /* Add focus styles for accessibility */
@@ -321,12 +314,6 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
-        }
-
-        /* Remove any styles that might affect yes-btn when no-btn moves */
-        .no-btn[style*="position: fixed"] {
-            position: fixed;
-            z-index: 1001;
         }
 
         /* Add these new mobile-friendly styles in the style section */
