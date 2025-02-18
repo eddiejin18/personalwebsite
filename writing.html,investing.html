@@ -11,22 +11,33 @@
 .nav {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 20px;  /* Reduced from default */
 }
 
 .nav a {
     text-decoration: none;
     color: var(--fg);
-    margin-left: 20px;
+    font-size: 16px;
     font-weight: 400;  /* Remove bold */
+    margin-left: 0;  /* Remove margin since we're using gap */
 }
 
 .name-container {
     position: relative;
     display: inline-block;
     height: 28px;
-    width: auto;
-    margin-left: 15px;  /* Match body's left padding */
+    margin-left: 0;  /* Flush with left margin */
+}
+
+.name, .korean-name {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 28px;
+}
+
+.name-container h1 a {
+    text-decoration: none;
 }
 
 .name-container h1 {
