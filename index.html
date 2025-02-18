@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 450px;  /* Increased height to show more of image */
+            height: 500px;  /* Increased height to show more image */
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -77,14 +77,15 @@
         }
 
         .sliding-image {
-            height: auto;  /* Let height adjust based on width */
-            width: 2560px;  /* Original image width */
+            height: auto;
+            width: 2560px;
             position: absolute;
+            bottom: 0;  /* Align to bottom */
             left: 0;
             animation: slideImage 45s linear infinite;
             border-radius: 12px;
             object-fit: none;
-            transform-origin: center center;
+            transform-origin: bottom center;  /* Set transform origin to bottom */
         }
 
         @keyframes slideImage {
@@ -106,17 +107,19 @@
 
         .name-container {
             position: relative;
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.3);  /* Reduced opacity */
-            padding: 6px 16px;  /* Increased horizontal padding */
-            border-radius: 30px;  /* More rounded corners */
-            min-width: fit-content;  /* Ensure container fits content */
+            display: inline-flex;  /* Change to flex for better content fitting */
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);  /* 20% opacity */
+            padding: 4px 12px;  /* Tighter padding */
+            border-radius: 30px;
+            margin: 0 15px;  /* Add margin instead of absolute positioning */
         }
 
         .name-container a {
             display: block;
             width: 100%;
             text-decoration: none;
+            padding: 2px 0;  /* Small vertical padding */
         }
 
         .name, .korean-name {
@@ -127,9 +130,8 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%);  /* Center text */
+            transform: translate(-50%, -50%);
             white-space: nowrap;
-            width: max-content;  /* Allow text to determine width */
         }
 
         .korean-name {
@@ -147,17 +149,17 @@
         .nav {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.3);  /* Reduced opacity */
-            padding: 6px;
-            border-radius: 30px;  /* More rounded corners */
-            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);  /* 20% opacity */
+            padding: 4px;  /* Tighter padding */
+            border-radius: 30px;
+            gap: 6px;  /* Reduced gap */
         }
 
         .nav a {
             color: #1a1a1a !important;
             text-shadow: none;
             text-decoration: none;
-            padding: 4px 12px;
+            padding: 2px 8px;  /* Tighter padding */
             font-size: 16px;
             font-weight: 500;
             margin-left: 0;
