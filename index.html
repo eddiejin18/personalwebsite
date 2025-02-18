@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 440px;  /* Adjusted to show more of image height */
+            height: 380px;  /* Adjusted for new image ratio */
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -77,14 +77,13 @@
         }
 
         .sliding-image {
-            height: 440px;  /* Match header height */
-            width: auto;  /* Let width be determined by aspect ratio */
+            height: 380px;
+            width: 2553px;  /* Exact image width */
             position: absolute;
             left: 0;
             animation: slideImage 45s linear infinite;
             border-radius: 12px;
-            object-fit: cover;
-            transform-origin: center;
+            object-fit: none;
         }
 
         @keyframes slideImage {
@@ -92,7 +91,7 @@
                 transform: translateX(0);
             }
             50% {
-                transform: translateX(-20%);  /* Only move by 20% of image width */
+                transform: translateX(calc(-650px));  /* Move by container width */
             }
             100% {
                 transform: translateX(0);
@@ -106,30 +105,28 @@
 
         .name-container {
             position: relative;
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.3);  /* Back to 30% opacity */
-            padding: 4px 12px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 6px 16px;
             border-radius: 30px;
             margin: 0 15px;
+            min-width: max-content;  /* Ensure container fits text */
         }
 
         .name-container a {
-            display: block;
-            width: 100%;
+            display: inline-block;
+            width: auto;
             text-decoration: none;
-            padding: 2px 0;  /* Small vertical padding */
         }
 
         .name, .korean-name {
+            position: static;  /* Remove absolute positioning */
+            transform: none;
+            display: block;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 400;  /* Lighter weight */
             margin: 0;
             line-height: 28px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             white-space: nowrap;
         }
 
@@ -148,7 +145,7 @@
         .nav {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.3);  /* Back to 30% opacity */
+            background: rgba(255, 255, 255, 0.3);
             padding: 4px;
             border-radius: 30px;
             gap: 6px;
@@ -158,9 +155,9 @@
             color: #1a1a1a !important;
             text-shadow: none;
             text-decoration: none;
-            padding: 2px 8px;  /* Tighter padding */
+            padding: 2px 8px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 400;  /* Remove bold */
             margin-left: 0;
         }
 
