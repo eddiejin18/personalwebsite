@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 500px;  /* Increased height to show more image */
+            height: 440px;  /* Adjusted to show more of image height */
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -77,15 +77,14 @@
         }
 
         .sliding-image {
-            height: auto;
-            width: 2560px;
+            height: 440px;  /* Match header height */
+            width: auto;  /* Let width be determined by aspect ratio */
             position: absolute;
-            bottom: 0;  /* Align to bottom */
             left: 0;
             animation: slideImage 45s linear infinite;
             border-radius: 12px;
-            object-fit: none;
-            transform-origin: bottom center;  /* Set transform origin to bottom */
+            object-fit: cover;
+            transform-origin: center;
         }
 
         @keyframes slideImage {
@@ -93,7 +92,7 @@
                 transform: translateX(0);
             }
             50% {
-                transform: translateX(calc(-1910px));  /* Adjusted for new width */
+                transform: translateX(-20%);  /* Only move by 20% of image width */
             }
             100% {
                 transform: translateX(0);
@@ -107,12 +106,12 @@
 
         .name-container {
             position: relative;
-            display: inline-flex;  /* Change to flex for better content fitting */
+            display: inline-flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.2);  /* 20% opacity */
-            padding: 4px 12px;  /* Tighter padding */
+            background: rgba(255, 255, 255, 0.3);  /* Back to 30% opacity */
+            padding: 4px 12px;
             border-radius: 30px;
-            margin: 0 15px;  /* Add margin instead of absolute positioning */
+            margin: 0 15px;
         }
 
         .name-container a {
@@ -149,10 +148,10 @@
         .nav {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.2);  /* 20% opacity */
-            padding: 4px;  /* Tighter padding */
+            background: rgba(255, 255, 255, 0.3);  /* Back to 30% opacity */
+            padding: 4px;
             border-radius: 30px;
-            gap: 6px;  /* Reduced gap */
+            gap: 6px;
         }
 
         .nav a {
