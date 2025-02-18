@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 420px;  /* Adjusted for proper aspect ratio */
+            height: 380px;  /* Adjusted for better fit */
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -77,27 +77,24 @@
         }
 
         .sliding-image {
-            height: 420px;  /* Match header height */
-            width: 1200px;  /* Width based on aspect ratio */
+            height: 100%;
+            width: 2000px;  /* Much wider to maintain quality */
             position: absolute;
             left: 0;
-            animation: slideImage 30s linear infinite;
+            animation: slideImage 45s linear infinite;  /* Slower animation */
             border-radius: 12px;
-            object-fit: cover;
+            object-fit: none;  /* Prevent image distortion */
         }
 
         @keyframes slideImage {
             0% {
                 transform: translateX(0);
             }
-            25% {
-                transform: translateX(calc(-550px));  /* Only move within image bounds */
+            49% {
+                transform: translateX(calc(-1350px));  /* Move to end of image */
             }
             50% {
-                transform: translateX(calc(-550px));
-            }
-            75% {
-                transform: translateX(0);
+                transform: translateX(0);  /* Immediately reset */
             }
             100% {
                 transform: translateX(0);
@@ -151,9 +148,9 @@
             text-shadow: none;
             text-decoration: none;
             margin-left: 20px;
-            font-size: 17px;  /* Slightly larger */
-            font-weight: 600;  /* Make bold */
-            letter-spacing: 0.2px;  /* Slightly improve readability */
+            font-size: 16px;  /* Back to original */
+            font-weight: 500;  /* Back to original */
+            letter-spacing: normal;
         }
 
         .nav a:hover {
@@ -371,8 +368,8 @@
         }
 
         .name-container h1 {
-            font-size: 19px;  /* Slightly larger to match nav */
-            font-weight: 600;  /* Match nav weight */
+            font-size: 18px;  /* Back to original */
+            font-weight: 500;  /* Back to original */
         }
     </style>
 </head>
