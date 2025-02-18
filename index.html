@@ -63,7 +63,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: none;
         }
 
         .image-container {
@@ -77,12 +76,11 @@
         }
 
         .sliding-image {
-            height: 100%;  /* Fill full height of header */
-            width: auto;   /* Maintain aspect ratio */
-            min-width: 100%;  /* Ensure it's at least as wide as container */
+            height: 100%;
+            width: auto;
+            min-width: 100%;
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);  /* Center the image */
+            left: 0;
             animation: slideImage 45s linear infinite;
             border-radius: 12px;
             object-fit: cover;
@@ -90,90 +88,58 @@
 
         @keyframes slideImage {
             0% {
-                transform: translateX(-50%);  /* Start centered */
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-20%);  /* Move left */
             }
             50% {
-                transform: translateX(calc(-50% - 500px));  /* Slide left to reveal right portion */
+                transform: translateX(-20%);  /* Pause at rightmost */
+            }
+            75% {
+                transform: translateX(0);     /* Return to start */
             }
             100% {
-                transform: translateX(-50%);  /* Return to center */
+                transform: translateX(0);     /* Pause at start */
             }
-        }
-
-        .name-container a, .nav a {
-            color: #1a1a1a !important;
-            text-shadow: none;
         }
 
         .name-container {
             position: relative;
             display: inline-block;
-            background: rgba(255, 255, 255, 0.3);
-            padding: 4px 12px;
-            border-radius: 30px;
-            margin: 0 15px;
             height: 28px;
-            line-height: 28px;
-            min-width: 110px;  /* Ensure minimum width to cover name */
+            margin-left: 15px;
         }
 
         .name-container a {
             display: block;
             text-decoration: none;
-            height: 100%;
-            width: 100%;
+            color: #1a1a1a !important;
         }
 
         .name, .korean-name {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin: 0;
             font-size: 18px;
             font-weight: 400;
-            white-space: nowrap;
-            width: 100%;
-            text-align: center;
-            transition: opacity 0.3s ease;
+            margin: 0;
             line-height: 28px;
-            padding: 0 4px;  /* Add small padding to text */
-        }
-
-        .korean-name {
-            opacity: 0;
-        }
-
-        .name-container:hover .name {
-            opacity: 0;
-        }
-
-        .name-container:hover .korean-name {
-            opacity: 1;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.3);
-            padding: 2px 4px;
-            border-radius: 30px;
-            gap: 6px;
-            height: 28px;
+            gap: 20px;
         }
 
         .nav a {
             color: #1a1a1a !important;
-            text-shadow: none;
             text-decoration: none;
-            padding: 0 8px;
             font-size: 16px;
             font-weight: 400;
-            line-height: 24px;
-        }
-
-        .nav a:hover {
-            opacity: 0.8;
         }
 
         .content p {
