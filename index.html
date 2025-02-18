@@ -77,23 +77,31 @@
         }
 
         .sliding-image {
-            height: 100%;
-            width: auto;
-            min-width: 100%;
+            height: auto;
+            width: 1000px;  /* Slightly wider than container (650px) */
+            position: absolute;
+            bottom: 0;  /* Align to bottom */
             animation: slideImage 30s linear infinite;
             border-radius: 12px;
-            object-fit: cover;
+            object-fit: none;  /* Remove cover to maintain quality */
+            object-position: bottom;  /* Align from bottom */
         }
 
         @keyframes slideImage {
             0% {
                 transform: translateX(0);
             }
+            25% {
+                transform: translateX(calc(-350px));  /* Move left by the difference */
+            }
             50% {
-                transform: translateX(calc(-900px));
+                transform: translateX(calc(-350px));  /* Pause at rightmost point */
+            }
+            75% {
+                transform: translateX(0);  /* Return to start */
             }
             100% {
-                transform: translateX(0);
+                transform: translateX(0);  /* Pause at leftmost point */
             }
         }
 
