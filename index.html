@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 380px;  /* Adjusted for new image ratio */
+            height: 380px;
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -78,12 +78,13 @@
 
         .sliding-image {
             height: 380px;
-            width: 2553px;  /* Exact image width */
+            width: 2553px;
             position: absolute;
             left: 0;
             animation: slideImage 45s linear infinite;
             border-radius: 12px;
             object-fit: none;
+            transform-origin: center;
         }
 
         @keyframes slideImage {
@@ -91,7 +92,7 @@
                 transform: translateX(0);
             }
             50% {
-                transform: translateX(calc(-650px));  /* Move by container width */
+                transform: translateX(calc(-650px));
             }
             100% {
                 transform: translateX(0);
@@ -107,27 +108,32 @@
             position: relative;
             display: inline-block;
             background: rgba(255, 255, 255, 0.3);
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 30px;
             margin: 0 15px;
-            min-width: max-content;  /* Ensure container fits text */
+            height: 28px;
+            line-height: 28px;
         }
 
         .name-container a {
-            display: inline-block;
-            width: auto;
+            display: block;
             text-decoration: none;
+            height: 100%;
         }
 
         .name, .korean-name {
-            position: static;  /* Remove absolute positioning */
-            transform: none;
-            display: block;
-            font-size: 18px;
-            font-weight: 400;  /* Lighter weight */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             margin: 0;
-            line-height: 28px;
+            font-size: 18px;
+            font-weight: 400;
             white-space: nowrap;
+            width: 100%;
+            text-align: center;
+            transition: opacity 0.3s ease;
+            line-height: 28px;
         }
 
         .korean-name {
@@ -146,19 +152,20 @@
             display: flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.3);
-            padding: 4px;
+            padding: 2px 4px;
             border-radius: 30px;
             gap: 6px;
+            height: 28px;
         }
 
         .nav a {
             color: #1a1a1a !important;
             text-shadow: none;
             text-decoration: none;
-            padding: 2px 8px;
+            padding: 0 8px;
             font-size: 16px;
-            font-weight: 400;  /* Remove bold */
-            margin-left: 0;
+            font-weight: 400;
+            line-height: 24px;
         }
 
         .nav a:hover {
