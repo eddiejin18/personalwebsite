@@ -81,7 +81,7 @@
             min-width: 100%;
             position: absolute;
             left: 0;
-            animation: slideImage 45s linear infinite;
+            animation: slideImage 60s linear infinite;
             border-radius: 12px;
             object-fit: cover;
         }
@@ -90,17 +90,11 @@
             0% {
                 transform: translateX(0);
             }
-            25% {
-                transform: translateX(-20%);  /* Move left */
-            }
             50% {
-                transform: translateX(-20%);  /* Pause at rightmost */
-            }
-            75% {
-                transform: translateX(0);     /* Return to start */
+                transform: translateX(-15%);
             }
             100% {
-                transform: translateX(0);     /* Pause at start */
+                transform: translateX(0);
             }
         }
 
@@ -127,6 +121,18 @@
             top: 0;
             transition: opacity 0.3s ease;
             white-space: nowrap;
+        }
+
+        .korean-name {
+            opacity: 0;
+        }
+
+        .name-container:hover .name {
+            opacity: 0;
+        }
+
+        .name-container:hover .korean-name {
+            opacity: 1;
         }
 
         .nav {
