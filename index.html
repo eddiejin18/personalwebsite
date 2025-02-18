@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 450px;
+            height: 380px;
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -78,8 +78,9 @@
 
         .sliding-image {
             height: 100%;
-            width: 1800px;
-            animation: slideImage 20s linear infinite;
+            width: auto;
+            min-width: 100%;
+            animation: slideImage 30s linear infinite;
             border-radius: 12px;
             object-fit: cover;
         }
@@ -89,7 +90,7 @@
                 transform: translateX(0);
             }
             50% {
-                transform: translateX(calc(-1150px));
+                transform: translateX(calc(-900px));
             }
             100% {
                 transform: translateX(0);
