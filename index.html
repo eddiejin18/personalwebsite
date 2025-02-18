@@ -47,7 +47,7 @@
         .header {
             position: relative;
             margin-bottom: 40px;
-            height: 380px;
+            height: 420px;  /* Adjusted for proper aspect ratio */
             overflow: hidden;
             border-radius: 12px;
             margin-top: 0;
@@ -77,14 +77,13 @@
         }
 
         .sliding-image {
-            height: auto;
-            width: 1000px;  /* Slightly wider than container (650px) */
+            height: 420px;  /* Match header height */
+            width: 1200px;  /* Width based on aspect ratio */
             position: absolute;
-            bottom: 0;  /* Align to bottom */
+            left: 0;
             animation: slideImage 30s linear infinite;
             border-radius: 12px;
-            object-fit: none;  /* Remove cover to maintain quality */
-            object-position: bottom;  /* Align from bottom */
+            object-fit: cover;
         }
 
         @keyframes slideImage {
@@ -92,16 +91,16 @@
                 transform: translateX(0);
             }
             25% {
-                transform: translateX(calc(-350px));  /* Move left by the difference */
+                transform: translateX(calc(-550px));  /* Only move within image bounds */
             }
             50% {
-                transform: translateX(calc(-350px));  /* Pause at rightmost point */
+                transform: translateX(calc(-550px));
             }
             75% {
-                transform: translateX(0);  /* Return to start */
+                transform: translateX(0);
             }
             100% {
-                transform: translateX(0);  /* Pause at leftmost point */
+                transform: translateX(0);
             }
         }
 
@@ -152,6 +151,9 @@
             text-shadow: none;
             text-decoration: none;
             margin-left: 20px;
+            font-size: 17px;  /* Slightly larger */
+            font-weight: 600;  /* Make bold */
+            letter-spacing: 0.2px;  /* Slightly improve readability */
         }
 
         .nav a:hover {
@@ -366,6 +368,11 @@
             height: 1px;
             background-color: var(--fg);
             margin: 2em 0;
+        }
+
+        .name-container h1 {
+            font-size: 19px;  /* Slightly larger to match nav */
+            font-weight: 600;  /* Match nav weight */
         }
     </style>
 </head>
