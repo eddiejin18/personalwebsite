@@ -55,9 +55,22 @@
             margin-left: 0;
         }
 
-        .name-container h1 {
+        .name-container a {
+            display: block;
+            text-decoration: none;
+            color: var(--fg);
+        }
+
+        .name, .korean-name {
             font-size: 18px;
             font-weight: 400;
+            margin: 0;
+            line-height: 28px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
         }
 
         .korean-name {
@@ -75,14 +88,15 @@
         .nav {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
         }
 
         .nav a {
-            text-decoration: none;
             color: var(--fg);
+            text-decoration: none;
             font-size: 16px;
             font-weight: 400;
+            margin-left: 0;
         }
 
         /* Animation styles */
