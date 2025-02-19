@@ -52,19 +52,12 @@
             position: relative;
             display: inline-block;
             height: 28px;
-            width: auto;
+            margin-left: 0;
         }
 
-        .name, .korean-name {
+        .name-container h1 {
             font-size: 18px;
-            font-weight: 500;
-            margin: 0;
-            line-height: 28px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transition: opacity 0.3s ease;
-            white-space: nowrap;
+            font-weight: 400;
         }
 
         .korean-name {
@@ -82,14 +75,14 @@
         .nav {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
         }
 
         .nav a {
             text-decoration: none;
-            margin-left: 20px;
+            color: var(--fg);
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         /* Animation styles */
@@ -235,8 +228,7 @@
 
     <div class="header animate-in">
         <div class="name-container">
-            <h1 class="name"><a href="/" style="text-decoration: none;">Edward Jin</a></h1>
-            <h1 class="korean-name"><a href="/" style="text-decoration: none;">진승준</a></h1>
+            <h1 class="name"><a href="/">Eddie Jin</a></h1>
         </div>
         <nav class="nav">
             <a href="writing.html" style="text-decoration: underline;">Writing</a>
