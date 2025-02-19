@@ -291,6 +291,18 @@
             localStorage.setItem('theme', newTheme);
             themeSwitch.classList.toggle('active');
         });
+
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        const nameContainer = document.querySelector('.name-container');
+        if (isMobile()) {
+            nameContainer.addEventListener('click', function(e) {
+                window.location.href = '/';
+                e.preventDefault();
+            });
+        }
     </script>
 </body>
 </html>
