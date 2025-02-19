@@ -421,8 +421,8 @@
         const themeSwitch = document.querySelector('.theme-switch');
         const html = document.documentElement;
 
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        // Change default from 'dark' to 'light'
+        const savedTheme = localStorage.getItem('theme') || 'light';
         html.setAttribute('data-theme', savedTheme);
         themeSwitch.classList.toggle('active', savedTheme === 'light');
 
