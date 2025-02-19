@@ -442,12 +442,13 @@
 
         // Update name container click behavior
         const nameContainer = document.querySelector('.name-container');
-        nameContainer.addEventListener('click', function(e) {
-            if (isMobile()) {
-                window.location.href = '/';  // Navigate home immediately on mobile
-                e.preventDefault();
-            }
-        });
+        const nameLink = nameContainer.querySelector('a');
+
+        if (isMobile()) {
+            // On mobile: disable hover effect and make click go straight to home
+            nameContainer.style.pointerEvents = 'none';  // Disable container hover
+            nameLink.style.pointerEvents = 'auto';      // Enable link click
+        }
     </script>
 </body>
 </html>
