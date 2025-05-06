@@ -201,7 +201,7 @@
             opacity: 0;
             transform: translateX(-40px);
             animation: sliderFadeIn 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
-            /* You can adjust duration and easing as desired */
+            animation-play-state: paused;
         }
 
         @keyframes sliderFadeIn {
@@ -215,12 +215,14 @@
         .seq-fade {
             opacity: 0;
             animation: fadeInLinear 0.5s linear forwards;
+            animation-play-state: paused;
         }
 
         /* For word-by-word fade-in (if you want it for intro only) */
         .seq-fade-word span {
             opacity: 0;
             animation: fadeInLinear 0.3s linear forwards;
+            animation-play-state: paused;
             display: inline-block;
         }
     </style>
@@ -234,33 +236,33 @@
         <a href="../writing.html">← Back</a>
     </div>
 
-    <h1 class="article-title fade-in" style="animation-delay: 0.2s;">Signals in the Noise</h1>
-    <div class="article-date fade-in" style="animation-delay: 0.3s;">May 4, 2025</div>
+    <h1 class="seq-fade" data-seq="0">Signals in the Noise</h1>
+    <div class="article-date seq-fade" data-seq="1">May 4, 2025</div>
 
     <div class="image-container">
-        <img src="../images/slider3.png" alt="Sliding Image" class="sliding-image slider-fade-in" data-seq="0">
+        <img src="../images/slider3.png" alt="Sliding Image" class="sliding-image slider-fade-in" data-seq="2">
     </div>
 
     <div class="article-content">
-        <p class="seq-fade seq-fade-word" data-seq="1">Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
+        <p class="seq-fade seq-fade-word" data-seq="3">Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
 
-        <p class="seq-fade" data-seq="2" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>1. A Clear North Star</b></p>
-        <p class="seq-fade" data-seq="3">When you ask most college founders — or even most founders in general — why they're building what they're building, many struggle to answer. If you follow up with, "Why spend the rest of your life solving this problem?" most have no answer at all. I believe the company you build should align with a broader, personal mission you've been working toward your whole life — whether it's longevity, climate change, national security, improving developer productivity, or something else.</p>
+        <p class="seq-fade" data-seq="4" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>1. A Clear North Star</b></p>
+        <p class="seq-fade" data-seq="5">When you ask most college founders — or even most founders in general — why they're building what they're building, many struggle to answer. If you follow up with, "Why spend the rest of your life solving this problem?" most have no answer at all. I believe the company you build should align with a broader, personal mission you've been working toward your whole life — whether it's longevity, climate change, national security, improving developer productivity, or something else.</p>
 
-        <p class="seq-fade" data-seq="4" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>2. Nobody Knows Who They Are</b></p>
-        <p class="seq-fade" data-seq="5">Most people are driven by the wrong things — status, money, fame. I look for founders who stay out of the spotlight, avoid the endless networking circuit, and instead show intense focus on research or honing their craft. Less talking, more doing. Those are early signals that they're building for the right reasons.</p>
+        <p class="seq-fade" data-seq="6" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>2. Nobody Knows Who They Are</b></p>
+        <p class="seq-fade" data-seq="7">Most people are driven by the wrong things — status, money, fame. I look for founders who stay out of the spotlight, avoid the endless networking circuit, and instead show intense focus on research or honing their craft. Less talking, more doing. Those are early signals that they're building for the right reasons.</p>
 
-        <p class="seq-fade" data-seq="6" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>3. If They Win, the World Changes</b></p>
-        <p class="seq-fade" data-seq="7">This is a bit more subjective and category-dependent. I personally enjoy deeptech and want to support founders solving important problems that advance society or strengthen national security. That said, I wouldn't complain about having invested in Ramp's seed round — even if startup banking doesn't fundamentally change the world.</p>
+        <p class="seq-fade" data-seq="8" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>3. If They Win, the World Changes</b></p>
+        <p class="seq-fade" data-seq="9">This is a bit more subjective and category-dependent. I personally enjoy deeptech and want to support founders solving important problems that advance society or strengthen national security. That said, I wouldn't complain about having invested in Ramp's seed round — even if startup banking doesn't fundamentally change the world.</p>
 
-        <p class="seq-fade" data-seq="8" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>4. Earned Secrets and Inflection Points</b></p>
-        <p class="seq-fade" data-seq="9">A why you and a why now. Credit to Mike Maples Jr., someone I've been fortunate to meet and learn from. He explains this better <a href="https://www.lennysnewsletter.com/p/how-to-find-a-great-startup-idea-mike-maples-jr" target="_blank" style="text-decoration: underline;">here</a>.</p>
+        <p class="seq-fade" data-seq="10" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>4. Earned Secrets and Inflection Points</b></p>
+        <p class="seq-fade" data-seq="11">A why you and a why now. Credit to Mike Maples Jr., someone I've been fortunate to meet and learn from. He explains this better <a href="https://www.lennysnewsletter.com/p/how-to-find-a-great-startup-idea-mike-maples-jr" target="_blank" style="text-decoration: underline;">here</a>.</p>
 
-        <p class="seq-fade" data-seq="10" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>5. Ability to Attract Talent</b></p>
-        <p class="seq-fade" data-seq="11">Non-obvious but probably the most important founder skill. It's the reason Elon will always find success in whatever company he starts. If a founder can't recruit top talent early, it's a bad sign. A gut check I like: would I quit everything and work for them on the spot?</p>
+        <p class="seq-fade" data-seq="12" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>5. Ability to Attract Talent</b></p>
+        <p class="seq-fade" data-seq="13">Non-obvious but probably the most important founder skill. It's the reason Elon will always find success in whatever company he starts. If a founder can't recruit top talent early, it's a bad sign. A gut check I like: would I quit everything and work for them on the spot?</p>
 
-        <p class="seq-fade" data-seq="12">I've only been angel investing for a short time, but I've already had the opportunity to co-invest alongside firms like Lux Capital, Greylock, BoxGroup, Accel, and others (see more <a href="../investing.html" style="text-decoration: underline;">here</a>). The great thing about venture is that it's ultimately judged by outcomes — time will tell if my intuitions are right.</p>
-        <p class="seq-fade" data-seq="13" style="opacity: 0.7; margin-top: 40px;">- Eddie</p>
+        <p class="seq-fade" data-seq="14">I've only been angel investing for a short time, but I've already had the opportunity to co-invest alongside firms like Lux Capital, Greylock, BoxGroup, Accel, and others (see more <a href="../investing.html" style="text-decoration: underline;">here</a>). The great thing about venture is that it's ultimately judged by outcomes — time will tell if my intuitions are right.</p>
+        <p class="seq-fade" data-seq="15" style="opacity: 0.7; margin-top: 40px;">- Eddie</p>
     </div>
 
     <script>
@@ -285,23 +287,38 @@
         document.querySelectorAll('.seq-fade-word').forEach(function(el) {
             const words = el.textContent.split(' ');
             el.innerHTML = words.map((word, i) =>
-                `<span style="animation-delay: ${i * 0.07}s">${word}</span>`
+                `<span>${word}</span>`
             ).join(' ');
         });
 
         // Sequential fade-in for all .seq-fade and .slider-fade-in elements
         window.addEventListener('DOMContentLoaded', function() {
-            const elements = Array.from(document.querySelectorAll('.slider-fade-in, .seq-fade'))
-                .sort((a, b) => (+a.dataset.seq) - (+b.dataset.seq));
-            let delay = 0;
-            const step = 400; // ms between each fade-in (adjust as needed)
-            elements.forEach((el, i) => {
-                setTimeout(() => {
-                    el.style.opacity = 1;
+            const elements = Array.from(document.querySelectorAll(
+                'h1.seq-fade, .article-date.seq-fade, .slider-fade-in, .seq-fade'
+            )).sort((a, b) => (+a.dataset.seq) - (+b.dataset.seq));
+
+            function fadeNext(i) {
+                if (i >= elements.length) return;
+                const el = elements[i];
+
+                // If it's a word-by-word fade
+                if (el.classList.contains('seq-fade-word')) {
+                    const spans = el.querySelectorAll('span');
+                    spans.forEach((span, idx) => {
+                        span.style.animationPlayState = 'running';
+                        span.style.animationDelay = (idx * 0.07) + 's';
+                    });
+                    // Wait for the last word to finish before next
+                    setTimeout(() => fadeNext(i + 1), spans.length * 70 + 300);
+                } else if (el.classList.contains('slider-fade-in')) {
                     el.style.animationPlayState = 'running';
-                }, delay);
-                delay += step;
-            });
+                    setTimeout(() => fadeNext(i + 1), 700);
+                } else {
+                    el.style.animationPlayState = 'running';
+                    setTimeout(() => fadeNext(i + 1), 500);
+                }
+            }
+            fadeNext(0);
         });
     </script>
 </body>
