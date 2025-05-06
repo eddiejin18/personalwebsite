@@ -319,50 +319,55 @@
             themeSwitch.classList.toggle('active');
         });
 
-        // Split all .seq-fade blocks into spans (word-by-word)
-        document.querySelectorAll('.seq-fade').forEach(function(el) {
-            // Don't split HTML tags inside (e.g., <b>), only text nodes
-            el.childNodes.forEach(function(node) {
-                if (node.nodeType === 3) { // text node
-                    const words = node.textContent.split(' ').map(word => word ? `<span>${word}</span>` : ' ');
-                    const temp = document.createElement('span');
-                    temp.innerHTML = words.join(' ');
-                    el.replaceChild(temp, node);
-                }
-            });
-        });
-
-        // Sequentially fade in each block, word by word
-        const elements = Array.from(document.querySelectorAll(
-            'h1.seq-fade, .article-date.seq-fade, .slider-fade-in-wrapper, .seq-fade'
-        )).sort((a, b) => (+a.dataset.seq) - (+b.dataset.seq));
-
-        function fadeNext(i) {
-            if (i >= elements.length) return;
-            const el = elements[i];
-
-            if (el.classList.contains('slider-fade-in-wrapper')) {
-                el.classList.add('visible');
-                setTimeout(() => fadeNext(i + 1), 500);
-            } else if (el.classList.contains('seq-fade')) {
-                const spans = el.querySelectorAll('span');
-                let j = 0;
-                function showSpan() {
-                    if (j >= spans.length) {
-                        setTimeout(() => fadeNext(i + 1), 100);
-                        return;
+        window.addEventListener('DOMContentLoaded', function() {
+            // Split all .seq-fade blocks into spans (word-by-word)
+            document.querySelectorAll('.seq-fade').forEach(function(el) {
+                // Only split text nodes, not HTML tags
+                el.childNodes.forEach(function(node) {
+                    if (node.nodeType === 3 && node.textContent.trim() !== '') { // text node
+                        const words = node.textContent.split(/(\s+)/).map(word =>
+                            word.trim() === '' ? word : `<span>${word}</span>`
+                        );
+                        const temp = document.createElement('span');
+                        temp.innerHTML = words.join('');
+                        el.replaceChild(temp, node);
                     }
-                    spans[j].classList.add('visible');
-                    j++;
-                    setTimeout(showSpan, 45); // 45ms per word, adjust for speed
+                });
+            });
+
+            // Sequentially fade in each block, word by word
+            const elements = Array.from(document.querySelectorAll(
+                'h1.seq-fade, .article-date.seq-fade, .slider-fade-in-wrapper, .seq-fade'
+            )).sort((a, b) => (+a.dataset.seq) - (+b.dataset.seq));
+
+            function fadeNext(i) {
+                if (i >= elements.length) return;
+                const el = elements[i];
+
+                if (el.classList.contains('slider-fade-in-wrapper')) {
+                    el.classList.add('visible');
+                    setTimeout(() => fadeNext(i + 1), 500);
+                } else if (el.classList.contains('seq-fade')) {
+                    el.classList.add('visible'); // Make parent visible first!
+                    const spans = el.querySelectorAll('span');
+                    let j = 0;
+                    function showSpan() {
+                        if (j >= spans.length) {
+                            setTimeout(() => fadeNext(i + 1), 100);
+                            return;
+                        }
+                        spans[j].classList.add('visible');
+                        j++;
+                        setTimeout(showSpan, 45); // 45ms per word, adjust for speed
+                    }
+                    showSpan();
+                } else {
+                    el.classList.add('visible');
+                    setTimeout(() => fadeNext(i + 1), 300);
                 }
-                showSpan();
-            } else {
-                el.classList.add('visible');
-                setTimeout(() => fadeNext(i + 1), 300);
             }
-        }
-        fadeNext(0);
+            fadeNext(0);
+        });
     </script>
 </body>
 </html> 
