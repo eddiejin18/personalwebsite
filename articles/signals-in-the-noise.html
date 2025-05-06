@@ -168,7 +168,7 @@
         /* Fade in each block linearly */
         .fade-in {
             opacity: 0;
-            animation: fadeInLinear 0.8s linear forwards;
+            animation: fadeInLinear 0.5s linear forwards;
         }
 
         @keyframes fadeInLinear {
@@ -180,7 +180,7 @@
         /* For word-by-word fade-in */
         .fade-in-seq span {
             opacity: 0;
-            animation: fadeInLinear 0.8s linear forwards;
+            animation: fadeInLinear 0.3s linear forwards;
             display: inline-block;
         }
 
@@ -202,18 +202,18 @@
         <div class="switch-handle"></div>
     </div>
 
-    <div class="header">
+    <div class="header fade-in" style="animation-delay: 0.1s;">
         <a href="../writing.html">← Back</a>
     </div>
 
-    <h1 class="article-title">Signals in the Noise</h1>
-    <div class="article-date">May 4, 2025</div>
+    <h1 class="article-title fade-in" style="animation-delay: 0.2s;">Signals in the Noise</h1>
+    <div class="article-date fade-in" style="animation-delay: 0.3s;">May 4, 2025</div>
 
-    <div class="image-container">
+    <div class="image-container fade-in" style="animation-delay: 0.4s;">
         <img src="../images/slider3.png" alt="Sliding Image" class="sliding-image">
     </div>
 
-    <div class="article-content">
+    <div class="article-content fade-in" style="animation-delay: 0.5s;">
         <p class="fade-in-seq">Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
 
         <p style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>1. A Clear North Star</b></p>
@@ -253,9 +253,19 @@
             themeSwitch.classList.toggle('active');
         });
 
+        // Word-by-word fade-in for .fade-in-seq
         document.querySelectorAll('.fade-in-seq').forEach(function(el) {
             const words = el.textContent.split(' ');
-            el.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+            el.innerHTML = words.map((word, i) =>
+                `<span style="animation-delay: ${i * 0.07}s">${word}</span>`
+            ).join(' ');
+        });
+
+        // Trigger fade-in for all .fade-in elements in order
+        window.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                el.style.opacity = 1; // Ensure initial state for animation
+            });
         });
     </script>
 </body>
