@@ -312,25 +312,19 @@
             themeSwitch.classList.toggle('active');
         });
 
-        function wrapTextNodesInSpans(node) {
-            if (node.nodeType === 3 && node.textContent.trim() !== '') {
-                // Only wrap if parent is not a span
-                if (node.parentNode.nodeName !== 'SPAN') {
-                    const words = node.textContent.split(/(\s+)/).map(word =>
-                        word.trim() === '' ? word : `<span>${word}</span>`
-                    );
-                    const temp = document.createElement('span');
-                    temp.innerHTML = words.join('');
-                    node.parentNode.replaceChild(temp, node);
-                }
-            } else if (node.nodeType === 1 && node.nodeName !== 'SPAN') {
-                Array.from(node.childNodes).forEach(wrapTextNodesInSpans);
-            }
-        }
-
         window.addEventListener('DOMContentLoaded', function() {
+            // Only wrap direct text nodes of .seq-fade elements
             document.querySelectorAll('.seq-fade').forEach(function(el) {
-                Array.from(el.childNodes).forEach(wrapTextNodesInSpans);
+                Array.from(el.childNodes).forEach(function(node) {
+                    if (node.nodeType === 3 && node.textContent.trim() !== '') {
+                        const words = node.textContent.split(/(\s+)/).map(word =>
+                            word.trim() === '' ? word : `<span>${word}</span>`
+                        );
+                        const temp = document.createElement('span');
+                        temp.innerHTML = words.join('');
+                        el.replaceChild(temp, node);
+                    }
+                });
             });
 
             const elements = Array.from(document.querySelectorAll(
@@ -346,7 +340,7 @@
                     setTimeout(() => fadeNext(i + 1), 500);
                 } else if (el.classList.contains('seq-fade')) {
                     el.classList.add('visible');
-                    const spans = el.querySelectorAll('span');
+                    const spans = el.querySelectorAll(':scope > span, :scope > * > span');
                     let j = 0;
                     function showSpan() {
                         if (j >= spans.length) {
