@@ -230,6 +230,35 @@
             animation-play-state: paused;
             display: inline-block;
         }
+
+        .seq-fade, .slider-fade-in-wrapper {
+            opacity: 0;
+            transition: opacity 0.3s linear, transform 0.3s linear;
+        }
+
+        .slider-fade-in-wrapper {
+            transform: translateX(-40px);
+        }
+
+        .slider-fade-in-wrapper.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .seq-fade.visible {
+            opacity: 1;
+        }
+
+        .seq-fade-word span {
+            opacity: 0;
+            transition: opacity 0.2s linear;
+            display: inline-block;
+        }
+
+        .seq-fade-word span.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -293,12 +322,9 @@
         // Word-by-word fade-in for .seq-fade-word
         document.querySelectorAll('.seq-fade-word').forEach(function(el) {
             const words = el.textContent.split(' ');
-            el.innerHTML = words.map((word, i) =>
-                `<span>${word}</span>`
-            ).join(' ');
+            el.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
         });
 
-        // Sequential fade-in for all .seq-fade and .slider-fade-in-wrapper elements
         window.addEventListener('DOMContentLoaded', function() {
             const elements = Array.from(document.querySelectorAll(
                 'h1.seq-fade, .article-date.seq-fade, .slider-fade-in-wrapper, .seq-fade'
@@ -308,20 +334,25 @@
                 if (i >= elements.length) return;
                 const el = elements[i];
 
-                // If it's a word-by-word fade
-                if (el.classList.contains('seq-fade-word')) {
-                    const spans = el.querySelectorAll('span');
-                    spans.forEach((span, idx) => {
-                        span.style.animationPlayState = 'running';
-                        span.style.animationDelay = (idx * 0.04) + 's';
-                    });
-                    // Wait for the last word to finish before next
-                    setTimeout(() => fadeNext(i + 1), spans.length * 40 + 200);
-                } else if (el.classList.contains('slider-fade-in-wrapper')) {
-                    el.style.animationPlayState = 'running';
+                if (el.classList.contains('slider-fade-in-wrapper')) {
+                    el.classList.add('visible');
                     setTimeout(() => fadeNext(i + 1), 500);
+                } else if (el.classList.contains('seq-fade-word')) {
+                    el.classList.add('visible');
+                    const spans = el.querySelectorAll('span');
+                    let j = 0;
+                    function showSpan() {
+                        if (j >= spans.length) {
+                            setTimeout(() => fadeNext(i + 1), 100);
+                            return;
+                        }
+                        spans[j].classList.add('visible');
+                        j++;
+                        setTimeout(showSpan, 60); // 60ms per word, adjust for speed
+                    }
+                    showSpan();
                 } else {
-                    el.style.animationPlayState = 'running';
+                    el.classList.add('visible');
                     setTimeout(() => fadeNext(i + 1), 300);
                 }
             }
