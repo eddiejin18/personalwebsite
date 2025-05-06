@@ -132,12 +132,32 @@
             overflow: hidden;
             border-radius: 8px;
             background: var(--bg);
+            position: relative;
+        }
+
+        .slider-fade-in-wrapper {
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: sliderFadeIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+            animation-play-state: paused;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes sliderFadeIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .sliding-image {
             height: 100%;
             width: auto;
+            min-width: 100%;
+            object-fit: contain;
             animation: slideImage 20s linear infinite;
+            display: block;
         }
 
         @keyframes slideImage {
@@ -195,21 +215,6 @@
         .fade-in-seq span:nth-child(9) { animation-delay: 0.85s; }
         .fade-in-seq span:nth-child(10) { animation-delay: 0.95s; }
         /* ...add more as needed */
-
-        /* Only fade-in the wrapper, not the image itself */
-        .slider-fade-in-wrapper {
-            opacity: 0;
-            transform: translateX(-40px);
-            animation: sliderFadeIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
-            animation-play-state: paused;
-        }
-
-        @keyframes sliderFadeIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
         /* Sequential fade-in for text blocks */
         .seq-fade {
