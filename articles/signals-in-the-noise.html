@@ -280,7 +280,7 @@
     </div>
 
     <div class="article-content">
-        <p class="seq-fade seq-fade-word" data-seq="3">Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
+        <p class="seq-fade" data-seq="3">Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
 
         <p class="seq-fade" data-seq="4" style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>1. A Clear North Star</b></p>
         <p class="seq-fade" data-seq="5">When you ask most college founders — or even most founders in general — why they're building what they're building, many struggle to answer. If you follow up with, "Why spend the rest of your life solving this problem?" most have no answer at all. I believe the company you build should align with a broader, personal mission you've been working toward your whole life — whether it's longevity, climate change, national security, improving developer productivity, or something else.</p>
@@ -337,20 +337,6 @@
                 if (el.classList.contains('slider-fade-in-wrapper')) {
                     el.classList.add('visible');
                     setTimeout(() => fadeNext(i + 1), 500);
-                } else if (el.classList.contains('seq-fade-word')) {
-                    el.classList.add('visible');
-                    const spans = el.querySelectorAll('span');
-                    let j = 0;
-                    function showSpan() {
-                        if (j >= spans.length) {
-                            setTimeout(() => fadeNext(i + 1), 100);
-                            return;
-                        }
-                        spans[j].classList.add('visible');
-                        j++;
-                        setTimeout(showSpan, 60); // 60ms per word, adjust for speed
-                    }
-                    showSpan();
                 } else {
                     el.classList.add('visible');
                     setTimeout(() => fadeNext(i + 1), 300);
