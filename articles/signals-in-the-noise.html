@@ -196,11 +196,11 @@
         .fade-in-seq span:nth-child(10) { animation-delay: 0.95s; }
         /* ...add more as needed */
 
-        /* Fade in and slide from left for the image */
-        .slider-fade-in {
+        /* Only fade-in the wrapper, not the image itself */
+        .slider-fade-in-wrapper {
             opacity: 0;
             transform: translateX(-40px);
-            animation: sliderFadeIn 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+            animation: sliderFadeIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
             animation-play-state: paused;
         }
 
@@ -214,14 +214,14 @@
         /* Sequential fade-in for text blocks */
         .seq-fade {
             opacity: 0;
-            animation: fadeInLinear 0.5s linear forwards;
+            animation: fadeInLinear 0.3s linear forwards;
             animation-play-state: paused;
         }
 
         /* For word-by-word fade-in (if you want it for intro only) */
         .seq-fade-word span {
             opacity: 0;
-            animation: fadeInLinear 0.3s linear forwards;
+            animation: fadeInLinear 0.2s linear forwards;
             animation-play-state: paused;
             display: inline-block;
         }
@@ -240,7 +240,9 @@
     <div class="article-date seq-fade" data-seq="1">May 4, 2025</div>
 
     <div class="image-container">
-        <img src="../images/slider3.png" alt="Sliding Image" class="sliding-image slider-fade-in" data-seq="2">
+        <div class="slider-fade-in-wrapper" data-seq="2">
+            <img src="../images/slider3.png" alt="Sliding Image" class="sliding-image">
+        </div>
     </div>
 
     <div class="article-content">
@@ -291,10 +293,10 @@
             ).join(' ');
         });
 
-        // Sequential fade-in for all .seq-fade and .slider-fade-in elements
+        // Sequential fade-in for all .seq-fade and .slider-fade-in-wrapper elements
         window.addEventListener('DOMContentLoaded', function() {
             const elements = Array.from(document.querySelectorAll(
-                'h1.seq-fade, .article-date.seq-fade, .slider-fade-in, .seq-fade'
+                'h1.seq-fade, .article-date.seq-fade, .slider-fade-in-wrapper, .seq-fade'
             )).sort((a, b) => (+a.dataset.seq) - (+b.dataset.seq));
 
             function fadeNext(i) {
@@ -306,16 +308,16 @@
                     const spans = el.querySelectorAll('span');
                     spans.forEach((span, idx) => {
                         span.style.animationPlayState = 'running';
-                        span.style.animationDelay = (idx * 0.07) + 's';
+                        span.style.animationDelay = (idx * 0.04) + 's';
                     });
                     // Wait for the last word to finish before next
-                    setTimeout(() => fadeNext(i + 1), spans.length * 70 + 300);
-                } else if (el.classList.contains('slider-fade-in')) {
-                    el.style.animationPlayState = 'running';
-                    setTimeout(() => fadeNext(i + 1), 700);
-                } else {
+                    setTimeout(() => fadeNext(i + 1), spans.length * 40 + 200);
+                } else if (el.classList.contains('slider-fade-in-wrapper')) {
                     el.style.animationPlayState = 'running';
                     setTimeout(() => fadeNext(i + 1), 500);
+                } else {
+                    el.style.animationPlayState = 'running';
+                    setTimeout(() => fadeNext(i + 1), 300);
                 }
             }
             fadeNext(0);
