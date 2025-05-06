@@ -164,6 +164,37 @@
             border-left: 2px solid var(--fg);
             font-style: italic;
         }
+
+        /* Fade in each block linearly */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInLinear 0.8s linear forwards;
+        }
+
+        @keyframes fadeInLinear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* For word-by-word fade-in */
+        .fade-in-seq span {
+            opacity: 0;
+            animation: fadeInLinear 0.8s linear forwards;
+            display: inline-block;
+        }
+
+        .fade-in-seq span:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in-seq span:nth-child(2) { animation-delay: 0.15s; }
+        .fade-in-seq span:nth-child(3) { animation-delay: 0.25s; }
+        .fade-in-seq span:nth-child(4) { animation-delay: 0.35s; }
+        .fade-in-seq span:nth-child(5) { animation-delay: 0.45s; }
+        .fade-in-seq span:nth-child(6) { animation-delay: 0.55s; }
+        .fade-in-seq span:nth-child(7) { animation-delay: 0.65s; }
+        .fade-in-seq span:nth-child(8) { animation-delay: 0.75s; }
+        .fade-in-seq span:nth-child(9) { animation-delay: 0.85s; }
+        .fade-in-seq span:nth-child(10) { animation-delay: 0.95s; }
+        /* ...add more as needed */
     </style>
 </head>
 <body>
@@ -183,7 +214,7 @@
     </div>
 
     <div class="article-content">
-        <p>Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
+        <p class="fade-in-seq">Below are a qualities I look for in founders. They aren't strict guidelines, just patterns I like to see. Since I'll likely be interviewing for investing roles soon, I thought I'd jot them down.</p>
 
         <p style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>1. A Clear North Star</b></p>
         <p>When you ask most college founders — or even most founders in general — why they're building what they're building, many struggle to answer. If you follow up with, "Why spend the rest of your life solving this problem?" most have no answer at all. I believe the company you build should align with a broader, personal mission you've been working toward your whole life — whether it's longevity, climate change, national security, improving developer productivity, or something else.</p>
@@ -220,6 +251,11 @@
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             themeSwitch.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.fade-in-seq').forEach(function(el) {
+            const words = el.textContent.split(' ');
+            el.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
         });
     </script>
 </body>
