@@ -185,10 +185,10 @@
         }
 
         /* Animation styles */
-        @keyframes fadeInDown {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -196,21 +196,30 @@
             }
         }
 
-        .animate-in {
-            animation: fadeInDown 0.6s ease-out forwards;
+        .word {
+            display: inline-block;
             opacity: 0;
+            animation: fadeInUp 0.36s ease-out forwards;
+        }
+
+        .header .word {
+            animation: fadeInUp 0.297s ease-out forwards;
+        }
+
+        /* Hide list items initially */
+        ul li {
+            opacity: 0;
+            animation: fadeInUp 0.40s ease-out forwards;
+        }
+
+        /* Remove the old animation classes */
+        .animate-in {
+            opacity: 1;
         }
 
         .content > * {
-            animation: fadeInDown 0.6s ease-out forwards;
-            opacity: 0;
+            opacity: 1;
         }
-
-        .content > *:nth-child(1) { animation-delay: 0.1s; }
-        .content > *:nth-child(2) { animation-delay: 0.2s; }
-        .content > *:nth-child(3) { animation-delay: 0.3s; }
-        .content > *:nth-child(4) { animation-delay: 0.4s; }
-        .content > *:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -220,30 +229,68 @@
 
     <div class="header animate-in">
         <div class="name-container">
-            <h1 class="name"><a href="/">Eddie Jin</a></h1>
+            <h1 class="name"><a href="/">
+                <span class="word" style="animation-delay: 0.05445s">Eddie</span> <span class="word" style="animation-delay: 0.1089s">Jin</span>
+            </a></h1>
             <h1 class="korean-name"><a href="/">진승준</a></h1>
         </div>
         <nav class="nav">
-            <a href="writing.html">Writing</a>
-            <a href="investing.html">Investing</a>
+            <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
+            <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
         </nav>
     </div>
 
     <div class="content">
-        <p class="animate-in">I like to be the first believer in people — before the world knows who they are.</p>
+        <p>
+            <span class="word" style="animation-delay: 0.4950s">I</span>
+            <span class="word" style="animation-delay: 0.5445s">like</span>
+            <span class="word" style="animation-delay: 0.5940s">to</span>
+            <span class="word" style="animation-delay: 0.6435s">be</span>
+            <span class="word" style="animation-delay: 0.6930s">the</span>
+            <span class="word" style="animation-delay: 0.7425s">first</span>
+            <span class="word" style="animation-delay: 0.7920s">believer</span>
+            <span class="word" style="animation-delay: 0.8415s">in</span>
+            <span class="word" style="animation-delay: 0.8910s">people</span>
+            <span class="word" style="animation-delay: 0.9405s">—</span>
+            <span class="word" style="animation-delay: 0.9900s">before</span>
+            <span class="word" style="animation-delay: 1.0395s">the</span>
+            <span class="word" style="animation-delay: 1.0890s">world</span>
+            <span class="word" style="animation-delay: 1.1385s">knows</span>
+            <span class="word" style="animation-delay: 1.1880s">who</span>
+            <span class="word" style="animation-delay: 1.2375s">they</span>
+            <span class="word" style="animation-delay: 1.2870s">are.</span>
+        </p>
         
-        <p class="animate-in">Current portfolio:</p>
+        <p>
+            <span class="word" style="animation-delay: 1.3860s">Current</span>
+            <span class="word" style="animation-delay: 1.4405s">portfolio:</span>
+        </p>
         
-        <ul class="animate-in">
-            <li>Stealth: Cloud-seeding for hurricane prevention.</li>
-            <li>Stealth: An operating system for our biofuture.</li>
-            <li><a href="https://www.inversionsemi.com/" target="_blank">Inversion Semi</a>: Next-generation chip fabrication machines.</li>
-            <li><a href="https://www.oligospace.com/" target="_blank">Oligo</a>: Fully automated satellite design platform.</li>
-            <li><a href="https://a37.ai" target="_blank">applied37</a>: The R&P lab reimagining DevOps.</li>
-            <li><a href="https://www.ulysses.eco/" target="_blank">Ulysses</a>: Fully autonomous, low-cost maritime robots.</li>
+        <ul>
+            <li style="animation-delay: 1.495s"><span class="word" style="animation-delay: 1.495s">Stealth:</span> <span class="word" style="animation-delay: 1.5495s">Cloud-seeding</span> <span class="word" style="animation-delay: 1.604s">for</span> <span class="word" style="animation-delay: 1.6585s">hurricane</span> <span class="word" style="animation-delay: 1.713s">prevention.</span></li>
+            <li style="animation-delay: 1.767s"><span class="word" style="animation-delay: 1.767s">Stealth:</span> <span class="word" style="animation-delay: 1.8215s">An</span> <span class="word" style="animation-delay: 1.876s">operating</span> <span class="word" style="animation-delay: 1.9305s">system</span> <span class="word" style="animation-delay: 1.985s">for</span> <span class="word" style="animation-delay: 2.040s">our</span> <span class="word" style="animation-delay: 2.095s">biofuture.</span></li>
+            <li style="animation-delay: 2.150s"><span class="word" style="animation-delay: 2.150s"><a href="https://www.inversionsemi.com/" target="_blank">Inversion Semi</a>:</span> <span class="word" style="animation-delay: 2.2045s">Next-generation</span> <span class="word" style="animation-delay: 2.259s">chip</span> <span class="word" style="animation-delay: 2.3135s">fabrication</span> <span class="word" style="animation-delay: 2.368s">machines.</span></li>
+            <li style="animation-delay: 2.422s"><span class="word" style="animation-delay: 2.422s"><a href="https://www.oligospace.com/" target="_blank">Oligo</a>:</span> <span class="word" style="animation-delay: 2.4765s">Fully</span> <span class="word" style="animation-delay: 2.531s">automated</span> <span class="word" style="animation-delay: 2.5855s">satellite</span> <span class="word" style="animation-delay: 2.640s">design</span> <span class="word" style="animation-delay: 2.6945s">platform.</span></li>
+            <li style="animation-delay: 2.749s"><span class="word" style="animation-delay: 2.749s"><a href="https://a37.ai" target="_blank">applied37</a>:</span> <span class="word" style="animation-delay: 2.8035s">The</span> <span class="word" style="animation-delay: 2.858s">R&P</span> <span class="word" style="animation-delay: 2.9125s">lab</span> <span class="word" style="animation-delay: 2.967s">reimagining</span> <span class="word" style="animation-delay: 3.0215s">DevOps.</span></li>
+            <li style="animation-delay: 3.076s"><span class="word" style="animation-delay: 3.076s"><a href="https://www.ulysses.eco/" target="_blank">Ulysses</a>:</span> <span class="word" style="animation-delay: 3.1305s">Fully</span> <span class="word" style="animation-delay: 3.185s">autonomous,</span> <span class="word" style="animation-delay: 3.2395s">low-cost</span> <span class="word" style="animation-delay: 3.294s">maritime</span> <span class="word" style="animation-delay: 3.3485s">robots.</span></li>
         </ul>
 
-        <p class="animate-in">If you're interested in joining any of these companies - shoot me an <a href="mailto:eddiejin18@gmail.com">email</a>.</p>
+        <p>
+            <span class="word" style="animation-delay: 3.4475s">If</span>
+            <span class="word" style="animation-delay: 3.502s">you're</span>
+            <span class="word" style="animation-delay: 3.5565s">interested</span>
+            <span class="word" style="animation-delay: 3.611s">in</span>
+            <span class="word" style="animation-delay: 3.6655s">joining</span>
+            <span class="word" style="animation-delay: 3.720s">any</span>
+            <span class="word" style="animation-delay: 3.7745s">of</span>
+            <span class="word" style="animation-delay: 3.829s">these</span>
+            <span class="word" style="animation-delay: 3.8835s">companies</span>
+            <span class="word" style="animation-delay: 3.938s">-</span>
+            <span class="word" style="animation-delay: 3.9925s">shoot</span>
+            <span class="word" style="animation-delay: 4.047s">me</span>
+            <span class="word" style="animation-delay: 4.1015s">an</span>
+            <span class="word" style="animation-delay: 4.156s"><a href="mailto:eddiejin18@gmail.com">email</a>.</span>
+        </p>
     </div>
 
     <script>

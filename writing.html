@@ -104,10 +104,10 @@
         }
 
         /* Animation styles */
-        @keyframes fadeInDown {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -115,19 +115,20 @@
             }
         }
 
-        .animate-in {
-            animation: fadeInDown 0.6s ease-out forwards;
+        .word {
+            display: inline-block;
             opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
         }
 
-        .content > * {
-            animation: fadeInDown 0.6s ease-out forwards;
-            opacity: 0;
+        .header .word {
+            animation: fadeInUp 0.297s ease-out forwards;
         }
 
-        .content > *:nth-child(1) { animation-delay: 0.1s; }
-        .content > *:nth-child(2) { animation-delay: 0.2s; }
-        .content > *:nth-child(3) { animation-delay: 0.3s; }
+        ul li {
+            opacity: 1;
+            animation: none;
+        }
 
         .article-list {
             list-style: none;
@@ -244,38 +245,70 @@
         <div class="switch-handle"></div>
     </div>
 
-    <div class="header animate-in">
+    <div class="header">
         <div class="name-container">
-            <h1 class="name"><a href="/">Eddie Jin</a></h1>
+            <h1 class="name"><a href="/">
+                <span class="word" style="animation-delay: 0.05445s">Eddie</span> <span class="word" style="animation-delay: 0.1089s">Jin</span>
+            </a></h1>
             <h1 class="korean-name"><a href="/">진승준</a></h1>
         </div>
         <nav class="nav">
-            <a href="writing.html">Writing</a>
-            <a href="investing.html">Investing</a>
+            <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
+            <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
         </nav>
     </div>
 
     <div class="content">
-        <p class="animate-in" style="margin-bottom: 40px;">A collection of writings that serve as an extension of my unfiltered thoughts.</p>
+        <p style="margin-bottom: 40px;">
+            <span class="word" style="animation-delay: 0.4950s">A</span>
+            <span class="word" style="animation-delay: 0.5445s">collection</span>
+            <span class="word" style="animation-delay: 0.5940s">of</span>
+            <span class="word" style="animation-delay: 0.6435s">writings</span>
+            <span class="word" style="animation-delay: 0.6930s">that</span>
+            <span class="word" style="animation-delay: 0.7425s">serve</span>
+            <span class="word" style="animation-delay: 0.7920s">as</span>
+            <span class="word" style="animation-delay: 0.8415s">an</span>
+            <span class="word" style="animation-delay: 0.8910s">extension</span>
+            <span class="word" style="animation-delay: 0.9405s">of</span>
+            <span class="word" style="animation-delay: 0.9900s">my</span>
+            <span class="word" style="animation-delay: 1.0395s">unfiltered</span>
+            <span class="word" style="animation-delay: 1.0890s">thoughts.</span>
+        </p>
         
         <ul class="article-list">
-            <li class="article-item animate-in" style="margin-left: 20px;">
-                • <a href="articles/signals-in-the-noise.html" class="article-link" style="display: inline-block;">
-                    <span style="font-style: italic; display: inline-block;">Signals in the Noise</span>
+            <li class="article-item">
+                <span class="word" style="animation-delay: 1.1385s">•</span> <a href="articles/signals-in-the-noise.html" class="article-link">
+                    <span class="word" style="animation-delay: 1.1385s">Signals</span>
+                    <span class="word" style="animation-delay: 1.1880s">in</span>
+                    <span class="word" style="animation-delay: 1.2375s">the</span>
+                    <span class="word" style="animation-delay: 1.2870s">Noise</span>
                 </a>
-                <span style="opacity: 0.7; margin-left: 8px;">May 4, 2025</span>
+                <span style="opacity: 0.7; margin-left: 8px;">
+                    <span class="word" style="animation-delay: 1.3365s;">May</span>
+                    <span class="word" style="animation-delay: 1.3860s;">4,</span>
+                    <span class="word" style="animation-delay: 1.4355s;">2025</span>
+                </span>
             </li>
-            <li class="article-item animate-in" style="margin-left: 20px;">
-                • <a href="articles/insecurity.html" class="article-link" style="display: inline-block;">
-                    <span style="font-style: italic; display: inline-block;">Insecurity</span>
+            <li class="article-item">
+                <span class="word" style="animation-delay: 1.4850s">•</span> <a href="articles/insecurity.html" class="article-link">
+                    <span class="word" style="animation-delay: 1.4850s">Insecurity</span>
                 </a>
-                <span style="opacity: 0.7; margin-left: 8px;">Feb 10, 2025</span>
+                <span style="opacity: 0.7; margin-left: 8px;">
+                    <span class="word" style="animation-delay: 1.5345s;">Feb</span>
+                    <span class="word" style="animation-delay: 1.5840s;">10,</span>
+                    <span class="word" style="animation-delay: 1.6335s;">2025</span>
+                </span>
             </li>
-            <li class="article-item animate-in" style="margin-left: 20px;">
-                • <a href="articles/2024-reflections.html" class="article-link" style="display: inline-block;">
-                    <span style="font-style: italic; display: inline-block;">2024 Reflections</span>
+            <li class="article-item">
+                <span class="word" style="animation-delay: 1.6830s">•</span> <a href="articles/2024-reflections.html" class="article-link">
+                    <span class="word" style="animation-delay: 1.6830s;">2024</span>
+                    <span class="word" style="animation-delay: 1.7325s;">Reflections</span>
                 </a>
-                <span style="opacity: 0.7; margin-left: 8px;">Jan 4, 2025</span>
+                <span style="opacity: 0.7; margin-left: 8px;">
+                    <span class="word" style="animation-delay: 1.7820s;">Jan</span>
+                    <span class="word" style="animation-delay: 1.8315s;">4,</span>
+                    <span class="word" style="animation-delay: 1.8810s;">2025</span>
+                </span>
             </li>
         </ul>
     </div>

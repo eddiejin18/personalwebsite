@@ -182,10 +182,20 @@
         }
 
         /* Animation styles */
-        @keyframes fadeInDown {
+        .word {
+            opacity: 0;
+            display: inline-block;
+            animation: fadeIn 0.27s ease-out forwards;
+        }
+
+        .header .word {
+            animation: fadeIn 0.297s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -193,30 +203,15 @@
             }
         }
 
-        .animate-in {
-            animation: fadeInDown 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Update animation selectors to target all direct children including lists */
+        /* Remove old animation styles */
         .content > *,
-        .content > ul > li {
-            animation: fadeInDown 0.6s ease-out forwards;
-            opacity: 0;
+        .content p .achievements-container {
+            opacity: 1;
         }
 
-        /* Stagger all elements with consistent delays */
-        .content > *:nth-child(1) { animation-delay: 0.1s; }
-        .content > *:nth-child(2) { animation-delay: 0.2s; }
-        .content > p > .achievements-container { animation-delay: 0.3s; }
-        .content > *:nth-child(3) { animation-delay: 0.4s; }
-        .content > *:nth-child(4) { animation-delay: 0.5s; }
-        .content > *:nth-child(5) { animation-delay: 0.6s; }
-        .content > *:nth-child(6) { animation-delay: 0.7s; }
-        .content > *:nth-child(7) { animation-delay: 0.8s; }
-        .content > *:nth-child(8) { animation-delay: 0.9s; }
-        .content > *:nth-child(9) { animation-delay: 1.0s; }
-        .content > *:nth-child(10) { animation-delay: 1.1s; }
+        ul li {
+            opacity: 1;
+        }
 
         .quote {
             margin-top: 60px;
@@ -267,13 +262,6 @@
             display: block;
             margin-right: auto;
             margin-left: auto;
-        }
-
-        /* Update animation sequence */
-        .content > *,
-        .content p .achievements-container {
-            animation: fadeInDown 0.6s ease-out forwards;
-            opacity: 0;
         }
 
         /* Toggle switch container */
@@ -376,23 +364,132 @@
         </div>
         <div class="header-content">
             <div class="name-container">
-                <h1 class="name"><a href="/" style="text-decoration: none;">Eddie Jin</a></h1>
+                <h1 class="name"><a href="/" style="text-decoration: none;">
+                    <span class="word" style="animation-delay: 0.05445s">Eddie</span> <span class="word" style="animation-delay: 0.1089s">Jin</span>
+                </a></h1>
                 <h1 class="korean-name"><a href="/" style="text-decoration: none;">진승준</a></h1>
             </div>
             <nav class="nav">
-                <a href="writing.html">Writing</a>
-                <a href="investing.html">Investing</a>
+                <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
+                <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
             </nav>
         </div>
     </div>
 
     <div class="content">
-        <p class="animate-in">Hey, I'm Eddie! I grew up in Arizona and Los Angeles. Currently, I'm a senior at UC San Diego studying Math-CS and Business Economics, and a Partner at <a href="https://dormroomfund.com" target="_blank">Dorm Room Fund</a>. This summer, I'll be working at <a href="https://armada.ai" target="_blank">Armada</a> as an <a href="https://www.8vc.com/fellowships" target="_blank">8VC Fellow</a>. In the past, I've worked at <a href="https://fileread.com" target="_blank">Fileread</a>, <a href="https://spero.vc" target="_blank">Spero Ventures</a>, and <a href="https://www.cacrescentfund.com" target="_blank">Crescent Fund</a>. I am a strong believer in American Exceptionalism and the importance of pursuing things out of pure interest rather than status or validation. Outside of work, you can find me writing, taking photos, or watching Tottenham lose. Please don't hesitate to reach out below.</p>
+        <p>
+            <span class="word" style="animation-delay: 0.4950s">Hey,</span>
+            <span class="word" style="animation-delay: 0.5445s">I'm</span>
+            <span class="word" style="animation-delay: 0.5940s">Eddie!</span>
+            <span class="word" style="animation-delay: 0.6435s">I</span>
+            <span class="word" style="animation-delay: 0.6930s">grew</span>
+            <span class="word" style="animation-delay: 0.7425s">up</span>
+            <span class="word" style="animation-delay: 0.7920s">in</span>
+            <span class="word" style="animation-delay: 0.8415s">Arizona</span>
+            <span class="word" style="animation-delay: 0.8910s">and</span>
+            <span class="word" style="animation-delay: 0.9405s">Los</span>
+            <span class="word" style="animation-delay: 0.9900s">Angeles.</span>
+            <span class="word" style="animation-delay: 1.0395s">Currently,</span>
+            <span class="word" style="animation-delay: 1.0890s">I'm</span>
+            <span class="word" style="animation-delay: 1.1385s">a</span>
+            <span class="word" style="animation-delay: 1.1880s">senior</span>
+            <span class="word" style="animation-delay: 1.2375s">at</span>
+            <span class="word" style="animation-delay: 1.2870s">UC</span>
+            <span class="word" style="animation-delay: 1.3365s">San</span>
+            <span class="word" style="animation-delay: 1.3860s">Diego</span>
+            <span class="word" style="animation-delay: 1.4355s">studying</span>
+            <span class="word" style="animation-delay: 1.4850s">Math-CS</span>
+            <span class="word" style="animation-delay: 1.5345s">and</span>
+            <span class="word" style="animation-delay: 1.5840s">Business</span>
+            <span class="word" style="animation-delay: 1.6335s">Economics,</span>
+            <span class="word" style="animation-delay: 1.6830s">and</span>
+            <span class="word" style="animation-delay: 1.7325s">a</span>
+            <span class="word" style="animation-delay: 1.7820s">Partner</span>
+            <span class="word" style="animation-delay: 1.8315s">at</span>
+            <a href="https://dormroomfund.com" target="_blank" class="word" style="animation-delay: 1.8810s">Dorm Room Fund</a>
+            <span class="word" style="animation-delay: 1.9305s">.</span>
+            <span class="word" style="animation-delay: 1.9800s">This</span>
+            <span class="word" style="animation-delay: 2.0295s">summer,</span>
+            <span class="word" style="animation-delay: 2.0790s">I'll</span>
+            <span class="word" style="animation-delay: 2.1285s">be</span>
+            <span class="word" style="animation-delay: 2.1780s">working</span>
+            <span class="word" style="animation-delay: 2.2275s">at</span>
+            <a href="https://armada.ai" target="_blank" class="word" style="animation-delay: 2.2770s">Armada</a>
+            <span class="word" style="animation-delay: 2.3265s">as</span>
+            <span class="word" style="animation-delay: 2.3760s">an</span>
+            <a href="https://www.8vc.com/fellowships" target="_blank" class="word" style="animation-delay: 2.4255s">8VC Fellow</a>
+            <span class="word" style="animation-delay: 2.4750s">.</span>
+            <span class="word" style="animation-delay: 2.5245s">In</span>
+            <span class="word" style="animation-delay: 2.5740s">the</span>
+            <span class="word" style="animation-delay: 2.6235s">past,</span>
+            <span class="word" style="animation-delay: 2.6730s">I've</span>
+            <span class="word" style="animation-delay: 2.7225s">worked</span>
+            <span class="word" style="animation-delay: 2.7720s">at</span>
+            <a href="https://fileread.com" target="_blank" class="word" style="animation-delay: 2.8215s">Fileread</a>
+            <span class="word" style="animation-delay: 2.8710s">,</span>
+            <a href="https://spero.vc" target="_blank" class="word" style="animation-delay: 2.9205s">Spero Ventures</a>
+            <span class="word" style="animation-delay: 2.9700s">,</span>
+            <span class="word" style="animation-delay: 3.0195s">and</span>
+            <a href="https://www.cacrescentfund.com" target="_blank" class="word" style="animation-delay: 3.0690s">Crescent Fund</a>
+            <span class="word" style="animation-delay: 3.1185s">.</span>
+            <span class="word" style="animation-delay: 3.1680s">I</span>
+            <span class="word" style="animation-delay: 3.2175s">am</span>
+            <span class="word" style="animation-delay: 3.2670s">a</span>
+            <span class="word" style="animation-delay: 3.3165s">strong</span>
+            <span class="word" style="animation-delay: 3.3660s">believer</span>
+            <span class="word" style="animation-delay: 3.4155s">in</span>
+            <span class="word" style="animation-delay: 3.4650s">American</span>
+            <span class="word" style="animation-delay: 3.5145s">Exceptionalism</span>
+            <span class="word" style="animation-delay: 3.5640s">and</span>
+            <span class="word" style="animation-delay: 3.6135s">the</span>
+            <span class="word" style="animation-delay: 3.6630s">importance</span>
+            <span class="word" style="animation-delay: 3.7125s">of</span>
+            <span class="word" style="animation-delay: 3.7620s">pursuing</span>
+            <span class="word" style="animation-delay: 3.8115s">things</span>
+            <span class="word" style="animation-delay: 3.8610s">out</span>
+            <span class="word" style="animation-delay: 3.9105s">of</span>
+            <span class="word" style="animation-delay: 3.9600s">pure</span>
+            <span class="word" style="animation-delay: 4.0095s">interest</span>
+            <span class="word" style="animation-delay: 4.0590s">rather</span>
+            <span class="word" style="animation-delay: 4.1085s">than</span>
+            <span class="word" style="animation-delay: 4.1580s">status</span>
+            <span class="word" style="animation-delay: 4.2075s">or</span>
+            <span class="word" style="animation-delay: 4.2570s">validation.</span>
+            <span class="word" style="animation-delay: 4.3065s">Outside</span>
+            <span class="word" style="animation-delay: 4.3560s">of</span>
+            <span class="word" style="animation-delay: 4.4055s">work,</span>
+            <span class="word" style="animation-delay: 4.4550s">you</span>
+            <span class="word" style="animation-delay: 4.5045s">can</span>
+            <span class="word" style="animation-delay: 4.5540s">find</span>
+            <span class="word" style="animation-delay: 4.6035s">me</span>
+            <span class="word" style="animation-delay: 4.6530s">writing,</span>
+            <span class="word" style="animation-delay: 4.7025s">playing</span>
+            <span class="word" style="animation-delay: 4.7520s">poker,</span>
+            <span class="word" style="animation-delay: 4.8015s">or</span>
+            <span class="word" style="animation-delay: 4.8510s">watching</span>
+            <span class="word" style="animation-delay: 4.9005s">Tottenham</span>
+            <span class="word" style="animation-delay: 4.9500s">lose.</span>
+            <span class="word" style="animation-delay: 5.0000s">Please</span>
+            <span class="word" style="animation-delay: 5.0500s">don't</span>
+            <span class="word" style="animation-delay: 5.1000s">hesitate</span>
+            <span class="word" style="animation-delay: 5.1500s">to</span>
+            <span class="word" style="animation-delay: 5.2000s">reach</span>
+            <span class="word" style="animation-delay: 5.2500s">out</span>
+            <span class="word" style="animation-delay: 5.3000s">below.</span>
+        </p>
 
-        <div class="social-links animate-in">
-            <a href="https://www.linkedin.com/in/eddieejin" target="_blank">LinkedIn (/eddieejin)</a>
-            <a href="https://x.com/eddieejin" target="_blank">X (@eddieejin)</a>
-            <a href="mailto:eddiejin18@gmail.com">Email</a>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/eddieejin" target="_blank">
+              <span class="word" style="animation-delay: 5.3500s">LinkedIn</span>
+              <span class="word" style="animation-delay: 5.4000s">(/eddieejin)</span>
+            </a>
+            <a href="https://x.com/eddieejin" target="_blank">
+              <span class="word" style="animation-delay: 5.4500s">X</span>
+              <span class="word" style="animation-delay: 5.5000s">(@eddieejin)</span>
+            </a>
+            <a href="mailto:eddiejin18@gmail.com">
+              <span class="word" style="animation-delay: 5.5500s">Email</span>
+            </a>
         </div>
     </div>
 
