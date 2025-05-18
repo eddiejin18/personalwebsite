@@ -12,8 +12,8 @@
             --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --text: 16px;
             --leading: 28px;
-            --fg: #f2f2f2;
-            --bg: #1a1a1a;
+            --fg: #696969;
+            --bg: #f2f2f2;
         }
 
         body {
@@ -34,9 +34,8 @@
         }
 
         a {
-            color: var(--fg);
-            text-decoration: underline;
-            text-underline-offset: 2px;
+            color: #000000;
+            text-decoration: none;
         }
 
         a:hover {
@@ -63,7 +62,7 @@
         .name-container a {
             display: block;
             text-decoration: none;
-            color: var(--fg) !important;
+            color: #000000 !important;
         }
 
         .name, .korean-name {
@@ -97,91 +96,14 @@
         }
 
         .nav a {
-            color: var(--fg);
+            color: #000000;
             text-decoration: none;
             font-size: 16px;
             font-weight: 400;
         }
 
         .nav a[href="investing.html"] {
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-
-        /* Toggle switch container */
-        .theme-switch {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 30px;
-            background: #1a1a1a;
-            border-radius: 30px;
-            cursor: pointer;
-            padding: 4px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Toggle circle */
-        .switch-handle {
-            width: 22px;
-            height: 22px;
-            background: #fff;
-            border-radius: 50%;
-            transform: translateX(0);
-            transition: transform 0.3s ease;
-        }
-
-        /* Adjust emoji positioning */
-        .theme-switch::before {
-            content: "🌙";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-        }
-
-        .theme-switch::after {
-            content: "☀️";
-            position: absolute;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            opacity: 0;
-        }
-
-        /* Light theme styles */
-        [data-theme="light"] {
-            --fg: #1a1a1a;
-            --bg: #f2f2f2;
-        }
-
-        /* Dark theme styles */
-        [data-theme="dark"] {
-            --fg: #f2f2f2;
-            --bg: #1a1a1a;
-        }
-
-        /* Switch active state */
-        .theme-switch.active {
-            background: #f2f2f2;
-        }
-
-        .theme-switch.active .switch-handle {
-            transform: translateX(30px);
-            background: #666666;
-        }
-
-        .theme-switch.active::before {
-            opacity: 0;
-        }
-
-        .theme-switch.active::after {
-            opacity: 1;
+            text-decoration: none;
         }
 
         /* Animation styles */
@@ -223,10 +145,6 @@
     </style>
 </head>
 <body>
-    <div class="theme-switch">
-        <div class="switch-handle"></div>
-    </div>
-
     <div class="header animate-in">
         <div class="name-container">
             <h1 class="name"><a href="/">
@@ -295,22 +213,6 @@
     </div>
 
     <script>
-        const themeSwitch = document.querySelector('.theme-switch');
-        const html = document.documentElement;
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeSwitch.classList.toggle('active', savedTheme === 'light');
-
-        themeSwitch.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeSwitch.classList.toggle('active');
-        });
-
         function isMobile() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }

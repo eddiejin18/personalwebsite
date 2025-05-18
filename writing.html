@@ -1,347 +1,267 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Edward Jin's Writing">
-    <title>Writing | Edward Jin</title>
-    <link rel="icon" type="image/svg+xml" href="ej.svg">
-    <style>
-        :root {
-            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --text: 16px;
-            --leading: 28px;
-            --fg: #f2f2f2;
-            --bg: #1a1a1a;
-        }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Edward Jin's Writing">
+        <title>Writing | Edward Jin</title>
+        <link rel="icon" type="image/svg+xml" href="ej.svg">
+        <style>
+            :root {
+                --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                --text: 16px;
+                --leading: 28px;
+                --fg: #696969;
+                --bg: #f2f2f2;
+            }
 
-        body {
-            font-family: var(--font-sans);
-            max-width: 650px;
-            margin: 80px auto;
-            padding: 0 15px;
-            line-height: var(--leading);
-            font-size: var(--text);
-            color: var(--fg);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+            body {
+                font-family: var(--font-sans);
+                max-width: 650px;
+                margin: 80px auto;
+                padding: 0 15px;
+                line-height: var(--leading);
+                font-size: var(--text);
+                color: var(--fg);
+                background: var(--bg);
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
 
-        a {
-            color: var(--fg);
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
+            a {
+                color: #000000;
+                text-decoration: none;
+            }
 
-        a:hover {
-            opacity: 0.8;
-        }
+            a:hover {
+                opacity: 0.8;
+            }
 
-        .header {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            padding: 13px 20px 13px 0;
-            margin-top: 0;
-        }
+            .header {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 40px;
+                padding: 13px 20px 13px 0;
+                margin-top: 0;
+            }
 
-        .name-container {
-            position: relative;
-            display: inline-block;
-            height: 28px;
-            margin-left: 0;
-        }
+            .name-container {
+                position: relative;
+                display: inline-block;
+                height: 28px;
+                margin-left: 0;
+            }
 
-        .name-container a {
-            display: block;
-            text-decoration: none;
-            color: var(--fg) !important;
-        }
+            .name-container a {
+                display: block;
+                text-decoration: none;
+                color: #000000 !important;
+            }
 
-        .name, .korean-name {
-            font-size: 18px;
-            font-weight: 400;
-            margin: 0;
-            line-height: 28px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transition: opacity 0.3s ease;
-            white-space: nowrap;
-        }
+            .name, .korean-name {
+                font-size: 18px;
+                font-weight: 400;
+                margin: 0;
+                line-height: 28px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transition: opacity 0.3s ease;
+                white-space: nowrap;
+            }
 
-        .korean-name {
-            opacity: 0;
-        }
-
-        .name-container:hover .name {
-            opacity: 0;
-        }
-
-        .name-container:hover .korean-name {
-            opacity: 1;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav a {
-            color: var(--fg);
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        .nav a[href="writing.html"] {
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-
-        /* Animation styles */
-        @keyframes fadeInUp {
-            from {
+            .korean-name {
                 opacity: 0;
-                transform: translateY(10px);
             }
-            to {
+
+            .name-container:hover .name {
+                opacity: 0;
+            }
+
+            .name-container:hover .korean-name {
                 opacity: 1;
-                transform: translateY(0);
             }
-        }
 
-        .word {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeInUp 0.27s ease-out forwards;
-        }
+            .nav {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
 
-        .header .word {
-            animation: fadeInUp 0.297s ease-out forwards;
-        }
+            .nav a {
+                color: #000000;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 400;
+            }
 
-        ul li {
-            opacity: 1;
-            animation: none;
-        }
+            .nav a[href="writing.html"] {
+                text-decoration: none;
+            }
 
-        .article-list {
-            list-style: none;
-            padding: 0;
-        }
+            /* Animation styles */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
 
-        .article-item {
-            margin-bottom: 20px;
-        }
+            .word {
+                display: inline-block;
+                opacity: 0;
+                animation: fadeInUp 0.27s ease-out forwards;
+            }
 
-        .article-link {
-            font-size: 16px;
-            text-decoration: none;
-        }
+            .header .word {
+                animation: fadeInUp 0.297s ease-out forwards;
+            }
 
-        .article-link:hover {
-            opacity: 0.8;
-        }
+            ul li {
+                opacity: 1;
+                animation: none;
+            }
 
-        /* Add these styles for the theme toggle */
-        .left-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+            .article-list {
+                list-style: none;
+                padding: 0;
+            }
 
-        .theme-toggle {
-            background: none;
-            border: none;
-            padding: 0;
-            color: var(--fg);
-            cursor: pointer;
-            height: 28px;
-            width: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+            .article-item {
+                margin-bottom: 20px;
+            }
 
-        .theme-toggle:hover {
-            opacity: 0.8;
-        }
+            .article-link {
+                font-size: 16px;
+                text-decoration: none;
+            }
 
-        /* Theme switch styles */
-        .theme-switch {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 30px;
-            background: #1a1a1a;
-            border-radius: 30px;
-            cursor: pointer;
-            padding: 4px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-        }
+            .article-link:hover {
+                opacity: 0.8;
+            }
 
-        .switch-handle {
-            width: 22px;
-            height: 22px;
-            background: #fff;
-            border-radius: 50%;
-            transform: translateX(0);
-            transition: transform 0.3s ease;
-        }
+            /* Add these styles for the theme toggle */
+            .left-header {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
 
-        .theme-switch::before {
-            content: "🌙";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-        }
+            .theme-toggle {
+                background: none;
+                border: none;
+                padding: 0;
+                color: var(--fg);
+                cursor: pointer;
+                height: 28px;
+                width: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-        .theme-switch::after {
-            content: "☀️";
-            position: absolute;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            opacity: 0;
-        }
+            .theme-toggle:hover {
+                opacity: 0.8;
+            }
 
-        .theme-switch.active {
-            background: #f2f2f2;
-        }
+            /* Theme switch styles */
+            .theme-switch {
+                display: none;
+            }
 
-        .theme-switch.active .switch-handle {
-            transform: translateX(30px);
-            background: #666666;
-        }
-
-        .theme-switch.active::before {
-            opacity: 0;
-        }
-
-        .theme-switch.active::after {
-            opacity: 1;
-        }
-
-        [data-theme="light"] {
-            --fg: #1a1a1a;
-            --bg: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <div class="theme-switch">
-        <div class="switch-handle"></div>
-    </div>
-
-    <div class="header">
-        <div class="name-container">
-            <h1 class="name"><a href="/">
-                <span class="word" style="animation-delay: 0.05445s">Eddie</span> <span class="word" style="animation-delay: 0.1089s">Jin</span>
-            </a></h1>
-            <h1 class="korean-name"><a href="/">진승준</a></h1>
+            [data-theme="light"] {
+                --fg: #1a1a1a;
+                --bg: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="name-container">
+                <h1 class="name"><a href="/">
+                    <span class="word" style="animation-delay: 0.05445s">Eddie</span> <span class="word" style="animation-delay: 0.1089s">Jin</span>
+                </a></h1>
+                <h1 class="korean-name"><a href="/">진승준</a></h1>
+            </div>
+            <nav class="nav">
+                <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
+                <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
+            </nav>
         </div>
-        <nav class="nav">
-            <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
-            <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
-        </nav>
-    </div>
 
-    <div class="content">
-        <p style="margin-bottom: 40px;">
-            <span class="word" style="animation-delay: 0.4950s">A</span>
-            <span class="word" style="animation-delay: 0.5445s">collection</span>
-            <span class="word" style="animation-delay: 0.5940s">of</span>
-            <span class="word" style="animation-delay: 0.6435s">writings</span>
-            <span class="word" style="animation-delay: 0.6930s">that</span>
-            <span class="word" style="animation-delay: 0.7425s">serve</span>
-            <span class="word" style="animation-delay: 0.7920s">as</span>
-            <span class="word" style="animation-delay: 0.8415s">an</span>
-            <span class="word" style="animation-delay: 0.8910s">extension</span>
-            <span class="word" style="animation-delay: 0.9405s">of</span>
-            <span class="word" style="animation-delay: 0.9900s">my</span>
-            <span class="word" style="animation-delay: 1.0395s">unfiltered</span>
-            <span class="word" style="animation-delay: 1.0890s">thoughts.</span>
-        </p>
-        
-        <ul class="article-list">
-            <li class="article-item">
-                <span class="word" style="animation-delay: 1.1385s">•</span> <a href="articles/signals-in-the-noise.html" class="article-link">
-                    <span class="word" style="animation-delay: 1.1385s">Signals</span>
-                    <span class="word" style="animation-delay: 1.1880s">in</span>
-                    <span class="word" style="animation-delay: 1.2375s">the</span>
-                    <span class="word" style="animation-delay: 1.2870s">Noise</span>
-                </a>
-                <span style="opacity: 0.7; margin-left: 8px;">
-                    <span class="word" style="animation-delay: 1.3365s;">May</span>
-                    <span class="word" style="animation-delay: 1.3860s;">4,</span>
-                    <span class="word" style="animation-delay: 1.4355s;">2025</span>
-                </span>
-            </li>
-            <li class="article-item">
-                <span class="word" style="animation-delay: 1.4850s">•</span> <a href="articles/insecurity.html" class="article-link">
-                    <span class="word" style="animation-delay: 1.4850s">Insecurity</span>
-                </a>
-                <span style="opacity: 0.7; margin-left: 8px;">
-                    <span class="word" style="animation-delay: 1.5345s;">Feb</span>
-                    <span class="word" style="animation-delay: 1.5840s;">10,</span>
-                    <span class="word" style="animation-delay: 1.6335s;">2025</span>
-                </span>
-            </li>
-            <li class="article-item">
-                <span class="word" style="animation-delay: 1.6830s">•</span> <a href="articles/2024-reflections.html" class="article-link">
-                    <span class="word" style="animation-delay: 1.6830s;">2024</span>
-                    <span class="word" style="animation-delay: 1.7325s;">Reflections</span>
-                </a>
-                <span style="opacity: 0.7; margin-left: 8px;">
-                    <span class="word" style="animation-delay: 1.7820s;">Jan</span>
-                    <span class="word" style="animation-delay: 1.8315s;">4,</span>
-                    <span class="word" style="animation-delay: 1.8810s;">2025</span>
-                </span>
-            </li>
-        </ul>
-    </div>
-
-    <script>
-        const themeSwitch = document.querySelector('.theme-switch');
-        const html = document.documentElement;
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeSwitch.classList.toggle('active', savedTheme === 'light');
-
-        themeSwitch.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        <div class="content">
+            <p style="margin-bottom: 40px;">
+                <span class="word" style="animation-delay: 0.4950s">A</span>
+                <span class="word" style="animation-delay: 0.5445s">collection</span>
+                <span class="word" style="animation-delay: 0.5940s">of</span>
+                <span class="word" style="animation-delay: 0.6435s">writings</span>
+                <span class="word" style="animation-delay: 0.6930s">that</span>
+                <span class="word" style="animation-delay: 0.7425s">serve</span>
+                <span class="word" style="animation-delay: 0.7920s">as</span>
+                <span class="word" style="animation-delay: 0.8415s">an</span>
+                <span class="word" style="animation-delay: 0.8910s">extension</span>
+                <span class="word" style="animation-delay: 0.9405s">of</span>
+                <span class="word" style="animation-delay: 0.9900s">my</span>
+                <span class="word" style="animation-delay: 1.0395s">unfiltered</span>
+                <span class="word" style="animation-delay: 1.0890s">thoughts.</span>
+            </p>
             
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeSwitch.classList.toggle('active');
-        });
+            <ul class="article-list">
+                <li class="article-item">
+                    <span class="word" style="animation-delay: 1.1385s">•</span> <a href="articles/signals-in-the-noise.html" class="article-link">
+                        <span class="word" style="animation-delay: 1.1385s">Signals</span>
+                        <span class="word" style="animation-delay: 1.1880s">in</span>
+                        <span class="word" style="animation-delay: 1.2375s">the</span>
+                        <span class="word" style="animation-delay: 1.2870s">Noise</span>
+                    </a>
+                    <span style="opacity: 0.7; margin-left: 8px;">
+                        <span class="word" style="animation-delay: 1.3365s;">May</span>
+                        <span class="word" style="animation-delay: 1.3860s;">4,</span>
+                        <span class="word" style="animation-delay: 1.4355s;">2025</span>
+                    </span>
+                </li>
+                <li class="article-item">
+                    <span class="word" style="animation-delay: 1.4850s">•</span> <a href="articles/insecurity.html" class="article-link">
+                        <span class="word" style="animation-delay: 1.4850s">Insecurity</span>
+                    </a>
+                    <span style="opacity: 0.7; margin-left: 8px;">
+                        <span class="word" style="animation-delay: 1.5345s;">Feb</span>
+                        <span class="word" style="animation-delay: 1.5840s;">10,</span>
+                        <span class="word" style="animation-delay: 1.6335s;">2025</span>
+                    </span>
+                </li>
+                <li class="article-item">
+                    <span class="word" style="animation-delay: 1.6830s">•</span> <a href="articles/2024-reflections.html" class="article-link">
+                        <span class="word" style="animation-delay: 1.6830s;">2024</span>
+                        <span class="word" style="animation-delay: 1.7325s;">Reflections</span>
+                    </a>
+                    <span style="opacity: 0.7; margin-left: 8px;">
+                        <span class="word" style="animation-delay: 1.7820s;">Jan</span>
+                        <span class="word" style="animation-delay: 1.8315s;">4,</span>
+                        <span class="word" style="animation-delay: 1.8810s;">2025</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
 
-        function isMobile() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
+        <script>
+            function isMobile() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
 
-        const nameContainer = document.querySelector('.name-container');
-        if (isMobile()) {
-            nameContainer.addEventListener('click', function(e) {
-                window.location.href = '/';
-                e.preventDefault();
-            });
-        }
-    </script>
-</body>
-</html>
+            const nameContainer = document.querySelector('.name-container');
+            if (isMobile()) {
+                nameContainer.addEventListener('click', function(e) {
+                    window.location.href = '/';
+                    e.preventDefault();
+                });
+            }
+        </script>
+    </body>
+    </html>
