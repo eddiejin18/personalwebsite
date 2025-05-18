@@ -11,8 +11,8 @@
             --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --text: 16px;
             --leading: 28px;
-            --fg: #f2f2f2;
-            --bg: #1a1a1a;
+            --fg: #696969;
+            --bg: #f2f2f2;
         }
 
         body {
@@ -35,6 +35,10 @@
             margin-bottom: 60px;
         }
 
+        .header a {
+            color: #000000;
+        }
+
         .article-title {
             font-size: 24px;
             margin-bottom: 10px;
@@ -49,75 +53,8 @@
             margin-bottom: 20px;
         }
 
-        [data-theme="light"] {
-            --fg: #1a1a1a;
-            --bg: #f2f2f2;
-        }
-
-        /* Theme switch styles */
-        .theme-switch {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 30px;
-            background: #1a1a1a;
-            border-radius: 30px;
-            cursor: pointer;
-            padding: 4px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .switch-handle {
-            width: 22px;
-            height: 22px;
-            background: #fff;
-            border-radius: 50%;
-            transform: translateX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .theme-switch::before {
-            content: "🌙";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-        }
-
-        .theme-switch::after {
-            content: "☀️";
-            position: absolute;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            opacity: 0;
-        }
-
-        .theme-switch.active {
-            background: #f2f2f2;
-        }
-
-        .theme-switch.active .switch-handle {
-            transform: translateX(30px);
-            background: #666666;
-        }
-
-        .theme-switch.active::before {
-            opacity: 0;
-        }
-
-        .theme-switch.active::after {
-            opacity: 1;
-        }
-
         a {
-            color: var(--fg);
+            color: #000000;
             text-decoration: none;
         }
 
@@ -164,13 +101,14 @@
             border-left: 2px solid var(--fg);
             font-style: italic;
         }
+
+        /* Remove theme switch styles */
+        .theme-switch {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="theme-switch">
-        <div class="switch-handle"></div>
-    </div>
-
     <div class="header">
         <a href="../writing.html">← Back</a>
     </div>
@@ -185,7 +123,7 @@
     <div class="article-content">
         <p>Insecurity—good or bad?</p>
  
-        <p>I've always wrestled with this question. On one hand, I've seen insecurity push people to do <i>extraordinary things</i>—get into college, land a job offer, find a girlfriend. But I've also seen it <i>destroy</i> people—lead to <a href="https://vinay.sh/i-am-rich-and-have-no-idea-what-to-do-with-my-life/" target="_blank" style="text-decoration: underline;">breakups, burnout</a>, and at its worst, suicide.</p>
+        <p>I've always wrestled with this question. On one hand, I've seen insecurity push people to do <i>extraordinary things</i>—get into college, land a job offer, find a girlfriend. But I've also seen it <i>destroy</i> people—lead to <a href="https://vinay.sh/i-am-rich-and-have-no-idea-what-to-do-with-my-life/" target="_blank">breakups, burnout</a>, and at its worst, suicide.</p>
 
         <p>After spending time in <i>SF circles</i>, it seems like everyone is following a path of predictable outcomes. What's everyone around me doing? Grinding for a top college. What's everyone doing in college? Grinding for <i>FAANG</i>. What's next after FAANG? Grinding for a tier-1 startup. What comes after a tier-1 startup? Building their own company and applying to <i>YC</i>. What's next in YC? Raising from tier-1 funds. And so on.</p>
 
@@ -193,7 +131,7 @@
 
         <p>But when do you actually become <i>satisfied</i>—with who you are, what you've accomplished, and what you've learned? When do you stop to appreciate the memories, friendships, and things you've built? When does the cycle end? And what's it all for? Family? When's the last time you called your parents? Financial freedom? When's the last time you actually worried about money? More likely than not, you're doing this because you're insecure. And that's okay. We all are.</p>
 
-        <p>But when you create your <i>own path</i>, there is no linear structure for comparison. You exist on your own graph. There's no ahead or behind because you're playing a different game entirely. The outcome becomes unpredictable—but isn't that how it should be? If life were predictable, why even live it? Besides, if you're following others, you've already <a href="https://youtu.be/3Fx5Q8xGU8k?si=blPtd8i6SHc_V84X&t=2509" target="_blank" style="text-decoration: underline;">failed in some ways</a>. How can you follow a linear graph and expect <i>exponential</i> outcomes?</p>
+        <p>But when you create your <i>own path</i>, there is no linear structure for comparison. You exist on your own graph. There's no ahead or behind because you're playing a different game entirely. The outcome becomes unpredictable—but isn't that how it should be? If life were predictable, why even live it? Besides, if you're following others, you've already <a href="https://youtu.be/3Fx5Q8xGU8k?si=blPtd8i6SHc_V84X&t=2509" target="_blank">failed in some ways</a>. How can you follow a linear graph and expect <i>exponential</i> outcomes?</p>
 
         <div class="quote">
             "Easy-to-understand movies are boring. Logical storylines sacrifice creativity. I'm all about breaking conventions. Kids get it. They don't operate on logic."<br><br>
@@ -212,22 +150,7 @@
     </div>
 
     <script>
-        const themeSwitch = document.querySelector('.theme-switch');
-        const html = document.documentElement;
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeSwitch.classList.toggle('active', savedTheme === 'light');
-
-        themeSwitch.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeSwitch.classList.toggle('active');
-        });
+        // Remove theme switch script
     </script>
 </body>
 </html> 

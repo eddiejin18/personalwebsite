@@ -11,8 +11,8 @@
             --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --text: 16px;
             --leading: 28px;
-            --fg: #f2f2f2;
-            --bg: #1a1a1a;
+            --fg: #696969;
+            --bg: #f2f2f2;
         }
 
         body {
@@ -35,6 +35,10 @@
             margin-bottom: 60px;
         }
 
+        .header a {
+            color: #000000;
+        }
+
         .article-title {
             font-size: 24px;
             margin-bottom: 10px;
@@ -49,75 +53,8 @@
             margin-bottom: 20px;
         }
 
-        [data-theme="light"] {
-            --fg: #1a1a1a;
-            --bg: #f2f2f2;
-        }
-
-        /* Theme switch styles */
-        .theme-switch {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 30px;
-            background: #1a1a1a;
-            border-radius: 30px;
-            cursor: pointer;
-            padding: 4px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .switch-handle {
-            width: 22px;
-            height: 22px;
-            background: #fff;
-            border-radius: 50%;
-            transform: translateX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .theme-switch::before {
-            content: "🌙";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-        }
-
-        .theme-switch::after {
-            content: "☀️";
-            position: absolute;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            opacity: 0;
-        }
-
-        .theme-switch.active {
-            background: #f2f2f2;
-        }
-
-        .theme-switch.active .switch-handle {
-            transform: translateX(30px);
-            background: #666666;
-        }
-
-        .theme-switch.active::before {
-            opacity: 0;
-        }
-
-        .theme-switch.active::after {
-            opacity: 1;
-        }
-
         a {
-            color: var(--fg);
+            color: #000000;
             text-decoration: none;
         }
 
@@ -164,13 +101,14 @@
             border-left: 2px solid var(--fg);
             font-style: italic;
         }
+
+        /* Remove theme switch styles */
+        .theme-switch {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="theme-switch">
-        <div class="switch-handle"></div>
-    </div>
-
     <div class="header">
         <a href="../writing.html">← Back</a>
     </div>
@@ -195,32 +133,17 @@
         <p>This is a bit more subjective and category-dependent. I personally enjoy deeptech and want to support founders solving important problems that advance society or strengthen national security. That said, I wouldn't complain about having invested in Ramp's seed round — even if startup banking doesn't fundamentally change the world.</p>
 
         <p style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>4. Earned Secrets and Inflection Points</b></p>
-        <p>A why you and a why now. Credit to Mike Maples Jr., someone I've been fortunate to meet and learn from. He explains this better <a href="https://www.lennysnewsletter.com/p/how-to-find-a-great-startup-idea-mike-maples-jr" target="_blank" style="text-decoration: underline;">here</a>.</p>
+        <p>A why you and a why now. Credit to Mike Maples Jr., someone I've been fortunate to meet and learn from. He explains this better <a href="https://www.lennysnewsletter.com/p/how-to-find-a-great-startup-idea-mike-maples-jr" target="_blank">here</a>.</p>
 
         <p style="margin-left: 24px; margin-top: 40px; margin-bottom: 10px;"><b>5. Ability to Attract Talent</b></p>
         <p>Non-obvious but probably the most important founder skill. It's the reason Elon will always find success in whatever company he starts. If a founder can't recruit top talent early, it's a bad sign. A gut check I like: would I quit everything and work for them on the spot?</p>
 
-        <p>I've only been angel investing for a short time, but I've already had the opportunity to co-invest alongside firms like Lux Capital, Greylock, BoxGroup, Accel, and others (see more <a href="../investing.html" style="text-decoration: underline;">here</a>). The great thing about venture is that it's ultimately judged by outcomes — time will tell if my intuitions are right.</p>
+        <p>I've only been angel investing for a short time, but I've already had the opportunity to co-invest alongside firms like Lux Capital, Greylock, BoxGroup, Accel, and others (see more <a href="../investing.html">here</a>). The great thing about venture is that it's ultimately judged by outcomes — time will tell if my intuitions are right.</p>
         <p style="opacity: 0.7; margin-top: 40px;">- Eddie</p>
     </div>
 
     <script>
-        const themeSwitch = document.querySelector('.theme-switch');
-        const html = document.documentElement;
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeSwitch.classList.toggle('active', savedTheme === 'light');
-
-        themeSwitch.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeSwitch.classList.toggle('active');
-        });
+        // Remove theme switch script
     </script>
 </body>
 </html> 
