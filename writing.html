@@ -92,14 +92,15 @@
 
             .nav a {
                 color: #000000;
-                text-decoration: none;
                 font-size: 16px;
                 font-weight: 400;
             }
 
-            .nav a[href="writing.html"] {
-                text-decoration: none;
+            /* Simple underline styles */
+            .underline {
+                text-decoration: underline !important;
             }
+
 
             /* Animation styles */
             @keyframes fadeInUp {
@@ -190,8 +191,8 @@
                 <h1 class="korean-name"><a href="/">진승준</a></h1>
             </div>
             <nav class="nav">
-                <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
-                <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
+                <a href="work.html"><span class="word" style="animation-delay: 0.16335s">Work</span></a>
+                <a href="writing.html"><span class="word" style="animation-delay: 0.2178s">Writing</span></a>
             </nav>
         </div>
 
@@ -262,6 +263,8 @@
                     e.preventDefault();
                 });
             }
+
+            // No underline for writing page
         </script>
     </body>
     </html>

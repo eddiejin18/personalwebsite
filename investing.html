@@ -142,6 +142,35 @@
         .content > * {
             opacity: 1;
         }
+
+        .back-button {
+            margin-bottom: 20px;
+        }
+
+        .back-button a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .back-button a:hover {
+            opacity: 0.8;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.27s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -153,9 +182,13 @@
             <h1 class="korean-name"><a href="/">진승준</a></h1>
         </div>
         <nav class="nav">
-            <a href="writing.html"><span class="word" style="animation-delay: 0.16335s">Writing</span></a>
-            <a href="investing.html"><span class="word" style="animation-delay: 0.2178s">Investing</span></a>
+            <a href="work.html"><span class="word" style="animation-delay: 0.16335s">Work</span></a>
+            <a href="writing.html"><span class="word" style="animation-delay: 0.2178s">Writing</span></a>
         </nav>
+    </div>
+
+    <div class="back-button">
+        <a href="work.html" class="fade-in" style="animation-delay: 0.27225s">← Back</a>
     </div>
 
     <div class="content">
@@ -168,8 +201,7 @@
             <span class="word" style="animation-delay: 0.7425s">first</span>
             <span class="word" style="animation-delay: 0.7920s">believer</span>
             <span class="word" style="animation-delay: 0.8415s">in</span>
-            <span class="word" style="animation-delay: 0.8910s">people</span>
-            <span class="word" style="animation-delay: 0.9405s">—</span>
+            <span class="word" style="animation-delay: 0.8910s">people,</span>
             <span class="word" style="animation-delay: 0.9900s">before</span>
             <span class="word" style="animation-delay: 1.0395s">the</span>
             <span class="word" style="animation-delay: 1.0890s">world</span>
@@ -185,14 +217,14 @@
         </p>
         
         <ul>
-            <li style="animation-delay: 1.495s"><span class="word" style="animation-delay: 1.495s"><a href="https://www.aeolus.earth/" target="_blank">Aeolus</a>:</span> <span class="word" style="animation-delay: 1.5495s">Planetary</span> <span class="word" style="animation-delay: 1.604s">defense</span> <span class="word" style="animation-delay: 1.6585s">system</span> <span class="word" style="animation-delay: 1.713s">for</span> <span class="word" style="animation-delay: 1.7675s">extreme</span> <span class="word" style="animation-delay: 1.822s">weather.</span></li>
-            <li style="animation-delay: 1.767s"><span class="word" style="animation-delay: 1.767s"><a href="https://www.inversionsemi.com/" target="_blank">Inversion Semi</a>:</span> <span class="word" style="animation-delay: 1.8215s">Next-generation</span> <span class="word" style="animation-delay: 1.876s">chip</span> <span class="word" style="animation-delay: 1.9305s">fabrication</span> <span class="word" style="animation-delay: 1.985s">machines.</span></li>
-            <li style="animation-delay: 2.150s"><span class="word" style="animation-delay: 2.150s"><a href="https://www.oligospace.com/" target="_blank">Oligo</a>:</span> <span class="word" style="animation-delay: 2.2045s">Fully</span> <span class="word" style="animation-delay: 2.259s">automated</span> <span class="word" style="animation-delay: 2.3135s">satellite</span> <span class="word" style="animation-delay: 2.368s">design</span> <span class="word" style="animation-delay: 2.4225s">platform.</span></li>
-            <li style="animation-delay: 2.422s"><span class="word" style="animation-delay: 2.422s"><a href="https://a37.ai" target="_blank">applied37</a>:</span> <span class="word" style="animation-delay: 2.4765s">The</span> <span class="word" style="animation-delay: 2.531s">R&P</span> <span class="word" style="animation-delay: 2.5855s">lab</span> <span class="word" style="animation-delay: 2.640s">reimagining</span> <span class="word" style="animation-delay: 2.6945s">DevOps.</span></li>
-            <li style="animation-delay: 2.749s"><span class="word" style="animation-delay: 2.749s"><a href="https://www.ulysses.eco/" target="_blank">Ulysses</a>:</span> <span class="word" style="animation-delay: 2.8035s">Fully</span> <span class="word" style="animation-delay: 2.858s">autonomous,</span> <span class="word" style="animation-delay: 2.9125s">low-cost</span> <span class="word" style="animation-delay: 2.967s">maritime</span> <span class="word" style="animation-delay: 3.0215s">robots.</span></li>
-            <li style="animation-delay: 3.076s"><span class="word" style="animation-delay: 3.076s"><a href="https://cascade.space/" target="_blank">Cascade Space</a>:</span> <span class="word" style="animation-delay: 3.1305s">Deep</span> <span class="word" style="animation-delay: 3.185s">space</span> <span class="word" style="animation-delay: 3.2395s">communications</span> <span class="word" style="animation-delay: 3.294s">as</span> <span class="word" style="animation-delay: 3.3485s">a</span> <span class="word" style="animation-delay: 3.403s">service.</span></li>
-            <li style="animation-delay: 3.403s"><span class="word" style="animation-delay: 3.403s"><a href="https://framework.co/" target="_blank">Framework</a>:</span> <span class="word" style="animation-delay: 3.4575s">Building</span> <span class="word" style="animation-delay: 3.512s">the</span> <span class="word" style="animation-delay: 3.5665s">future</span> <span class="word" style="animation-delay: 3.621s">of</span> <span class="word" style="animation-delay: 3.6755s">apparel</span> <span class="word" style="animation-delay: 3.730s">manufacturing.</span></li>
-            <li style="animation-delay: 3.7845s"><span class="word" style="animation-delay: 3.7845s">Stealth:</span> <span class="word" style="animation-delay: 3.839s">An</span> <span class="word" style="animation-delay: 3.8935s">operating</span> <span class="word" style="animation-delay: 3.948s">system</span> <span class="word" style="animation-delay: 4.0025s">for</span> <span class="word" style="animation-delay: 4.057s">our</span> <span class="word" style="animation-delay: 4.1115s">biofuture.</span></li>
+            <li style="animation-delay: 1.495s"><span class="word" style="animation-delay: 1.495s"><a href="https://www.aeolus.earth/" target="_blank" rel="noreferrer">Aeolus</a>:</span> <span class="word" style="animation-delay: 1.5495s">Planetary</span> <span class="word" style="animation-delay: 1.604s">defense</span> <span class="word" style="animation-delay: 1.6585s">system</span> <span class="word" style="animation-delay: 1.713s">for</span> <span class="word" style="animation-delay: 1.7675s">extreme</span> <span class="word" style="animation-delay: 1.822s">weather.</span> <span class="word" style="animation-delay: 1.8765s">(Neo,</span> <span class="word" style="animation-delay: 1.931s">Accel)</span></li>
+            <li style="animation-delay: 2.150s"><span class="word" style="animation-delay: 2.150s"><a href="https://www.oligospace.com/" target="_blank" rel="noreferrer">Oligo</a>:</span> <span class="word" style="animation-delay: 2.2045s">Fully</span> <span class="word" style="animation-delay: 2.259s">automated</span> <span class="word" style="animation-delay: 2.3135s">satellite</span> <span class="word" style="animation-delay: 2.368s">design</span> <span class="word" style="animation-delay: 2.4225s">platform.</span> <span class="word" style="animation-delay: 2.477s">(Lux</span> <span class="word" style="animation-delay: 2.5315s">Capital)</span></li>
+            <li style="animation-delay: 2.422s"><span class="word" style="animation-delay: 2.422s"><a href="https://a37.ai" target="_blank" rel="noreferrer">applied37</a>:</span> <span class="word" style="animation-delay: 2.4765s">The</span> <span class="word" style="animation-delay: 2.531s">R&P</span> <span class="word" style="animation-delay: 2.5855s">lab</span> <span class="word" style="animation-delay: 2.640s">reimagining</span> <span class="word" style="animation-delay: 2.6945s">DevOps.</span> <span class="word" style="animation-delay: 2.749s">(Greylock,</span> <span class="word" style="animation-delay: 2.8035s">BoxGroup)</span></li>
+            <li style="animation-delay: 2.749s"><span class="word" style="animation-delay: 2.749s"><a href="https://www.ulysses.eco/" target="_blank" rel="noreferrer">Ulysses</a>:</span> <span class="word" style="animation-delay: 2.8035s">Fully</span> <span class="word" style="animation-delay: 2.858s">autonomous,</span> <span class="word" style="animation-delay: 2.9125s">low-cost</span> <span class="word" style="animation-delay: 2.967s">maritime</span> <span class="word" style="animation-delay: 3.0215s">robots.</span> <span class="word" style="animation-delay: 3.076s">(Lowercarbon)</span></li>
+            <li style="animation-delay: 3.076s"><span class="word" style="animation-delay: 3.076s"><a href="https://cascade.space/" target="_blank" rel="noreferrer">Cascade Space</a>:</span> <span class="word" style="animation-delay: 3.1305s">Deep</span> <span class="word" style="animation-delay: 3.185s">space</span> <span class="word" style="animation-delay: 3.2395s">communications</span> <span class="word" style="animation-delay: 3.294s">as</span> <span class="word" style="animation-delay: 3.3485s">a</span> <span class="word" style="animation-delay: 3.403s">service.</span> <span class="word" style="animation-delay: 3.4575s">(Liquid2,</span> <span class="word" style="animation-delay: 3.512s">YC)</span></li>
+            <li style="animation-delay: 3.403s"><span class="word" style="animation-delay: 3.403s"><a href="https://framework.co/" target="_blank" rel="noreferrer">Framework</a>:</span> <span class="word" style="animation-delay: 3.4575s">Building</span> <span class="word" style="animation-delay: 3.512s">the</span> <span class="word" style="animation-delay: 3.5665s">future</span> <span class="word" style="animation-delay: 3.621s">of</span> <span class="word" style="animation-delay: 3.6755s">apparel</span> <span class="word" style="animation-delay: 3.730s">manufacturing.</span> <span class="word" style="animation-delay: 3.7845s">(TBA)</span></li>
+            <li style="animation-delay: 3.730s"><span class="word" style="animation-delay: 3.730s"><a href="https://www.inversionsemi.com/" target="_blank" rel="noreferrer">Inversion Semi</a>:</span> <span class="word" style="animation-delay: 3.7845s">Next-generation</span> <span class="word" style="animation-delay: 3.839s">chip</span> <span class="word" style="animation-delay: 3.8935s">fabrication</span> <span class="word" style="animation-delay: 3.948s">machines.</span> <span class="word" style="animation-delay: 4.0025s">(YC)</span></li>
+            <li style="animation-delay: 4.0025s"><span class="word" style="animation-delay: 4.0025s">Stealth:</span> <span class="word" style="animation-delay: 4.057s">A</span> <span class="word" style="animation-delay: 4.1115s">modern</span> <span class="word" style="animation-delay: 4.166s">pharmaceutical</span> <span class="word" style="animation-delay: 4.2205s">company.</span> <span class="word" style="animation-delay: 4.275s">(TBA)</span></li>
         </ul>
 
         <p>

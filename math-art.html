@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mathematical Art | Edward Jin">
+    <title>Mathematical Art | Edward Jin</title>
+    <link rel="icon" type="image/svg+xml" href="ej.svg">
+    <style>
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #696969;
+            --bg: #f2f2f2;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 0 15px;
+            line-height: var(--leading);
+            font-size: var(--text);
+            color: var(--fg);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 13px 20px 13px 0;
+            margin-top: 0;
+        }
+
+        .name-container {
+            position: relative;
+            display: inline-block;
+            height: 28px;
+            margin-left: 0;
+        }
+
+        .name-container a {
+            display: block;
+            text-decoration: none;
+            color: #000000 !important;
+        }
+
+        .name, .korean-name {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            line-height: 28px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .korean-name {
+            opacity: 0;
+        }
+
+        .name-container:hover .name {
+            opacity: 0;
+        }
+
+        .name-container:hover .korean-name {
+            opacity: 1;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .nav a[href="math-art.html"] {
+            text-decoration: none;
+        }
+
+        /* Animation styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .word {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
+        }
+
+        .header .word {
+            animation: fadeInUp 0.297s ease-out forwards;
+        }
+
+        ul li {
+            opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
+        }
+
+        /* Fade in animations for other elements */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
+        }
+
+        .canvas-container {
+            opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
+        }
+
+        /* Canvas styles */
+        .art-canvas {
+            width: 100%;
+            height: 380px;
+            border-radius: 12px;
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="work.html" class="fade-in" style="animation-delay: 0.1s">← Back</a>
+    </div>
+
+    <div class="content">
+        <p>
+            <span class="word" style="animation-delay: 0.4950s">I</span>
+            <span class="word" style="animation-delay: 0.5445s">find</span>
+            <span class="word" style="animation-delay: 0.5940s">it</span>
+            <span class="word" style="animation-delay: 0.6435s">fascinating</span>
+            <span class="word" style="animation-delay: 0.6930s">how</span>
+            <span class="word" style="animation-delay: 0.7425s">mathematics</span>
+            <span class="word" style="animation-delay: 0.7920s">and</span>
+            <span class="word" style="animation-delay: 0.8415s">art</span>
+            <span class="word" style="animation-delay: 0.8910s">—</span>
+            <span class="word" style="animation-delay: 0.9405s">seemingly</span>
+            <span class="word" style="animation-delay: 0.9900s">polar</span>
+            <span class="word" style="animation-delay: 1.0395s">opposites</span>
+            <span class="word" style="animation-delay: 1.0890s">—</span>
+            <span class="word" style="animation-delay: 1.1385s">can</span>
+            <span class="word" style="animation-delay: 1.1880s">merge</span>
+            <span class="word" style="animation-delay: 1.2375s">into</span>
+            <span class="word" style="animation-delay: 1.2870s">something</span>
+            <span class="word" style="animation-delay: 1.3365s">beautiful.</span>
+        </p>
+
+        <div class="fade-in" style="animation-delay: 1.4355s; margin: 50px 0 8px 0; text-align: left; font-size: 18px; font-weight: 400; color: #000; letter-spacing: 0; font-family: var(--font-sans);">
+            <span class="word" style="animation-delay: 1.4355s">Hyperbolic</span>
+            <span class="word" style="animation-delay: 1.4850s">Dodecahedron</span>
+        </div>
+        <div class="canvas-container" style="animation-delay: 1.5345s;">
+            <canvas id="artCanvas" class="art-canvas"></canvas>
+        </div>
+        <p class="fade-in" style="animation-delay: 1.6335s; margin-top: 20px; font-size: 14px; color: #696969; line-height: 1.5;">
+            <span class="word" style="animation-delay: 1.6335s">In</span>
+            <span class="word" style="animation-delay: 1.6830s">curved</span>
+            <span class="word" style="animation-delay: 1.7325s">space,</span>
+            <span class="word" style="animation-delay: 1.7820s">even</span>
+            <span class="word" style="animation-delay: 1.8315s">a</span>
+            <span class="word" style="animation-delay: 1.8810s">single</span>
+            <span class="word" style="animation-delay: 1.9305s">shape</span>
+            <span class="word" style="animation-delay: 1.9800s">like</span>
+            <span class="word" style="animation-delay: 2.0295s">this</span>
+            <span class="word" style="animation-delay: 2.0790s">hyperbolic</span>
+            <span class="word" style="animation-delay: 2.1285s">dodecahedron</span>
+            <span class="word" style="animation-delay: 2.1780s">can</span>
+            <span class="word" style="animation-delay: 2.2275s">bloom</span>
+            <span class="word" style="animation-delay: 2.2770s">into</span>
+            <span class="word" style="animation-delay: 2.3265s">infinite</span>
+            <span class="word" style="animation-delay: 2.3760s">pattern.</span>
+        </p>
+
+        <div class="fade-in" style="animation-delay: 2.4750s; margin: 40px 0 8px 0; text-align: left; font-size: 18px; font-weight: 400; color: #000; letter-spacing: 0; font-family: var(--font-sans);">
+            <span class="word" style="animation-delay: 2.4750s">Lorenz</span>
+            <span class="word" style="animation-delay: 2.5245s">Attractor</span>
+        </div>
+        <div class="canvas-container" style="animation-delay: 2.5740s;">
+            <div id="lorenz-pane" style="width: 100%; margin: 0 auto;">
+                <!-- p5.js will inject the canvas here -->
+            </div>
+        </div>
+        <p class="fade-in" style="animation-delay: 2.6730s; margin-top: 20px; font-size: 14px; color: #696969; line-height: 1.5;">
+            <span class="word" style="animation-delay: 2.6730s">The</span>
+            <span class="word" style="animation-delay: 2.7225s">Lorenz</span>
+            <span class="word" style="animation-delay: 2.7720s">attractor</span>
+            <span class="word" style="animation-delay: 2.8215s">is</span>
+            <span class="word" style="animation-delay: 2.8710s">a</span>
+            <span class="word" style="animation-delay: 2.9205s">set</span>
+            <span class="word" style="animation-delay: 2.9700s">of</span>
+            <span class="word" style="animation-delay: 3.0195s">three</span>
+            <span class="word" style="animation-delay: 3.0690s">differential</span>
+            <span class="word" style="animation-delay: 3.1185s">equations</span>
+            <span class="word" style="animation-delay: 3.1680s">that</span>
+            <span class="word" style="animation-delay: 3.2175s">show</span>
+            <span class="word" style="animation-delay: 3.2670s">how</span>
+            <span class="word" style="animation-delay: 3.3165s">small</span>
+            <span class="word" style="animation-delay: 3.3660s">changes</span>
+            <span class="word" style="animation-delay: 3.4155s">can</span>
+            <span class="word" style="animation-delay: 3.4650s">lead</span>
+            <span class="word" style="animation-delay: 3.5145s">to</span>
+            <span class="word" style="animation-delay: 3.5640s">unpredictable</span>
+            <span class="word" style="animation-delay: 3.6135s">outcomes —</span>
+            <span class="word" style="animation-delay: 3.6630s">a</span>
+            <span class="word" style="animation-delay: 3.7125s">mathematical</span>
+            <span class="word" style="animation-delay: 3.7620s">glimpse</span>
+            <span class="word" style="animation-delay: 3.8115s">of</span>
+            <span class="word" style="animation-delay: 3.8610s">the</span>
+            <span class="word" style="animation-delay: 3.9105s">butterfly</span>
+            <span class="word" style="animation-delay: 3.9600s">effect.</span>
+            <span class="word" style="animation-delay: 4.0095s">It</span>
+            <span class="word" style="animation-delay: 4.0590s">even</span>
+            <span class="word" style="animation-delay: 4.1085s">traces</span>
+            <span class="word" style="animation-delay: 4.1580s">the</span>
+            <span class="word" style="animation-delay: 4.2075s">shape</span>
+            <span class="word" style="animation-delay: 4.2570s">of</span>
+            <span class="word" style="animation-delay: 4.3065s">a</span>
+            <span class="word" style="animation-delay: 4.3560s">butterfly's</span>
+            <span class="word" style="animation-delay: 4.4055s">wings.</span>
+        </p>
+
+        <div class="fade-in" style="animation-delay: 4.3560s; margin: 40px 0 8px 0; text-align: left; font-size: 18px; font-weight: 400; color: #000; letter-spacing: 0; font-family: var(--font-sans); position: relative;">
+            <span class="word" style="animation-delay: 4.3560s">Harmonograph</span>
+            <button id="new-harmonograph-btn" style="position: absolute; top: 0; right: 0; background: #f4f4f4; color: #333; border: none; border-radius: 6px; padding: 6px 14px; font-size: 14px; font-family: var(--font-sans); cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">Generate</button>
+        </div>
+        <div class="canvas-container" style="animation-delay: 4.4055s;">
+            <canvas id="harmonographCanvas" class="art-canvas"></canvas>
+        </div>
+        <p class="fade-in" style="animation-delay: 4.5045s; margin-top: 20px; font-size: 14px; color: #696969; line-height: 1.5;">
+            <span class="word" style="animation-delay: 4.5045s">A</span>
+            <span class="word" style="animation-delay: 4.5540s">harmonograph</span>
+            <span class="word" style="animation-delay: 4.6035s">is</span>
+            <span class="word" style="animation-delay: 4.6530s">a</span>
+            <span class="word" style="animation-delay: 4.7025s">mechanical</span>
+            <span class="word" style="animation-delay: 4.7520s">device</span>
+            <span class="word" style="animation-delay: 4.8015s">that</span>
+            <span class="word" style="animation-delay: 4.8510s">draws</span>
+            <span class="word" style="animation-delay: 4.9005s">patterns</span>
+            <span class="word" style="animation-delay: 4.9500s">using</span>
+            <span class="word" style="animation-delay: 4.9995s">pendulums.</span>
+            <span class="word" style="animation-delay: 5.0490s">This</span>
+            <span class="word" style="animation-delay: 5.0985s">simulation</span>
+            <span class="word" style="animation-delay: 5.1480s">shows</span>
+            <span class="word" style="animation-delay: 5.1975s">how</span>
+            <span class="word" style="animation-delay: 5.2470s">simple</span>
+            <span class="word" style="animation-delay: 5.2965s">harmonic</span>
+            <span class="word" style="animation-delay: 5.3460s">motion</span>
+            <span class="word" style="animation-delay: 5.3955s">can</span>
+            <span class="word" style="animation-delay: 5.4450s">create</span>
+            <span class="word" style="animation-delay: 5.4945s">complex,</span>
+            <span class="word" style="animation-delay: 5.5440s">beautiful</span>
+            <span class="word" style="animation-delay: 5.5935s">curves.</span>
+        </p>
+    </div>
+
+    <script>
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Canvas setup
+        const canvas = document.getElementById('artCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size to match container
+        function resizeCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth;
+            canvas.height = 380;
+        }
+        
+        // Initialize canvas
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Gyrovector space operations
+        function dotProduct(a, b) {
+            return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        }
+        
+        function beta(A, s = 1) {
+            return 1 / Math.sqrt(1 + dotProduct(A, A) / (s * s));
+        }
+        
+        function gyroadd(A, B, s = 1) {
+            const betaA = beta(A, s);
+            const betaB = beta(B, s);
+            const factor = 1 + (betaA / (1 + betaA)) * (dotProduct(A, B) / (s * s)) + ((1 - betaB) / betaB);
+            return [
+                factor * A[0] + B[0],
+                factor * A[1] + B[1],
+                factor * A[2] + B[2]
+            ];
+        }
+        
+        function gyroscalar(r, A, s = 1) {
+            const Anorm = Math.sqrt(dotProduct(A, A));
+            if (Anorm === 0) return [0, 0, 0];
+            const factor = s / Anorm * Math.sinh(r * Math.asinh(Anorm / s));
+            return [factor * A[0], factor * A[1], factor * A[2]];
+        }
+        
+        function gyroABt(A, B, t, s = 1) {
+            const negA = [-A[0], -A[1], -A[2]];
+            const gyroDiff = gyroadd(negA, B, s);
+            const scaled = gyroscalar(t, gyroDiff, s);
+            return gyroadd(A, scaled, s);
+        }
+        
+        function gyromidpoint(A, B, s = 1) {
+            return gyroABt(A, B, 0.5, s);
+        }
+        
+        function gyrosegment(A, B, s = 1, n = 20) {
+            const points = [];
+            for (let i = 0; i <= n; i++) {
+                points.push(gyroABt(A, B, i / n, s));
+            }
+            return points;
+        }
+        
+        // 3D Math utilities
+        function rotate3D(point, angleX, angleY, angleZ) {
+            let [x, y, z] = point;
+            
+            // Rotate around X axis
+            const cosX = Math.cos(angleX);
+            const sinX = Math.sin(angleX);
+            const y1 = y * cosX - z * sinX;
+            const z1 = y * sinX + z * cosX;
+            
+            // Rotate around Y axis
+            const cosY = Math.cos(angleY);
+            const sinY = Math.sin(angleY);
+            const x2 = x * cosY + z1 * sinY;
+            const z2 = -x * sinY + z1 * cosY;
+            
+            // Rotate around Z axis
+            const cosZ = Math.cos(angleZ);
+            const sinZ = Math.sin(angleZ);
+            const x3 = x2 * cosZ - y1 * sinZ;
+            const y3 = x2 * sinZ + y1 * cosZ;
+            
+            return [x3, y3, z2];
+        }
+        
+        function project(point, distance) {
+            const [x, y, z] = point;
+            const factor = distance / (distance + z);
+            return [x * factor, y * factor];
+        }
+        
+        // Dodecahedron vertices (from reference)
+        const phi = (1 + Math.sqrt(5)) / 2;
+        const a = 1 / Math.sqrt(3);
+        const b = a / phi;
+        const c = a * phi;
+        
+        const vertices = [
+            [a, a, a], [a, a, -a], [a, -a, a], [-a, -a, a],
+            [-a, a, -a], [-a, a, a], [0, b, -c], [0, -b, -c],
+            [0, -b, c], [c, 0, -b], [-c, 0, -b], [-c, 0, b],
+            [b, c, 0], [b, -c, 0], [-b, -c, 0], [-b, c, 0],
+            [0, b, c], [a, -a, -a], [c, 0, b], [-a, -a, -a]
+        ];
+        
+        // Dodecahedron faces (triangulated)
+        const faces = [
+            [13, 2, 3], [3, 14, 13], [3, 2, 8], [17, 1, 9],
+            [6, 1, 17], [17, 7, 6], [6, 7, 19], [19, 4, 6],
+            [10, 4, 19], [13, 14, 19], [19, 17, 13], [7, 17, 19],
+            [15, 1, 6], [12, 1, 15], [6, 4, 15], [15, 0, 12],
+            [15, 16, 0], [5, 16, 15], [18, 1, 12], [12, 0, 18],
+            [9, 1, 18], [0, 16, 18], [8, 2, 18], [18, 16, 8],
+            [18, 2, 13], [18, 17, 9], [13, 17, 18], [8, 16, 11],
+            [11, 16, 5], [11, 3, 8], [14, 3, 11], [11, 19, 14],
+            [10, 19, 11], [11, 4, 10], [5, 15, 11], [11, 15, 4]
+        ];
+        
+        // Dodecahedron edges
+        const edges = [
+            [13, 2], [3, 14], [14, 13], [3, 8], [2, 8],
+            [17, 9], [1, 9], [6, 1], [17, 7], [7, 6],
+            [7, 19], [4, 6], [10, 4], [10, 19], [14, 19],
+            [17, 13], [12, 1], [12, 15], [4, 15], [0, 12],
+            [16, 0], [5, 16], [5, 15], [0, 18], [9, 18],
+            [2, 18], [16, 8], [11, 5], [11, 3], [10, 11]
+        ];
+        
+        // Animation variables
+        let angleX = 0;
+        let angleY = 0;
+        let angleZ = 0;
+        let isDragging = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+
+        // Mouse controls for rotation
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const dx = e.clientX - lastMouseX;
+                const dy = e.clientY - lastMouseY;
+                angleY += dx * 0.01;
+                angleX += dy * 0.01;
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+            }
+        });
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Hyperbolic parameter
+        const s = 0.3;
+        
+        function pointInPolygon(x, y, poly) {
+            // Ray-casting algorithm for point-in-polygon
+            let inside = false;
+            for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+                const xi = poly[i][0], yi = poly[i][1];
+                const xj = poly[j][0], yj = poly[j][1];
+                const intersect = ((yi > y) !== (yj > y)) &&
+                    (x < (xj - xi) * (y - yi) / (yj - yi + 1e-10) + xi);
+                if (intersect) inside = !inside;
+            }
+            return inside;
+        }
+
+        // --- Helper for hyperbolic face subdivision (returns mesh of triangles) ---
+        function subdivideFace(A, B, C, s = 0.3, depth = 1) { // Back to depth 1 for proper curvature
+            if (depth === 0) return [[[A, B, C]]];
+            const M12 = gyromidpoint(A, B, s);
+            const M13 = gyromidpoint(A, C, s);
+            const M23 = gyromidpoint(B, C, s);
+            // Recursively subdivide
+            return [
+                ...subdivideFace(A, M12, M13, s, depth - 1),
+                ...subdivideFace(B, M23, M12, s, depth - 1),
+                ...subdivideFace(C, M13, M23, s, depth - 1),
+                ...subdivideFace(M12, M13, M23, s, depth - 1)
+            ];
+        }
+        // --- End helper ---
+
+        // --- Sky/Earthy Pastel Palette ---
+        const PASTEL_PALETTE = [
+            '#b7e3f7', // sky blue
+            '#cbe7b7', // light green
+            '#f7e7b7', // sand
+            '#e7cbb7', // tan
+            '#b7d3e7', // blue-gray
+            '#e7b7c7', // pinkish
+            '#d7e7b7', // pale olive
+            '#b7e7e0', // aqua
+            '#e7b7b7', // blush
+            '#d1b7e7', // lavender
+            '#b7e7b9', // mint
+            '#e7deb7', // cream
+        ];
+        // --- End Palette ---
+
+        // For permanent color assignment and smooth phase-in
+        const faceColorState = Array(faces.length).fill().map(() => ({
+            colorIndex: null, // null means not assigned
+            alpha: 0, // 0 = transparent, 1 = full color
+        }));
+        let nextColorIndex = 0; // Track next color to assign
+        function lerp(a, b, t) {
+            return a + (b - a) * t;
+        }
+
+        // --- Helper: get neighboring faces for each face ---
+        function getFaceNeighbors(faces) {
+            // For each face, find indices of faces that share two vertices (i.e., are adjacent)
+            return faces.map((face, i) => {
+                const neighbors = [];
+                for (let j = 0; j < faces.length; j++) {
+                    if (i === j) continue;
+                    const shared = face.filter(v => faces[j].includes(v));
+                    if (shared.length === 2) neighbors.push(j);
+                }
+                return neighbors;
+            });
+        }
+        const faceNeighbors = getFaceNeighbors(faces);
+
+        // --- Helper: interpolate between two hex colors ---
+        function lerpColor(a, b, t) {
+            const ah = a.replace('#', '');
+            const bh = b.replace('#', '');
+            const ar = parseInt(ah.substring(0, 2), 16), ag = parseInt(ah.substring(2, 4), 16), ab = parseInt(ah.substring(4, 6), 16);
+            const br = parseInt(bh.substring(0, 2), 16), bg = parseInt(bh.substring(2, 4), 16), bb = parseInt(bh.substring(4, 6), 16);
+            const rr = Math.round(lerp(ar, br, t));
+            const rg = Math.round(lerp(ag, bg, t));
+            const rb = Math.round(lerp(ab, bb, t));
+            return `rgb(${rr},${rg},${rb})`;
+        }
+
+        // --- Helper: barycentric interpolation for triangle colors ---
+        function barycentricColor(colors, bary) {
+            // colors: [c0, c1, c2], bary: [b0, b1, b2]
+            // Interpolate each channel
+            let r = 0, g = 0, b = 0;
+            for (let i = 0; i < 3; i++) {
+                const c = colors[i].replace('#', '');
+                r += parseInt(c.substring(0, 2), 16) * bary[i];
+                g += parseInt(c.substring(2, 4), 16) * bary[i];
+                b += parseInt(c.substring(4, 6), 16) * bary[i];
+            }
+            return `rgb(${Math.round(r)},${Math.round(g)},${Math.round(b)})`;
+        }
+
+        // --- Helper: get face centroids in 3D ---
+        function getFaceCentroid(face) {
+            const A = vertices[face[0]], B = vertices[face[1]], C = vertices[face[2]];
+            return [
+                (A[0] + B[0] + C[0]) / 3,
+                (A[1] + B[1] + C[1]) / 3,
+                (A[2] + B[2] + C[2]) / 3
+            ];
+        }
+        const faceCentroids = faces.map(getFaceCentroid);
+
+        // --- Helper: blend all colored faces by proximity ---
+        function blendAllColors(triCentroid, faceColorState, faceCentroids, palette) {
+            let totalWeight = 0;
+            let r = 0, g = 0, b = 0;
+            for (let i = 0; i < faceColorState.length; i++) {
+                const state = faceColorState[i];
+                if (state.colorIndex === null) continue;
+                const color = palette[state.colorIndex % palette.length];
+                const c = color.replace('#', '');
+                const fc = faceCentroids[i];
+                // Euclidean distance in 3D
+                const dist = Math.sqrt(
+                    Math.pow(triCentroid[0] - fc[0], 2) +
+                    Math.pow(triCentroid[1] - fc[1], 2) +
+                    Math.pow(triCentroid[2] - fc[2], 2)
+                );
+                // Weight: Gaussian (closer faces have more influence)
+                const weight = Math.exp(-dist * 6); // 6 = sharpness, tweak for more/less blur
+                r += parseInt(c.substring(0, 2), 16) * weight;
+                g += parseInt(c.substring(2, 4), 16) * weight;
+                b += parseInt(c.substring(4, 6), 16) * weight;
+                totalWeight += weight;
+            }
+            if (totalWeight === 0) return 'rgba(255,255,255,0)';
+            return `rgb(${Math.round(r / totalWeight)},${Math.round(g / totalWeight)},${Math.round(b / totalWeight)})`;
+        }
+
+        function drawHyperbolicDodecahedron() {
+            try {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const scale = Math.min(canvas.width, canvas.height) * 0.26;
+                const distance = 5;
+                // Auto-rotation
+                angleX += 0.008;
+                angleY += 0.012;
+                angleZ += 0.004;
+                // Transform and project vertices
+                const projectedVertices = vertices.map(vertex => {
+                    const rotated = rotate3D(vertex, angleX, angleY, angleZ);
+                    const projected = project(rotated, distance);
+                    return [
+                        projected[0] * scale + centerX,
+                        projected[1] * scale + centerY,
+                        rotated[2]
+                    ];
+                });
+                // For hover detection, use flat polygon as before
+                let mouse = null;
+                const rect = canvas.getBoundingClientRect();
+                let mx = window._dodec_mouseX, my = window._dodec_mouseY;
+                if (typeof mx === 'number' && typeof my === 'number' && !isNaN(mx) && !isNaN(my)) {
+                    mouse = [mx - rect.left, my - rect.top];
+                }
+                let hoveredFace = -1;
+                // Sort faces by depth
+                const faceDepths = faces.map((face, index) => {
+                    const avgZ = face.reduce((sum, vertexIndex) =>
+                        sum + projectedVertices[vertexIndex][2], 0) / face.length;
+                    return { index, depth: avgZ };
+                });
+                faceDepths.sort((a, b) => b.depth - a.depth);
+                // Hover detection (flat polygon)
+                faceDepths.forEach(({ index }) => {
+                    const face = faces[index];
+                    const faceVertices = face.map(vertexIndex => projectedVertices[vertexIndex]);
+                    if (mouse && pointInPolygon(mouse[0], mouse[1], faceVertices)) {
+                        hoveredFace = index;
+                    }
+                });
+                // Assign color on hover, phase in (no limit)
+                if (hoveredFace !== -1 && faceColorState[hoveredFace].colorIndex === null) {
+                    faceColorState[hoveredFace].colorIndex = nextColorIndex;
+                    nextColorIndex = (nextColorIndex + 1) % PASTEL_PALETTE.length;
+                }
+                // Animate alpha for each face
+                faceColorState.forEach((state, i) => {
+                    if (state.colorIndex !== null) {
+                        state.alpha = lerp(state.alpha, 1, 0.07); // slow phase in
+                    } else {
+                        state.alpha = lerp(state.alpha, 0, 0.07);
+                    }
+                });
+                // Draw hyperbolic faces (permanently colored) - proper hyperbolic subdivision
+                faceDepths.forEach(({ index }) => {
+                    const state = faceColorState[index];
+                    if (state.colorIndex === null || state.alpha < 0.01) return;
+                    const face = faces[index];
+                    // Subdivide face into more triangles for more overlap
+                    const A = vertices[face[0]];
+                    const B = vertices[face[1]];
+                    const C = vertices[face[2]];
+                    const mesh = subdivideFace(A, B, C, s, 3).flat(); // Increase subdivision for more blending
+                    mesh.forEach(tri => {
+                        // Project each triangle
+                        const tri2d = tri.map(pt => {
+                            const rotated = rotate3D(pt, angleX, angleY, angleZ);
+                            const projected = project(rotated, distance);
+                            return [projected[0] * scale + centerX, projected[1] * scale + centerY];
+                        });
+                        // Compute centroid in 3D (after rotation)
+                        const triCentroid = [
+                            (tri[0][0] + tri[1][0] + tri[2][0]) / 3,
+                            (tri[0][1] + tri[1][1] + tri[2][1]) / 3,
+                            (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+                        ];
+                        // Blend all colored faces for this triangle
+                        const blendedColor = blendAllColors(triCentroid, faceColorState, faceCentroids, PASTEL_PALETTE);
+                        ctx.beginPath();
+                        ctx.moveTo(tri2d[0][0], tri2d[0][1]);
+                        ctx.lineTo(tri2d[1][0], tri2d[1][1]);
+                        ctx.lineTo(tri2d[2][0], tri2d[2][1]);
+                        ctx.closePath();
+                        ctx.fillStyle = blendedColor;
+                        ctx.globalAlpha = state.alpha * 0.18; // Lower alpha for more painterly blending
+                        ctx.fill();
+                        ctx.globalAlpha = 1;
+                    });
+                });
+                // Draw only hyperbolic edges (soft black) - simplified
+                edges.forEach(edge => {
+                    const A = vertices[edge[0]];
+                    const B = vertices[edge[1]];
+                    const rotatedA = rotate3D(A, angleX, angleY, angleZ);
+                    const rotatedB = rotate3D(B, angleX, angleY, angleZ);
+                    const gyroEdge = gyrosegment(rotatedA, rotatedB, s, 8); // Reduced segments from 15 to 8
+                    ctx.beginPath();
+                    const firstPoint = project(gyroEdge[0], distance);
+                    ctx.moveTo(firstPoint[0] * scale + centerX, firstPoint[1] * scale + centerY);
+                    for (let i = 1; i < gyroEdge.length; i++) {
+                        const point = project(gyroEdge[i], distance);
+                        ctx.lineTo(point[0] * scale + centerX, point[1] * scale + centerY);
+                    }
+                    ctx.strokeStyle = 'rgba(0,0,0,0.35)';
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                });
+            } catch (e) {
+                // Log error but always continue animation
+                if (window && window.console) console.error('Dodecahedron draw error:', e);
+            }
+            requestAnimationFrame(drawHyperbolicDodecahedron);
+        }
+        
+        // Start the animation
+        drawHyperbolicDodecahedron();
+
+        // Mouse tracking for dodecahedron canvas
+        canvas.addEventListener('mousemove', function(e) {
+            window._dodec_mouseX = e.clientX;
+            window._dodec_mouseY = e.clientY;
+        });
+        canvas.addEventListener('mouseleave', function() {
+            window._dodec_mouseX = undefined;
+            window._dodec_mouseY = undefined;
+        });
+    </script>
+
+    <!-- p5.js for Lorenz attractor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.js"></script>
+    <script>
+    // --- Lorenz Attractor Visualization ---
+    (function() {
+        const lorenz_canvas_width = document.body.clientWidth > 650 ? 650 : document.body.clientWidth - 30;
+        const lorenz_canvas_height = 380;
+        
+        // Lorenz system parameters
+        const sigma = 10;
+        const rho = 28;
+        const beta = 8/3;
+        // Use classic initial conditions
+        let x = 0.1;
+        let y = 0.0;
+        let z = 0.0;
+        let points = [];
+        let maxPoints = 8000; // slower fade, more visible lines
+        let lorenz_line_canvas;
+        let lorenz_p5Ready = false;
+        let lorenz_canvas;
+        // Precompute bounding box and center for classic butterfly view (x, z)
+        let lorenzBounds = {minX: 0, maxX: 0, minZ: 0, maxZ: 0, centerX: 0, centerZ: 0, scale: 1};
+        (function precomputeLorenzBounds() {
+            let tx = 0.1, ty = 0.0, tz = 0.0;
+            let minX = Infinity, maxX = -Infinity, minZ = Infinity, maxZ = -Infinity;
+            for (let i = 0; i < 12000; i++) {
+                const [nx, ny, nz] = rk4Step(tx, ty, tz, 0.008);
+                tx = nx; ty = ny; tz = nz;
+                if (i > 1000) { // skip transient
+                    if (tx < minX) minX = tx;
+                    if (tx > maxX) maxX = tx;
+                    if (tz < minZ) minZ = tz;
+                    if (tz > maxZ) maxZ = tz;
+                }
+            }
+            lorenzBounds.minX = minX;
+            lorenzBounds.maxX = maxX;
+            lorenzBounds.minZ = minZ;
+            lorenzBounds.maxZ = maxZ;
+            lorenzBounds.centerX = (minX + maxX) / 2;
+            lorenzBounds.centerZ = (minZ + maxZ) / 2;
+            // scale so the attractor fits with margin
+            const width = maxX - minX;
+            const height = maxZ - minZ;
+            const margin = 0.12; // 12% margin
+            lorenzBounds.scale = Math.min(
+                (lorenz_canvas_width * (1 - margin)) / width,
+                (lorenz_canvas_height * (1 - margin)) / height
+            );
+        })();
+        
+        // Runge-Kutta 4th order integration
+        function lorenzSystem(x, y, z) {
+            return [
+                sigma * (y - x),
+                x * (rho - z) - y,
+                x * y - beta * z
+            ];
+        }
+        
+        function rk4Step(x, y, z, dt) {
+            const [k1x, k1y, k1z] = lorenzSystem(x, y, z);
+            const [k2x, k2y, k2z] = lorenzSystem(x + k1x * dt / 2, y + k1y * dt / 2, z + k1z * dt / 2);
+            const [k3x, k3y, k3z] = lorenzSystem(x + k2x * dt / 2, y + k2y * dt / 2, z + k2z * dt / 2);
+            const [k4x, k4y, k4z] = lorenzSystem(x + k3x * dt, y + k3y * dt, z + k3z * dt);
+            
+            return [
+                x + (k1x + 2 * k2x + 2 * k3x + k4x) * dt / 6,
+                y + (k1y + 2 * k2y + 2 * k3y + k4y) * dt / 6,
+                z + (k1z + 2 * k2z + 2 * k3z + k4z) * dt / 6
+            ];
+        }
+        
+        function lorenzSetup() {
+            lorenz_canvas = createCanvas(lorenz_canvas_width, lorenz_canvas_height);
+            lorenz_canvas.parent('lorenz-pane');
+            lorenz_line_canvas = createGraphics(lorenz_canvas_width, lorenz_canvas_height);
+            background(255);
+            lorenz_line_canvas.background(255);
+            noLoop(); // Don't start drawing until in view
+            lorenz_p5Ready = true;
+            // Pre-run the system so the attractor starts in the pane
+            for (let i = 0; i < 1000; i++) {
+                [x, y, z] = rk4Step(x, y, z, 0.008);
+            }
+        }
+        
+        function lorenzDraw() {
+            background(255);
+            // Add more points per frame for faster generation
+            const dt = 0.008;
+            for (let j = 0; j < 6; j++) {
+                [x, y, z] = rk4Step(x, y, z, dt);
+                points.push([x, y, z]);
+                if (points.length > maxPoints) {
+                    points.shift();
+                }
+            }
+            // Draw trajectory
+            lorenz_line_canvas.background(255);
+            lorenz_line_canvas.stroke(0);
+            lorenz_line_canvas.strokeWeight(1);
+            // Use fixed center and scale, project x and z only (classic view)
+            const centerX = lorenz_canvas_width / 2;
+            const centerY = lorenz_canvas_height / 2;
+            const scale = lorenzBounds.scale;
+            if (points.length > 1) {
+                lorenz_line_canvas.beginShape();
+                lorenz_line_canvas.noFill();
+                for (let i = 0; i < points.length; i++) {
+                    const [px, , pz] = points[i];
+                    const plotX = (px - lorenzBounds.centerX) * scale + centerX;
+                    const plotY = (pz - lorenzBounds.centerZ) * scale + centerY;
+                    lorenz_line_canvas.vertex(plotX, plotY);
+                }
+                lorenz_line_canvas.endShape();
+            }
+            // Draw current point
+            const plotX = (x - lorenzBounds.centerX) * scale + centerX;
+            const plotY = (z - lorenzBounds.centerZ) * scale + centerY;
+            lorenz_line_canvas.fill(0);
+            lorenz_line_canvas.noStroke();
+            lorenz_line_canvas.ellipse(plotX, plotY, 4, 4);
+            image(lorenz_line_canvas, 0, 0);
+        }
+        
+        // Override p5.js global functions
+        window.setup = lorenzSetup;
+        window.draw = lorenzDraw;
+        
+        // Intersection Observer to start/stop animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const lorenzPane = document.getElementById('lorenz-pane');
+            if (!lorenzPane) return;
+            const observer = new window.IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (typeof window.draw === 'function' && lorenz_p5Ready) {
+                        if (entry.isIntersecting) {
+                            loop();
+                        } else {
+                            noLoop();
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(lorenzPane);
+        });
+    })();
+    </script>
+
+    <!-- Harmonograph Visualization Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('harmonographCanvas');
+        const newBtn = document.getElementById('new-harmonograph-btn');
+        let autoGenTimer = null;
+        function startAutoGenTimer() {
+            if (autoGenTimer) clearTimeout(autoGenTimer);
+            autoGenTimer = setTimeout(() => {
+                clearAndRestart();
+                startAutoGenTimer();
+            }, 15000);
+        }
+        if (!canvas) return;
+        function resizeCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth;
+            canvas.height = 380;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            clearAndRestart();
+        });
+        const ctx = canvas.getContext('2d');
+        // Harmonograph parameters (fixed, not user-configurable)
+        const params = {
+            freqX: 3.0,
+            dampingX: 0.01,
+            freqY: 2.0,
+            dampingY: 0.01,
+            freqZ: 3.0,
+            dampingZ: 0.01,
+            color: '#3a3a3a',
+            bgColor: '#ffffff'
+        };
+        let time = 0;
+        const increment = 0.005;
+        let animationId = null;
+        function drawPoint(t, p, color) {
+            const x = canvas.width / 2 + 100 * Math.sin(t * p.freqX) * Math.exp(-p.dampingX * t) + 100 * Math.sin(t * p.freqZ) * Math.exp(-p.dampingX * t);
+            const y = canvas.height / 2 + 100 * Math.cos(t * p.freqY) * Math.exp(-p.dampingY * t) + 100 * Math.cos(t * p.freqZ) * Math.exp(-p.dampingY * t);
+            ctx.lineTo(x, y);
+        }
+        // Pastel color palette (more saturated/darker)
+        const pastelPalette = [
+            '#5ec6e7', // deeper sky blue
+            '#7ed957', // richer green
+            '#ffe066', // gold
+            '#ffb347', // orange
+            '#7fa6ee', // blue
+            '#ff7eb9', // pink
+            '#b5e61d', // lime
+            '#40e0d0', // turquoise
+            '#ff6f69', // coral
+            '#b39ddb', // purple
+            '#7fffd4', // aquamarine
+            '#ffd700', // yellow
+        ];
+        function lerpColor(a, b, t) {
+            // a, b: hex strings
+            const ah = a.replace('#', '');
+            const bh = b.replace('#', '');
+            const ar = parseInt(ah.substring(0, 2), 16), ag = parseInt(ah.substring(2, 4), 16), ab = parseInt(ah.substring(4, 6), 16);
+            const br = parseInt(bh.substring(0, 2), 16), bg = parseInt(bh.substring(2, 4), 16), bb = parseInt(bh.substring(4, 6), 16);
+            const rr = Math.round(ar + (br - ar) * t);
+            const rg = Math.round(ag + (bg - ag) * t);
+            const rb = Math.round(ab + (bb - ab) * t);
+            return `rgb(${rr},${rg},${rb})`;
+        }
+        function pastelColorAt(t, tMax) {
+            // Cycle through the palette smoothly, but faster
+            const n = pastelPalette.length;
+            const colorSpeed = 3.5;
+            const scaled = (t / tMax) * n * colorSpeed;
+            const idx = Math.floor(scaled) % n;
+            const nextIdx = (idx + 1) % n;
+            const localT = scaled - idx;
+            return lerpColor(pastelPalette[idx], pastelPalette[nextIdx], localT);
+        }
+        function clearCanvas() {
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = '#ffffff'; // pure white
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.restore();
+        }
+        // Generate clean harmonograph parameters
+        function cleanRandomPendulum(freqBase) {
+            return {
+                amplitude: 120, // fixed amplitude for all
+                frequency: freqBase + (Math.random() - 0.5) * 0.04, // near integer
+                phase: Math.random() * Math.PI * 2, // 0 to 2π
+                damping: Math.random() * 0.0012 + 0.0005 // very low damping
+            };
+        }
+        function randomizeParams() {
+            // Use two base frequencies for x and y
+            const freqBases = [2 + Math.floor(Math.random() * 4), 2 + Math.floor(Math.random() * 4)]; // 2,3,4,5
+            const p = [cleanRandomPendulum(freqBases[0]), cleanRandomPendulum(freqBases[0]), cleanRandomPendulum(freqBases[1]), cleanRandomPendulum(freqBases[1])];
+            return {
+                A1: p[0].amplitude, f1: p[0].frequency, p1: p[0].phase, d1: p[0].damping,
+                A2: p[1].amplitude, f2: p[1].frequency, p2: p[1].phase, d2: p[1].damping,
+                A3: p[2].amplitude, f3: p[2].frequency, p3: p[2].phase, d3: p[2].damping,
+                A4: p[3].amplitude, f4: p[3].frequency, p4: p[3].phase, d4: p[3].damping
+            };
+        }
+        let pendulumParams = randomizeParams();
+        let scaleFactor = 1;
+        function computeMaxAmplitude(p) {
+            // Estimate the max possible |x(t)| and |y(t)| over t in [0, tMax]
+            // by sampling at intervals (safe for harmonograph)
+            const tMax = 1000;
+            let max = 0;
+            for (let t = 0; t <= tMax; t += 0.5) {
+                const val = Math.max(
+                    Math.abs(x(t, p)),
+                    Math.abs(y(t, p))
+                );
+                if (val > max) max = val;
+            }
+            return max;
+        }
+        function x(t, p) {
+            return p.A1 * Math.sin(p.f1 * t + p.p1) * Math.exp(-p.d1 * t) +
+                   p.A2 * Math.sin(p.f2 * t + p.p2) * Math.exp(-p.d2 * t);
+        }
+        function y(t, p) {
+            return p.A3 * Math.sin(p.f3 * t + p.p3) * Math.exp(-p.d3 * t) +
+                   p.A4 * Math.sin(p.f4 * t + p.p4) * Math.exp(-p.d4 * t);
+        }
+        function animate() {
+            const tMax = 1000;
+            ctx.lineWidth = 1.1;
+            ctx.strokeStyle = '#1a237e'; // deep blue, or use '#111' for black
+            const margin = 30;
+            const amp = Math.min((canvas.width - margin * 2), (canvas.height - margin * 2)) / 2;
+            let lastX = canvas.width / 2 + x(time - increment, pendulumParams) * scaleFactor * amp / computeMaxAmplitude(pendulumParams);
+            let lastY = canvas.height / 2 + y(time - increment, pendulumParams) * scaleFactor * amp / computeMaxAmplitude(pendulumParams);
+            for (let i = 0; i < 100; i++) { // slightly faster generation
+                const t2 = time + increment;
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                const x2 = canvas.width / 2 + x(t2, pendulumParams) * scaleFactor * amp / computeMaxAmplitude(pendulumParams);
+                const y2 = canvas.height / 2 + y(t2, pendulumParams) * scaleFactor * amp / computeMaxAmplitude(pendulumParams);
+                ctx.lineTo(x2, y2);
+                ctx.globalAlpha = 1;
+                ctx.stroke();
+                lastX = x2;
+                lastY = y2;
+                time += increment;
+                if (time >= tMax) {
+                    animationId = null;
+                    return;
+                }
+            }
+            animationId = requestAnimationFrame(animate);
+        }
+        function clearAndRestart() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            time = 0;
+            pendulumParams = randomizeParams();
+            scaleFactor = 0.98; // leave a little margin
+            // Precompute max amplitude for scaling
+            computeMaxAmplitude(pendulumParams); // warm up
+            clearCanvas();
+            animationId = requestAnimationFrame(animate);
+            startAutoGenTimer();
+        }
+        if (newBtn) {
+            newBtn.onclick = function() {
+                clearAndRestart();
+                startAutoGenTimer();
+            };
+        }
+        // Initial draw
+        clearAndRestart();
+        startAutoGenTimer();
+    })();
+    </script>
+</body>
+</html> 

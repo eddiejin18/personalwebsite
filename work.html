@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edward Jin's Work">
+    <title>Work | Edward Jin</title>
+    <link rel="icon" type="image/svg+xml" href="ej.svg">
+    <style>
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #696969;
+            --bg: #f2f2f2;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 0 15px;
+            line-height: var(--leading);
+            font-size: var(--text);
+            color: var(--fg);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 13px 20px 13px 0;
+            margin-top: 0;
+        }
+
+        .name-container {
+            position: relative;
+            display: inline-block;
+            height: 28px;
+            margin-left: 0;
+        }
+
+        .name-container a {
+            display: block;
+            text-decoration: none;
+            color: #000000 !important;
+        }
+
+        .name, .korean-name {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            line-height: 28px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .korean-name {
+            opacity: 0;
+        }
+
+        .name-container:hover .name {
+            opacity: 0;
+        }
+
+        .name-container:hover .korean-name {
+            opacity: 1;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: #000000;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* Simple underline styles */
+        .underline {
+            text-decoration: underline !important;
+        }
+
+
+        /* Animation styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .word {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
+        }
+
+        .header .word {
+            animation: fadeInUp 0.297s ease-out forwards;
+        }
+
+        ul li {
+            opacity: 0;
+            animation: fadeInUp 0.27s ease-out forwards;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-weight: 400;
+            color: var(--fg);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name-container">
+            <h1 class="name"><a href="/">
+                <span class="word" style="animation-delay: 0.05445s">Eddie</span> <span class="word" style="animation-delay: 0.1089s">Jin</span>
+            </a></h1>
+            <h1 class="korean-name"><a href="/">진승준</a></h1>
+        </div>
+        <nav class="nav">
+            <a href="work.html"><span class="word" style="animation-delay: 0.16335s">Work</span></a>
+            <a href="writing.html"><span class="word" style="animation-delay: 0.2178s">Writing</span></a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <p>
+                <span class="word" style="animation-delay: 0.4950s">Random</span>
+                <span class="word" style="animation-delay: 0.5445s">things</span>
+                <span class="word" style="animation-delay: 0.5940s">I've</span>
+                <span class="word" style="animation-delay: 0.6435s">spent</span>
+                <span class="word" style="animation-delay: 0.6930s">time</span>
+                <span class="word" style="animation-delay: 0.7425s">on.</span>
+            </p>
+        </div>
+
+
+
+        <div class="section">
+            <p class="section-title">
+                <span class="word" style="animation-delay: 1.0890s">Investing</span>
+            </p>
+            
+            <ul>
+                <li style="animation-delay: 1.1385s"><span class="word" style="animation-delay: 1.1385s"><a href="investing.html">Angel Portfolio</a></span></li>
+                <li style="animation-delay: 1.2385s"><span class="word" style="animation-delay: 1.2385s"><a href="funds.html">Funds</a></span></li>
+                <li style="animation-delay: 1.3385s"><span class="word" style="animation-delay: 1.3385s">Research</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <p class="section-title">
+                <span class="word" style="animation-delay: 1.4860s">Projects:</span>
+            </p>
+            
+            <ul>
+                <li style="animation-delay: 1.5355s"><span class="word" style="animation-delay: 1.5355s"><a href="math-art.html">Mathematical Art</a></span></li>
+                <li style="animation-delay: 1.6355s"><span class="word" style="animation-delay: 1.6355s"><a href="https://freepokertracker.com" target="_blank" rel="noreferrer">Poker Tracker</a></span></li>
+                <li style="animation-delay: 1.7355s"><span class="word" style="animation-delay: 1.7355s"><a href="https://autoschedule.net" target="_blank" rel="noreferrer">Auto Schedule</a></span></li>
+                <li style="animation-delay: 1.8355s"><span class="word" style="animation-delay: 1.8355s"><a href="https://discipulusventures.com" target="_blank" rel="noreferrer">Discipulus Website</a></span></li>
+                <li style="animation-delay: 1.9355s"><span class="word" style="animation-delay: 1.9355s">Coming Soon</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        const nameContainer = document.querySelector('.name-container');
+        const koreanName = document.querySelector('.korean-name');
+        const nameLink = nameContainer.querySelector('a');
+
+        if (isMobile()) {
+            // Completely hide Korean name on mobile
+            koreanName.style.display = 'none';
+            
+            // Handle click for home navigation/refresh
+            nameContainer.addEventListener('click', function(e) {
+                if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                    window.location.reload();
+                } else {
+                    window.location.href = '/';
+                }
+                e.preventDefault();
+            });
+        }
+
+            // No underline for work page
+    </script>
+</body>
+</html> 

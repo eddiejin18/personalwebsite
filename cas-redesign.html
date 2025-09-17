@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cigarettes After Sex Redesign Project">
+    <title>Cigarettes After Sex Redesign | Edward Jin</title>
+    <link rel="icon" type="image/svg+xml" href="ej.svg">
+    <style>
+        :root {
+            --font-sans: "Sohne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text: 16px;
+            --leading: 28px;
+            --fg: #696969;
+            --bg: #f2f2f2;
+        }
+        body {
+            font-family: var(--font-sans);
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 0 15px;
+            line-height: var(--leading);
+            font-size: var(--text);
+            color: var(--fg);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+        a:hover {
+            opacity: 0.8;
+        }
+        .header {
+            position: relative;
+            margin-bottom: 40px;
+            margin-top: 0;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="work.html" class="fade-in" style="animation-delay: 0.1s">← Back</a>
+    </div>
+    <div class="fade-in" style="animation-delay: 0.2s; margin-bottom: 32px;">
+        <p style="margin-bottom: 1.5em;">
+            Cigarettes After Sex is my favorite band by far. Their cover art has become a recurring theme across my profiles. Below, you can scroll or swipe through a collection of their album covers.
+        </p>
+    </div>
+    <div class="fade-in" style="animation-delay: 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh;">
+        <img id="parallax-img" src="parallaxrecords/record1.jpg" alt="Cigarettes After Sex Record Cover" style="max-width:90vw; max-height:80vh; display:block; margin:0 auto; position:relative; box-shadow:0 4px 32px 0 rgba(0,0,0,0.13);" />
+    </div>
+    <script>
+        const img = document.getElementById('parallax-img');
+        const totalRecords = 17;
+        let currentIdx = 1;
+        let wheelBuffer = 0;
+        let touchBuffer = 0;
+        const WHEEL_THRESHOLD = 120;
+        const TOUCH_THRESHOLD = 80;
+        function clamp(val, min, max) {
+            return Math.max(min, Math.min(max, val));
+        }
+        function showRecord(idx) {
+            if (idx !== currentIdx) {
+                img.src = `parallaxrecords/record${idx}.jpg`;
+                currentIdx = idx;
+            }
+        }
+        function handleWheel(e) {
+            e.preventDefault();
+            wheelBuffer += e.deltaY;
+            if (wheelBuffer > WHEEL_THRESHOLD) {
+                if (currentIdx < totalRecords) showRecord(currentIdx + 1);
+                wheelBuffer = 0;
+            } else if (wheelBuffer < -WHEEL_THRESHOLD) {
+                if (currentIdx > 1) showRecord(currentIdx - 1);
+                wheelBuffer = 0;
+            }
+        }
+        let touchStartY = null;
+        function handleTouchStart(e) {
+            if (e.touches.length === 1) {
+                touchStartY = e.touches[0].clientY;
+            }
+        }
+        function handleTouchMove(e) {
+            if (touchStartY === null) return;
+            const touchY = e.touches[0].clientY;
+            const deltaY = touchStartY - touchY;
+            touchBuffer += deltaY;
+            if (touchBuffer > TOUCH_THRESHOLD) {
+                if (currentIdx < totalRecords) showRecord(currentIdx + 1);
+                touchBuffer = 0;
+                touchStartY = touchY;
+            } else if (touchBuffer < -TOUCH_THRESHOLD) {
+                if (currentIdx > 1) showRecord(currentIdx - 1);
+                touchBuffer = 0;
+                touchStartY = touchY;
+            }
+            e.preventDefault();
+        }
+        function handleTouchEnd(e) {
+            touchStartY = null;
+            touchBuffer = 0;
+        }
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('touchstart', handleTouchStart, { passive: false });
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        window.addEventListener('touchend', handleTouchEnd, { passive: false });
+    </script>
+</body>
+</html> 
